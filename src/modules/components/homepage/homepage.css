@@ -1,0 +1,39 @@
+.homepage {
+  min-height: 100vh;
+  background-color: #e5e5e5;
+}
+.homepage__centerPageDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 170px;
+  align-items: center;
+}
+.homepage_carImage {
+  max-width: fit-content;
+  max-height: fit-content;
+  opacity: 0.2;
+}
+
+.homepage__emptyMessage {
+  width: 440px;
+  height: 56px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  color: #73738c;
+}
+
+.homepage__emptyMessage :link {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.homepage__emptyMessage :hover {
+  color: #2525ff;
+}
