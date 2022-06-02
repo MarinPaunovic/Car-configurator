@@ -59,25 +59,3 @@ const App = () => {
 };
 
 export default App;
-
-// if (!isMounted.current) {
-//   isMounted.current = true;
-//    onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       if (!userInfo.name) {
-//         setUserInfo({ name: user.displayName, email: user.email, uid: user.uid });
-//       }
-//     } else {
-//       setUserInfo({ name: "", email: "", uid: "" });
-//     }
-//     if (!userInfo.email && user) {
-//       if (userAuthPersist) {
-//         console.log("local");
-//         setPersistence(auth, browserLocalPersistence);
-//       } else {
-//         console.log("session");
-//         setPersistence(auth, browserSessionPersistence);
-//       }
-//     }
-//   });
-// }
