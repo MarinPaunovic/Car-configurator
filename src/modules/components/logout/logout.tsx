@@ -1,5 +1,4 @@
 import { signOut } from "firebase/auth";
-
 import { auth } from "../../auth/db";
 
 const Logout = () => {
@@ -8,7 +7,6 @@ const Logout = () => {
       <button
         onClick={() => {
           signOut(auth);
-          console.log(auth);
         }}
       >
         Logout

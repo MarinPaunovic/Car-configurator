@@ -1,17 +1,12 @@
-import { FirebaseError } from "firebase/app";
-import { browserLocalPersistence, browserSessionPersistence, sendPasswordResetEmail, setPersistence } from "firebase/auth";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../auth/db";
+import { Link } from "react-router-dom";
 
-import { loginWithEmailAndPassword, loginWithGoogle } from "./loginFunctions";
+import { loginHandler } from "./loginFunctions";
 
 const LoginComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
-
-  let navigate = useNavigate();
   return (
     <div className="login">
       <input type={"text"} placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
@@ -22,23 +17,14 @@ const LoginComponent = () => {
       <button
         className="login__button"
         onClick={async () => {
-          if (remember) {
-            await setPersistence(auth, browserLocalPersistence).then(
-              async () => await loginWithEmailAndPassword(email, password)
-            );
-          } else
-            await setPersistence(auth, browserSessionPersistence).then(
-              async () => await loginWithEmailAndPassword(email, password)
-            );
+          await loginHandler(remember, "login", email, password);
         }}
       >
         Login
       </button>
       <button
         onClick={async () => {
-          if (remember) {
-            await setPersistence(auth, browserLocalPersistence).then(async () => await loginWithGoogle());
-          } else await setPersistence(auth, browserSessionPersistence).then(async () => await loginWithGoogle());
+          await loginHandler(remember, "google");
         }}
       >
         Login with Google

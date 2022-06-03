@@ -10,6 +10,7 @@ import PasswordReset from "./pages/passwordReset";
 import Register from "./pages/register";
 
 const App = () => {
+  console.log("app");
   const [userInfo, setUserInfo] = useRecoilState(userAtom);
   const isMounted = useRef(false);
   console.log(auth.currentUser);
