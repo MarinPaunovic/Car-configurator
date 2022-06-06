@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import RememberMe from "../rememeberMe/rememberMe";
 import { onClick } from "./registerFunctions";
 
 const RegisterInput = () => {
@@ -43,9 +44,7 @@ const RegisterInput = () => {
       <div className="register__headToLogin">
         Already have account? Login <Link to="/login">here</Link>
       </div>
-      <div className="register__rememberMe">
-        Remember me after register <input type={"checkbox"} onClick={() => setRemember(!remember)}></input>
-      </div>
+      <RememberMe />
       <button
         className="register__button"
         onClick={async () => {
