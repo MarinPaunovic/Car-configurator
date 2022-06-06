@@ -13,49 +13,68 @@ const RegisterInput = () => {
   let navigate = useNavigate();
 
   return (
-    <div
-      className="register"
-      style={{ display: "flex", flexDirection: "column", width: "150px", alignItems: "center", margin: "200px" }}
-    >
-      <input
-        className="register__input__name register__input__name--active"
-        type={"text"}
-        placeholder={"Name"}
-        onChange={(e) => setName(e.target.value)}
-      ></input>
-      <input
-        className="register__input__email register__input__email--active"
-        type={"text"}
-        placeholder={"E-mail"}
-        onChange={(e) => setEmail(e.target.value)}
-      ></input>
-      <input
-        className="register__input__password register__input__password--active"
-        type={"password"}
-        placeholder={"Password"}
-        onChange={(e) => setPassword(e.target.value)}
-      ></input>
-      <input
-        className="register__input__confirmPassword register__input__confirmPassword--active"
-        type={"password"}
-        placeholder={"Confirm Password"}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-      ></input>
-      <div className="register__headToLogin">
-        Already have account? Login <Link to="/login">here</Link>
+    <div className="login">
+      <div className="login__background"></div>
+      <label className="login__label">Register Page</label>
+      <div className="login__inputBox__wrapper">
+        <div className="login__test">
+          <div>
+            <img
+              src={require("../../../images/loginImg.png")}
+              style={{
+                blockSize: "100px",
+                paddingInline: "20px",
+                opacity: "0.90",
+                marginTop: "125px",
+                marginBottom: "30px",
+              }}
+            ></img>
+          </div>
+          Car configurator
+        </div>
+        <div className="login__inputBox">
+          <input
+            className="register__name"
+            type={"text"}
+            placeholder={"Name"}
+            onChange={(e) => setName(e.target.value)}
+          ></input>
+          <input
+            className="register__email"
+            type={"text"}
+            placeholder={"E-mail"}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+          <input
+            className="register__password"
+            type={"password"}
+            placeholder={"Password"}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+          <input
+            className="register__confirmPassword"
+            type={"password"}
+            placeholder={"Confirm Password"}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          ></input>
+          <RememberMe remember={remember} setRemember={setRemember} />
+          <div className="login__buttons">
+            <button
+              className="login__buttons__loginButton"
+              onClick={async () => {
+                await onClick(name, email, password, confirmPassword, remember);
+              }}
+            >
+              Register
+            </button>
+          </div>
+          <div className="login__menu">
+            <div className="login__menu__register">
+              Already have account? Login <Link to="/login">here</Link>
+            </div>
+          </div>
+        </div>
       </div>
-      <RememberMe />
-      <button
-        className="register__button"
-        onClick={async () => {
-          let approved = await onClick(name, email, password, confirmPassword, remember);
-          if (approved) {
-            navigate("/login");
-          }
-        }}
-      >
-        Register
-      </button>
     </div>
   );
 };

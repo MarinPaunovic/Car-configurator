@@ -1,8 +1,10 @@
-import { useState } from "react";
+interface IRememberMe {
+  remember: boolean;
+  setRemember: (remember: boolean) => void;
+}
 
-const RememberMe = () => {
-  const [remember, setRemember] = useState(false);
-
+const RememberMe = (props: IRememberMe) => {
+  const { remember, setRemember } = props;
   return (
     <div className="login__rememberMe">
       Remember me

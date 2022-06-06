@@ -1,6 +1,7 @@
 @import "./modules/components/navbar/navbar.css";
 @import "./modules/components/homepage/homepage.css";
 @import "./modules/components/login/login.css";
+@import "./modules/components/register/register.css";
 
 * {
   margin: 0px;

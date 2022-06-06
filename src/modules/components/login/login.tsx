@@ -41,7 +41,7 @@ const LoginComponent = () => {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           ></input>
-          <RememberMe />
+          <RememberMe remember={remember} setRemember={setRemember} />
           <div className="login__buttons">
             <button
               className="login__buttons__loginButton"
