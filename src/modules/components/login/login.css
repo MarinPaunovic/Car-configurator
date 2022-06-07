@@ -99,6 +99,12 @@
   border-radius: 6px;
   border-width: 0.5px;
 }
+.login__buttons__googleButton:hover {
+  cursor: pointer;
+}
+.login__buttons__loginButton:hover {
+  cursor: pointer;
+}
 
 .login__buttons__googleButton {
   background-color: #4285f4;

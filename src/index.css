@@ -2,6 +2,7 @@
 @import "./modules/components/homepage/homepage.css";
 @import "./modules/components/login/login.css";
 @import "./modules/components/register/register.css";
+@import "./modules/components/selectCar/selectCar.css";
 
 * {
   margin: 0px;
