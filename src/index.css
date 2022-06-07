@@ -3,6 +3,7 @@
 @import "./modules/components/login/login.css";
 @import "./modules/components/register/register.css";
 @import "./modules/components/selectCar/selectCar.css";
+@import "./modules/components/configurationView/configurationView.css";
 
 * {
   margin: 0px;

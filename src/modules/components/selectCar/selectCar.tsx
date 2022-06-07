@@ -1,7 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
+import { selectedCarAtom } from "../../storage/carAtoms";
 
 interface ICar {
   carModel: string;
@@ -13,6 +15,7 @@ interface ICar {
 }
 
 const SelectCarComponent = () => {
+  const setSelectedCar = useSetRecoilState(selectedCarAtom);
   const [cars, setCars] = useState<ICar[]>();
   let isMounted = useRef(false);
   useEffect(() => {
@@ -56,7 +59,13 @@ const SelectCarComponent = () => {
                 <div className="selectCar__car__textWrapper">
                   <div className="selectCar__car__productionYear">{item.productionYear}</div>
                   <div className="selelctCar__car__carModel">{item.carModel}</div>
-                  <Link className="selectCar__car__button" to="/configurationView">
+                  <Link
+                    className="selectCar__car__button"
+                    onClick={() =>
+                      setSelectedCar({ carModel: item.carModel, year: item.productionYear, defaultColor: item.color[0] })
+                    }
+                    to="/configurationView"
+                  >
                     Configure Now
                   </Link>
                 </div>

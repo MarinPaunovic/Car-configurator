@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Logout from "../logout/logout";
 
 const NavbarComponent = () => {
@@ -9,7 +10,9 @@ const NavbarComponent = () => {
         <img src={require("../../../images/prototypLogo.png")}></img>
       </div>
       <div className="navbar__rightSide">
-        <button className="navbar__configure">Configure a car</button>
+        <Link className="navbar__configure" to="/configure">
+          Configure a car
+        </Link>
         <button className="navbar__dropdown" onClick={() => setToggle(!toggle)}>
           <div className="navbar__dropdownRectangle"></div>
           <div className="navbar__dropdownRectangleCopy"></div>

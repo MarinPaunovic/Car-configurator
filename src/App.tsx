@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-d
 import { useRecoilState } from "recoil";
 import { auth } from "./modules/auth/db";
 import { userAtom } from "./modules/storage/userAtoms";
+import ConfigurationView from "./pages/configurationView";
 import Homepage from "./pages/homepage";
 import Login from "./pages/login";
 import PasswordReset from "./pages/passwordReset";
@@ -38,6 +39,7 @@ const App = () => {
           <>
             <Route path="/" element={<Homepage />} />
             <Route path="/configure" element={<SelectCar />} />
+            <Route path="/configurationView" element={<ConfigurationView />} />
             <Route path="*" element={<Navigate to="/" />} />
           </>
         ) : (

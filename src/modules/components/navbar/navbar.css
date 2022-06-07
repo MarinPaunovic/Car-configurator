@@ -21,19 +21,21 @@
 }
 
 .navbar__configure {
-  font-weight: 700;
-  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
   padding: 5px 7.5px;
   border: solid;
   border-width: 0.5px;
   border-color: #f1f1f4;
   color: #f1f1f4;
   background-color: #2e2e38;
+  transition: ease 0.5s;
 }
 .navbar__configure:hover {
   cursor: pointer;
   border-color: #cececf;
   color: #cececf;
+  transition: ease 0.5s;
 }
 
 .navbar__dropdown {
@@ -55,6 +57,7 @@
   width: 40px;
   background-color: #f1f1f4;
   border-radius: 3px;
+  transition: ease 0.5s;
 }
 
 .navbar__dropdownRectangleCopy {
@@ -63,13 +66,16 @@
   background-color: #f1f1f4;
   margin-top: 5px;
   border-radius: 3px;
+  transition: ease 0.5s;
 }
 
 .navbar__dropdown:hover .navbar__dropdownRectangle {
   background-color: #cececf;
+  transition: ease 0.5s;
 }
 .navbar__dropdown:hover .navbar__dropdownRectangleCopy {
   background-color: #cececf;
+  transition: ease 0.5s;
 }
 
 .navbar__slideMenu {

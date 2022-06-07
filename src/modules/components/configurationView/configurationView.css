@@ -1,0 +1,91 @@
+.previewOptions {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fcfcfd;
+  box-shadow: 1px 1px 1px #888888;
+  height: 70px;
+}
+
+.previewOptions__left {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.previewOptions__right {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+  align-items: center;
+  gap: 8px;
+}
+
+.previewOptions__background {
+  height: 50px;
+  width: 100%;
+  background-color: #fcfcfd;
+}
+
+.configurationView__background {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: #e5e5e5;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
+
+.previewOptions__left__year {
+  font-family: "Martel Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: #9d9daf;
+}
+
+.previewOptions__left__carModel {
+  font-family: "Martel Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  color: #2e2e38;
+}
+
+.previewOptions__right__edit,
+.previewOptions__right__delete {
+  border: none;
+  background-color: #fcfcfd;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.previewOptions__right__edit {
+  color: #1e1ed2;
+
+  transition: ease 0.5s;
+}
+.previewOptions__right__edit:hover {
+  cursor: pointer;
+  color: rgb(116, 158, 255);
+  transition: ease 0.5s;
+}
+.previewOptions__right__delete:hover {
+  cursor: pointer;
+  color: red;
+  transition: ease 0.5s;
+}
+
+.previewOptions__right__delete {
+  transition: ease 0.5s;
+  color: #d2341e;
+}
