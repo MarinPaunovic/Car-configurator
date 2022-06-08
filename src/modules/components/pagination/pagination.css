@@ -1,0 +1,42 @@
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+}
+
+.pagination__button {
+  border: none;
+  background-color: #e5e5e5;
+  color: #2e2e38;
+  font-size: 30px;
+}
+
+.pagination__currentPage {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #2e2e38;
+}
+.pagination__pagesNumber,
+.pagination__separator {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #c7c7d1;
+}
+
+.pagination__button:disabled {
+  color: #2e2e38;
+}
+.pagination .pagination__button:hover {
+  cursor: pointer;
+}

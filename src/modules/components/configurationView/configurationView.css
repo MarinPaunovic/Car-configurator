@@ -30,16 +30,6 @@
   background-color: #fcfcfd;
 }
 
-.configurationView__background {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  background-color: #e5e5e5;
-  height: 100vh;
-  width: 100%;
-  z-index: -1;
-}
-
 .previewOptions__left__year {
   font-family: "Martel Sans", sans-serif;
   font-size: 28px;
@@ -88,4 +78,139 @@
 .previewOptions__right__delete {
   transition: ease 0.5s;
   color: #d2341e;
+}
+
+.configurationView__img {
+  margin-top: 40px;
+}
+
+.configurationView {
+  text-align: center;
+  background-color: #e5e5e5;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.configurationDetails__header {
+  margin-top: 25px;
+  display: Flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 10%;
+  border-bottom: solid 1px #9d9daf;
+  padding-bottom: 25px;
+}
+
+.configurationDetails__header__info {
+  text-align: start;
+}
+
+.configurationDetails__header__info__carModel {
+  font-size: 48px;
+  color: #2e2e38;
+  font-family: "Optician Sans", sans-serif;
+}
+.configurationDetails__header__info__year {
+  font-size: 28px;
+  font-family: "Optician Sans", sans-serif;
+  color: #73738c;
+}
+
+.configurationDetails__separator {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-items: center;
+  width: 100%;
+  height: 0.1px;
+  background-color: #9d9daf;
+}
+
+.configurationDetails__header__price {
+  align-self: flex-end;
+  text-align: end;
+}
+.configurationDetails__header__price div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  color: #9d9daf;
+  font-size: 14px;
+  font-family: "inter";
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: end;
+}
+.configurationDetails__header__price div:nth-child(2) {
+  font-size: 24px;
+  color: #2e2e38;
+  font-family: "inter";
+  line-height: 32px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 40;
+}
+
+.configurationDetails__details {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  text-align: start;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
+}
+
+.configurationDetails__details__title {
+  font-size: 24px;
+  font-family: "inter";
+  color: #2e2e38;
+}
+
+.configurationDetails__details__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.configurationDetails__details__exterior {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.configurationDetails__details__exterior__title {
+  font-family: "inter";
+  font-size: 24px;
+  color: #505062;
+  border-bottom: solid 1px #9d9daf;
+  padding-bottom: 15px;
+}
+
+.configurationDetails__details__exterior__color {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  margin-top: 10px;
+}
+.configurationDetails__details__exterior__wheels {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.configurationDetails__details__interior {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 150px;
+  gap: 10px;
+}
+
+.configurationDetails__details__text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }

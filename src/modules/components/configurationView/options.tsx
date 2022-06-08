@@ -1,9 +1,21 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { selectedCarAtom } from "../../storage/carAtoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { editConfigsAtom, selectedCarAtom } from "../../storage/carAtoms";
 
 const Options = () => {
   const { year, carModel } = useRecoilValue(selectedCarAtom);
+  const [edit, setEdit] = useRecoilState(editConfigsAtom);
+
+  let isMounted = useRef(false);
+
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    setEdit(false);
+  }, []);
   return (
     <div className="previewOptions">
       <div className="previewOptions__left">
@@ -13,10 +25,21 @@ const Options = () => {
         <div className="previewOptions__left__year">{year}</div>
         <div className="previewOptions__left__carModel">{carModel}</div>
       </div>
-      <div className="previewOptions__right">
-        <button className="previewOptions__right__edit">Edit configuration</button>
-        <button className="previewOptions__right__delete">Delete</button>
-      </div>
+
+      {edit ? (
+        <div>
+          <div>exterior</div>
+          <div>interior</div>
+          <div>summarry</div>
+        </div>
+      ) : (
+        <div className="previewOptions__right">
+          <Link className="previewOptions__right__edit" to="/configurationView" onClick={() => setEdit(true)}>
+            Edit configuration
+          </Link>
+          <button className="previewOptions__right__delete">Delete</button>
+        </div>
+      )}
     </div>
   );
 };
