@@ -1,43 +1,49 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { editConfigsAtom, selectedCarAtom } from "../../storage/carAtoms";
+import { configuratorAtom, selectedCarAtom } from "../../storage/carAtoms";
 
 const Options = () => {
   const { year, carModel } = useRecoilValue(selectedCarAtom);
-  const [edit, setEdit] = useRecoilState(editConfigsAtom);
-
-  let isMounted = useRef(false);
-
-  useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
-    setEdit(false);
-  }, []);
+  const currentConfig = useRecoilValue(configuratorAtom);
+  const currentPage = window.location.pathname;
   return (
-    <div className="previewOptions">
-      <div className="previewOptions__left">
+    <div className="options">
+      <div className="options__left">
         <Link to="/configure">
           <img src={require("../../../images/navigateBack.png")} style={{ blockSize: "22px" }} />
         </Link>
-        <div className="previewOptions__left__year">{year}</div>
-        <div className="previewOptions__left__carModel">{carModel}</div>
+        <div className="options__left__year">{year}</div>
+        <div className="options__left__carModel">{carModel}</div>
       </div>
 
-      {edit ? (
-        <div>
-          <div>exterior</div>
-          <div>interior</div>
-          <div>summarry</div>
+      {currentPage === "/configurationEdit" ? (
+        <div className="options__edit__right">
+          <div
+            className="options__edit__right__block"
+            style={currentConfig === 1 ? { fontWeight: "700" } : { fontWeight: "400" }}
+          >
+            <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Exterior
+          </div>
+          <div
+            className="options__edit__right__block"
+            style={currentConfig === 2 ? { fontWeight: "700" } : { fontWeight: "400" }}
+          >
+            <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Interior
+          </div>{" "}
+          <div
+            className="options__edit__right__block"
+            style={currentConfig === 3 ? { fontWeight: "700" } : { fontWeight: "400" }}
+          >
+            <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Summary
+          </div>
         </div>
       ) : (
-        <div className="previewOptions__right">
-          <Link className="previewOptions__right__edit" to="/configurationView" onClick={() => setEdit(true)}>
+        <div className="options__right">
+          <Link className="options__right__edit" to="/configurationEdit">
             Edit configuration
           </Link>
-          <button className="previewOptions__right__delete">Delete</button>
+          <button className="options__right__delete">Delete</button>
         </div>
       )}
     </div>

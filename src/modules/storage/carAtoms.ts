@@ -7,14 +7,14 @@ export const selectedCarAtom = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const editConfigsAtom = atom({
-  key: "editConfig",
-  default: false,
+export const configuratorAtom = atom({
+  key: "currentConfigurator",
+  default: 1,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const carDefaultConfiguratorSelector = selector({
-  key: "carConfigurator",
+  key: "defaultCarConfigurator",
 
   get: ({ get }) => {
     const { carModel } = get(selectedCarAtom);
@@ -29,4 +29,14 @@ export const carDefaultConfiguratorSelector = selector({
         return;
     }
   },
+});
+
+export const carCustomConfiguratorAtom = atom({
+  key: "customCarConfigurator",
+  default: carDefaultConfiguratorSelector,
+});
+
+export const savedConfigAtom = atom({
+  key: "savedConfiguration",
+  default: {},
 });

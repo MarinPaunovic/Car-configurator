@@ -1,0 +1,41 @@
+.editDetails {
+  height: calc(100vh - 150px);
+}
+
+.editDetails__new {
+  position: relative;
+  display: grid;
+  grid-template-columns: 81% 19%;
+  height: 100%;
+}
+.editDetails__img {
+  margin-top: 10%;
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.configurationEdit {
+  height: 100vh;
+}
+
+.editDetails__choice {
+  border-left: 1px solid #c7c7d1;
+  padding-inline: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.editDetails__choice__popup {
+  color: #9d9daf;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  font-family: "inter";
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: start;
+  margin-bottom: 50px;
+}

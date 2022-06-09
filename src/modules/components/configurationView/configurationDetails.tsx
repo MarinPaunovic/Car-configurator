@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { carDefaultConfiguratorSelector, selectedCarAtom } from "../../storage/carAtoms";
+import PopupInfo from "../popupInfo/popupInfo";
 
 const ConfigurationDetails = () => {
   const { carModel, year } = useRecoilValue(selectedCarAtom);
@@ -13,13 +14,8 @@ const ConfigurationDetails = () => {
           <div className="configurationDetails__header__info__year">{year}</div>
         </div>
         <div className="configurationDetails__header__price">
-          <div>
-            total{" "}
-            <span className="material-symbols-outlined" style={{ fontSize: "15px", fontVariationSettings: "1" }}>
-              info
-            </span>
-          </div>
-          <div>{120000}€</div>
+          <PopupInfo text="popup informacije" className="configurationDetails__header__price__popup" />
+          <div className="configurationDetails__header__amount">120000€</div>
         </div>
       </div>
       {carConfig && (
@@ -49,7 +45,7 @@ const ConfigurationDetails = () => {
               <div className="configurationDetails__details__exterior__color">
                 <img
                   src={require("../../../images/" + carConfig.interior.dash + ".png")}
-                  style={{ blockSize: "50px", borderRadius: "20px" }}
+                  style={{ height: "60px", width: "60px", borderRadius: "100%" }}
                 />
                 <div className="configurationDetails__details__text">
                   <p>{carConfig.interior.dash}</p>
@@ -66,6 +62,10 @@ const ConfigurationDetails = () => {
                   <p>0€</p>
                 </div>
               </div>
+            </div>
+            <div className="configurationDetails__details__total">
+              <span className="configurationDetails__details__total__total">Total</span>
+              <span className="configurationDetails__details__total__amount">120000€</span>
             </div>
           </div>
         </div>
