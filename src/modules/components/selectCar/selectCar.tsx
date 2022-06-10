@@ -1,9 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
-import { selectedCarAtom } from "../../storage/carAtoms";
+import { carsAtom, selectedCarAtom } from "../../storage/carAtoms";
 
 interface ICar {
   carModel: string;
@@ -16,7 +16,7 @@ interface ICar {
 
 const SelectCarComponent = () => {
   const setSelectedCar = useSetRecoilState(selectedCarAtom);
-  const [cars, setCars] = useState<ICar[]>();
+  const [cars, setCars] = useRecoilState<ICar[]>(carsAtom);
   let isMounted = useRef(false);
   useEffect(() => {
     if (!isMounted.current) {
@@ -47,7 +47,8 @@ const SelectCarComponent = () => {
         <p className="selectCar__label__two">Pick your favorite model and start configuring.</p>
       </div>
       <div className="selectCar">
-        {cars &&
+        test
+        {Object.keys(cars).length !== 0 &&
           cars.map((item, i) => {
             return (
               <div className="selectCar__car" key={i}>
@@ -62,7 +63,14 @@ const SelectCarComponent = () => {
                   <Link
                     className="selectCar__car__button"
                     onClick={() =>
-                      setSelectedCar({ carModel: item.carModel, year: item.productionYear, defaultColor: item.color[0] })
+                      setSelectedCar({
+                        carModel: item.carModel,
+                        color: item.color,
+                        year: item.productionYear,
+                        seats: item.seats,
+                        wheels: item.wheels,
+                        dash: item.dash,
+                      })
                     }
                     to="/configurationView"
                   >

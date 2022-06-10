@@ -119,14 +119,13 @@
 
 .login__background {
   position: absolute;
-  background-color: #2e2e38;
+  background-color: #f1f1f4;
   height: 50vh;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.1;
 }
 
 .login__menu__passwordReset a,

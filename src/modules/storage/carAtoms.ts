@@ -1,6 +1,21 @@
 import { atom, selector } from "recoil";
 import { persistAtom } from "./userAtoms";
 
+interface ICar {
+  carModel: string;
+  wheels: Array<string>;
+  seats: Array<string>;
+  dash: Array<string>;
+  color: Array<string>;
+  productionYear: number;
+}
+
+export const carsAtom = atom({
+  key: "cars",
+  default: <ICar>{},
+  effects_UNSTABLE: [persistAtom],
+});
+
 export const selectedCarAtom = atom({
   key: "selectedCar",
   default: {},
@@ -20,11 +35,23 @@ export const carDefaultConfiguratorSelector = selector({
     const { carModel } = get(selectedCarAtom);
     switch (carModel) {
       case "Audi RS6":
-        return { exterior: { color: "ultra-blue", wheels: "one" }, interior: { seats: "brown-seats", dash: "brown-dash" } };
+        return {
+          carModel: "Audi RS6",
+          exterior: { color: "ultra-blue", wheels: "one" },
+          interior: { seats: "brown-seats", dash: "brown-dash" },
+        };
       case "Audi e-Tron GT":
-        return { exterior: { color: "tactical-green", wheels: "one" }, interior: { seats: "black", dash: "black" } };
+        return {
+          carModel: "Audi e-Tron GT",
+          exterior: { color: "tactical-green", wheels: "one" },
+          interior: { seats: "black", dash: "black" },
+        };
       case "Audi RS5":
-        return { exterior: { color: "nardo-gray", wheels: "one" }, interior: { seats: "black-grey", dash: "lunar-silver" } };
+        return {
+          carModel: "Audi RS5",
+          exterior: { color: "nardo-gray", wheels: "one" },
+          interior: { seats: "black-grey", dash: "lunar-silver" },
+        };
       default:
         return;
     }

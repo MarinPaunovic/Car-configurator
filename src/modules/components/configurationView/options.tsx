@@ -1,15 +1,28 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { configuratorAtom, selectedCarAtom } from "../../storage/carAtoms";
+import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 
 const Options = () => {
   const { year, carModel } = useRecoilValue(selectedCarAtom);
-  const currentConfig = useRecoilValue(configuratorAtom);
+  const [currentConfig, setCurrentConfig] = useRecoilState(configuratorAtom);
+  const optionsCurrentConfig = useRecoilValue(optionsCurrentConfigAtom);
+  const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom);
   const currentPage = window.location.pathname;
+  let isMounted = useRef(false);
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    return () => {
+      setCurrentConfig(1);
+    };
+  }, []);
   return (
-    <div className="options">
-      <div className="options__left">
+    <div className={optionsCurrentConfig ? "options__short" : "options"}>
+      <div className={optionsCurrentConfig ? "options__left__second" : "options__left"}>
         <Link to="/configure">
           <img src={require("../../../images/navigateBack.png")} style={{ blockSize: "22px" }} />
         </Link>
@@ -18,26 +31,40 @@ const Options = () => {
       </div>
 
       {currentPage === "/configurationEdit" ? (
-        <div className="options__edit__right">
-          <div
-            className="options__edit__right__block"
-            style={currentConfig === 1 ? { fontWeight: "700" } : { fontWeight: "400" }}
-          >
-            <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Exterior
+        optionsCurrentConfig ? (
+          <div className="options__edit__right__second">
+            <div className="options__edit__right__second__title"> paint color</div>
+            <span className="options__edit__right__second__title__x" onClick={() => setCurrentConfigChoice("")}>
+              x
+            </span>
           </div>
-          <div
-            className="options__edit__right__block"
-            style={currentConfig === 2 ? { fontWeight: "700" } : { fontWeight: "400" }}
-          >
-            <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Interior
-          </div>{" "}
-          <div
-            className="options__edit__right__block"
-            style={currentConfig === 3 ? { fontWeight: "700" } : { fontWeight: "400" }}
-          >
-            <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Summary
+        ) : (
+          <div className="options__edit__right">
+            {currentConfig > 1 && (
+              <button onClick={() => setCurrentConfig(currentConfig - 1)} className="options__edit__right__arrowLeft">
+                <span className="material-symbols-outlined">keyboard_arrow_left</span>
+              </button>
+            )}
+            <div
+              className="options__edit__right__block"
+              style={currentConfig === 1 ? { fontWeight: "700" } : { fontWeight: "400" }}
+            >
+              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Exterior
+            </div>
+            <div
+              className="options__edit__right__block"
+              style={currentConfig === 2 ? { fontWeight: "700" } : { fontWeight: "400" }}
+            >
+              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Interior
+            </div>{" "}
+            <div
+              className="options__edit__right__block"
+              style={currentConfig === 3 ? { fontWeight: "700" } : { fontWeight: "400" }}
+            >
+              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Summary
+            </div>
           </div>
-        </div>
+        )
       ) : (
         <div className="options__right">
           <Link className="options__right__edit" to="/configurationEdit">
