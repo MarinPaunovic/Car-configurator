@@ -51,18 +51,20 @@ const InteriorDetails = () => {
                   </span>
                 </div>
               </div>
-              <div className="editDetails__choice__popup__wrapper">
-                <PopupInfo text={"text info unutar edita"} className="editDetails__choice__popup" />
-                <span className="editDetails__choice__popup__price">120000€</span>
-              </div>
-              <button className="editDetails__choice__button" onClick={() => setCurrentConfigPage(currentConfigPage + 1)}>
-                <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  Interior{" "}
-                  <span className="material-symbols-outlined" style={{ color: "#FCFCFD", fontSize: "16px" }}>
-                    keyboard_arrow_right
-                  </span>
+              <div>
+                <div className="editDetails__choice__popup__wrapper">
+                  <PopupInfo text={"text info unutar edita"} className="editDetails__choice__popup" />
+                  <span className="editDetails__choice__popup__price">120000€</span>
                 </div>
-              </button>
+                <button className="editDetails__choice__button" onClick={() => setCurrentConfigPage(currentConfigPage + 1)}>
+                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    Interior{" "}
+                    <span className="material-symbols-outlined" style={{ color: "#FCFCFD", fontSize: "16px" }}>
+                      keyboard_arrow_right
+                    </span>
+                  </div>
+                </button>
+              </div>
             </div>
           )}
         </>
