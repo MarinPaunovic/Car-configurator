@@ -41,45 +41,41 @@ const SelectCarComponent = () => {
 
   return (
     <>
-      <div className="selectCar__background"></div>
-      <div className="selectCar__label">
-        <p className="selectCar__label__one">Configure a car</p>
-        <p className="selectCar__label__two">Pick your favorite model and start configuring.</p>
-      </div>
-      <div className="selectCar">
-        test
-        {Object.keys(cars).length !== 0 &&
-          cars.map((item, i) => {
-            return (
-              <div className="selectCar__car" key={i}>
-                <img
-                  src={require("../../../images/" + item.carModel + ".png")}
-                  style={{ blockSize: "450px" }}
-                  className="selectCar__car__img"
-                ></img>
-                <div className="selectCar__car__textWrapper">
-                  <div className="selectCar__car__productionYear">{item.productionYear}</div>
-                  <div className="selelctCar__car__carModel">{item.carModel}</div>
-                  <Link
-                    className="selectCar__car__button"
-                    onClick={() =>
-                      setSelectedCar({
-                        carModel: item.carModel,
-                        color: item.color,
-                        year: item.productionYear,
-                        seats: item.seats,
-                        wheels: item.wheels,
-                        dash: item.dash,
-                      })
-                    }
-                    to="/configurationView"
-                  >
-                    Configure Now
-                  </Link>
+      <div className="selectCar__background">
+        <div className="selectCar__label">
+          <p className="selectCar__label__one">Configure a car</p>
+          <p className="selectCar__label__two">Pick your favorite model and start configuring.</p>
+        </div>
+        <div className="selectCar">
+          {Object.keys(cars).length !== 0 &&
+            cars.map((item, i) => {
+              return (
+                <div className="selectCar__car" key={i}>
+                  <img src={require("../../../images/" + item.carModel + ".png")} className="selectCar__car__img"></img>
+                  <div className="selectCar__car__textWrapper">
+                    <div className="selectCar__car__productionYear">{item.productionYear}</div>
+                    <div className="selelctCar__car__carModel">{item.carModel}</div>
+                    <Link
+                      className="selectCar__car__button"
+                      onClick={() =>
+                        setSelectedCar({
+                          carModel: item.carModel,
+                          color: item.color,
+                          year: item.productionYear,
+                          seats: item.seats,
+                          wheels: item.wheels,
+                          dash: item.dash,
+                        })
+                      }
+                      to="/configurationView"
+                    >
+                      Configure Now
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+        </div>
       </div>
     </>
   );

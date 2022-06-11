@@ -3,33 +3,24 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 32px;
-  position: absolute;
-  /* left: 10%;
-  top: 25%; */
-  height: 600px;
-  width: 1708px;
-  left: 50%;
-  margin-left: -859px;
-  top: 260px;
-  border-radius: 0px;
+  margin-left: 10%;
+  margin-top: 3.5%;
+  margin-right: 5%;
 }
 
 .selectCar__car {
   overflow: hidden;
   background-color: #fcfcfd;
-  width: 548px;
-  height: 600px;
+  max-height: 600px;
 }
 .selectCar__car__img {
-  margin-left: -113.6%;
+  block-size: 450px;
+  margin-left: -620px;
 }
 
 .selectCar__background {
-  position: absolute;
-  top: 0%;
-  left: 0%;
   width: 100%;
-  height: 100vh;
+  min-height: calc(100vh - 80px);
   z-index: -1;
   background-color: #f1f1f4;
 }
@@ -66,6 +57,10 @@
   color: #f1f1f4;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  margin-bottom: 5%;
+}
+.selectCar__car__button:link {
+  width: 50%;
 }
 
 .selectCar__car__button:hover {
@@ -73,15 +68,14 @@
 }
 
 .selectCar__label {
-  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  left: 100px;
-  top: 125px;
+  margin-left: 10%;
 }
 
 .selectCar__label__one {
+  margin-top: 2.5%;
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-size: 24px;
@@ -96,4 +90,65 @@
   border-radius: 0px;
   font-family: Arial, Helvetica, sans-serif;
   color: #73738c;
+}
+
+@media only screen and (max-width: 1300px) {
+  .selectCar__car__img {
+    block-size: 420px;
+    margin-left: -580px;
+  }
+  .selelctCar__car__carModel {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .selectCar__car__img {
+    block-size: 350px;
+    margin-left: -480px;
+  }
+  .selelctCar__car__carModel {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .selectCar__car__img {
+    block-size: 290px;
+    margin-left: -385px;
+  }
+  .selelctCar__car__carModel {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .selectCar__car__img {
+    block-size: 450px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 0px;
+  }
+  .selelctCar__car__carModel {
+    font-size: 48px;
+  }
+  .selectCar {
+    flex-direction: column;
+  }
+  .selectCar__car {
+    width: 100%;
+    text-align: center;
+  }
+  .selectCar__car:last-child {
+    margin-bottom: 10%;
+  }
+  .selectCar__car__textWrapper {
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .selelctCar__car__carModel {
+    font-size: 35px;
+  }
 }
