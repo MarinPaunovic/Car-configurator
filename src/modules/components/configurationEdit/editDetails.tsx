@@ -17,6 +17,7 @@ import Pagination from "../pagination/pagination";
 import PopupInfo from "../popupInfo/popupInfo";
 import ExteriorDetails from "./exteriorDetails";
 import InteriorDetails from "./interiorDetails";
+import SummaryDetails from "./summaryDetails";
 
 const EditDetails = () => {
   const [carConfig, setCarConfig] = useRecoilState(carCustomConfiguratorAtom);
@@ -46,6 +47,7 @@ const EditDetails = () => {
           <div className="editDetails__new">
             <InteriorDetails />
             <ExteriorDetails />
+            {/* <SummaryDetails /> */}
           </div>
         )
       )}
