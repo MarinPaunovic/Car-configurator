@@ -1,7 +1,7 @@
 import { atom, selector } from "recoil";
 import { persistAtom } from "./userAtoms";
 
-interface ICar {
+export interface ICar {
   carModel: string;
   wheels: Array<string>;
   seats: Array<string>;

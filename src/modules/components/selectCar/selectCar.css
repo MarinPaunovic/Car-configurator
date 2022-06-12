@@ -12,6 +12,7 @@
   overflow: hidden;
   background-color: #fcfcfd;
   max-height: 600px;
+  margin-top: 2.5%;
 }
 .selectCar__car__img {
   block-size: 450px;
@@ -150,5 +151,24 @@
 @media only screen and (max-width: 450px) {
   .selelctCar__car__carModel {
     font-size: 35px;
+  }
+}
+@media only screen and (max-height: 850px) {
+  .selectCar__car {
+    max-height: 550px;
+  }
+  .selectCar__car__img {
+    block-size: 400px;
+    margin-left: -550px;
+  }
+}
+@media only screen and (max-height: 850px) and (max-width: 800px) {
+  .selectCar__car__img {
+    margin-left: 0px;
+  }
+}
+@media only screen and (max-height: 1650px) {
+  .selectCar__car {
+    margin-top: 0px;
   }
 }

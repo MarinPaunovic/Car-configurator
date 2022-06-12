@@ -1,5 +1,7 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { carCustomConfiguratorAtom, configuratorAtom, savedConfigAtom, selectedCarAtom } from "../../storage/carAtoms";
+import { useEffect } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { carCustomConfiguratorAtom, configuratorAtom, ICar, savedConfigAtom, selectedCarAtom } from "../../storage/carAtoms";
+import { getTitleAtom } from "../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../storage/pageAtoms";
 import Pagination from "../pagination/pagination";
@@ -11,7 +13,24 @@ const ExteriorDetails = () => {
   const [currentPage, setCurrentPage] = useRecoilState(previewCurrentPageAtom);
   const [currentConfigPage, setCurrentConfigPage] = useRecoilState(configuratorAtom);
   const [currentConfigChoice, setCurrentConfigChoice] = useRecoilState(optionsCurrentConfigAtom);
+  const setChoiceTitle = useSetRecoilState(getTitleAtom);
   console.log(carConfig);
+  useEffect(() => {
+    if (currentConfigChoice) {
+      getTitle();
+    }
+  }, [currentConfigChoice]);
+
+  const getTitle = () => {
+    switch (currentConfigChoice) {
+      case "color":
+        setChoiceTitle("Paint color");
+        return;
+      case "wheels":
+        setChoiceTitle("Wheels");
+        return;
+    }
+  };
 
   return (
     <>
@@ -31,14 +50,55 @@ const ExteriorDetails = () => {
             <Pagination pagesNumber={5} />
           </div>
           {currentConfigChoice ? (
-            <div className="editDetails__choice__second">
-              biraš {currentConfigChoice}
-              <div>
-                {color.map((item: any, i: number) => (
-                  <div key={i}>{item}</div>
-                ))}
+            currentConfigChoice === "color" ? (
+              <div className="editDetails__choice__second">
+                <div className="editDetails__choice__second__wrapper">
+                  {color.map((item: string, i: number) => (
+                    <div
+                      key={i}
+                      onClick={() => {
+                        setCurrentConfigChoice("");
+                        setCarConfig((prevState) => {
+                          if (!prevState) {
+                            return undefined;
+                          }
+                          return {
+                            ...prevState,
+                            exterior: { wheels: prevState.exterior.wheels, color: item },
+                          };
+                        });
+                      }}
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="editDetails__choice__second">
+                <div className="editDetails__choice__second__wrapper">
+                  {wheels.map((item: any, i: number) => (
+                    <div
+                      key={i}
+                      onClick={() => {
+                        setCurrentConfigChoice("");
+                        setCarConfig((prevState) => {
+                          if (!prevState) {
+                            return undefined;
+                          }
+                          return {
+                            ...prevState,
+                            exterior: { color: prevState.exterior.color, wheels: item },
+                          };
+                        });
+                      }}
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
           ) : (
             <div className="editDetails__choice">
               <div className="editDetails__choice__items">
@@ -47,7 +107,7 @@ const ExteriorDetails = () => {
                   title="color"
                   onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
                 >
-                  <img src={require("../../../images/" + carConfig.exterior.color + ".png")} />
+                  <img src={require("../../../images/" + carConfig.exterior.color + ".png")} style={{ blockSize: "70px" }} />
                   <span>
                     <p className="editDetails__choice__wrapper__title">{carConfig.exterior.color}</p>
                     <p className="editDetails__choice__wrapper__sub">PAINT COLOR</p>
@@ -58,7 +118,10 @@ const ExteriorDetails = () => {
                   className="editDetails__choice__wrapper"
                   onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
                 >
-                  <img src={require("../../../images/" + carConfig.exterior.wheels + ".png")} />
+                  <img
+                    src={require("../../../images/" + carConfig.exterior.wheels + ".png")}
+                    style={{ blockSize: "70px" }}
+                  />
                   <span>
                     <p className="editDetails__choice__wrapper__title">
                       {carConfig.exterior.wheels === "one" ? "22˝ Magnesium 5-spoke" : "other"}

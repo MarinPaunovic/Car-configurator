@@ -102,4 +102,62 @@
 
 .editDetails__choice__second {
   border-left: 1px solid #c7c7d1;
+  background-color: #fcfcfd;
+}
+
+.options__edit__right {
+  font-family: "inter";
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+.options__edit__right__block {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  color: #2e2e38;
+}
+
+.options__edit__right__arrowLeft {
+  border: none;
+  background-color: #fcfcfd;
+  font-size: 0px;
+}
+.options__edit__right__arrowLeft:hover {
+  cursor: pointer;
+}
+.options__edit__right__second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fcfcfd;
+}
+.options__edit__right__second__title {
+  font-size: 24px;
+  font-family: "inter";
+  color: #2e2e38;
+  margin-left: 8%;
+  overflow: hidden;
+}
+.options__edit__right__second__title__x {
+  margin-right: 8%;
+  height: fit-content;
+  width: fit-content;
+  font-size: 14px;
+}
+.options__edit__right__second__title__x:hover {
+  cursor: pointer;
+}
+
+.editDetails__choice__second__wrapper {
+  margin-top: 20%;
+  margin-inline: 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

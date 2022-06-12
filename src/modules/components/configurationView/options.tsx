@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { configuratorAtom, selectedCarAtom } from "../../storage/carAtoms";
+import { getTitleAtom } from "../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 
 const Options = () => {
@@ -9,8 +10,10 @@ const Options = () => {
   const [currentConfig, setCurrentConfig] = useRecoilState(configuratorAtom);
   const optionsCurrentConfig = useRecoilValue(optionsCurrentConfigAtom);
   const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom);
+  const title = useRecoilValue(getTitleAtom);
   const currentPage = window.location.pathname;
   let isMounted = useRef(false);
+
   useEffect(() => {
     if (!isMounted.current) {
       isMounted.current = true;
@@ -33,8 +36,11 @@ const Options = () => {
       {currentPage === "/configurationEdit" ? (
         optionsCurrentConfig ? (
           <div className="options__edit__right__second">
-            <div className="options__edit__right__second__title"> paint color</div>
-            <span className="options__edit__right__second__title__x" onClick={() => setCurrentConfigChoice("")}>
+            <div className="options__edit__right__second__title">{title}</div>
+            <span
+              className="material-symbols-outlined options__edit__right__second__title__x"
+              onClick={() => setCurrentConfigChoice("")}
+            >
               x
             </span>
           </div>
