@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";

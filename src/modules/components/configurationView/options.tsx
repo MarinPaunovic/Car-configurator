@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { configuratorAtom, selectedCarAtom } from "../../storage/carAtoms";
-import { getTitleAtom } from "../../storage/editAtoms";
+import { getTitleAtom, localEditAtom } from "../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 
 const Options = () => {
@@ -11,6 +11,7 @@ const Options = () => {
   const optionsCurrentConfig = useRecoilValue(optionsCurrentConfigAtom);
   const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom);
   const title = useRecoilValue(getTitleAtom);
+  const setLocalEdit = useSetRecoilState(localEditAtom);
   const currentPage = window.location.pathname;
   let isMounted = useRef(false);
 
@@ -21,6 +22,7 @@ const Options = () => {
     }
     return () => {
       setCurrentConfig(1);
+      setLocalEdit({ edit: "", value: "" });
     };
   }, []);
   return (
@@ -39,7 +41,10 @@ const Options = () => {
             <div className="options__edit__right__second__title">{title}</div>
             <span
               className="material-symbols-outlined options__edit__right__second__title__x"
-              onClick={() => setCurrentConfigChoice("")}
+              onClick={() => {
+                setCurrentConfigChoice("");
+                setLocalEdit({ value: "", edit: "" });
+              }}
             >
               x
             </span>
