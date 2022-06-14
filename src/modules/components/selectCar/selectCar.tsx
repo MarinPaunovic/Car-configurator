@@ -1,9 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
-import { carsAtom, selectedCarAtom } from "../../storage/carAtoms";
+import { carDefaultConfiguratorSelector, carsAtom, selectedCarAtom } from "../../storage/carAtoms";
 
 interface ICar {
   carModel: string;
@@ -15,6 +15,8 @@ interface ICar {
 }
 
 const SelectCarComponent = () => {
+  const test = useRecoilValue(selectedCarAtom);
+  console.log(test);
   const setSelectedCar = useSetRecoilState(selectedCarAtom);
   const [cars, setCars] = useRecoilState<ICar[]>(carsAtom);
   let isMounted = useRef(false);

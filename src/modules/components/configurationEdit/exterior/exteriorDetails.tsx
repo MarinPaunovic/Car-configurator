@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { carCustomConfiguratorAtom, configuratorAtom, selectedCarAtom } from "../../../storage/carAtoms";
 import { getTitleAtom, localEditAtom, localEditSelector } from "../../../storage/editAtoms";
@@ -17,6 +17,20 @@ const ExteriorDetails = () => {
   const setChoiceTitle = useSetRecoilState(getTitleAtom);
   const localEdit = useRecoilValue(localEditAtom);
   const editSelector = useRecoilValue(localEditSelector);
+  const reset = useSetRecoilState(selectedCarAtom);
+
+  let isMounted = useRef(false);
+
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    return () => {
+      reset({});
+    };
+  }, []);
+
   useEffect(() => {
     if (currentConfigChoice) {
       getTitle();

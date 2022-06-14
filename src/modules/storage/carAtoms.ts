@@ -38,7 +38,7 @@ export const carDefaultConfiguratorSelector = selector({
         return {
           carModel: "Audi RS6",
           exterior: { color: "ultra-blue", wheels: "one" },
-          interior: { seats: "brown-seats", dash: "brown-dash" },
+          interior: { seats: "brown", dash: "brown" },
         };
       case "Audi e-Tron GT":
         return {
@@ -50,7 +50,7 @@ export const carDefaultConfiguratorSelector = selector({
         return {
           carModel: "Audi RS5",
           exterior: { color: "nardo-gray", wheels: "one" },
-          interior: { seats: "black-grey", dash: "lunar-silver" },
+          interior: { seats: "black-gray", dash: "lunar-silver" },
         };
       default:
         return;

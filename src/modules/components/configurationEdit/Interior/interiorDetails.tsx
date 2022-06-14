@@ -5,6 +5,8 @@ import { optionsCurrentConfigAtom } from "../../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../../storage/pageAtoms";
 import Pagination from "../../pagination/pagination";
 import PopupInfo from "../../popupInfo/popupInfo";
+import DoneButton from "../doneButton";
+import ColorTitleComponent from "./colorTitleComponent";
 
 const InteriorDetails = () => {
   const [carConfig, setCarConfig] = useRecoilState(carCustomConfiguratorAtom);
@@ -15,45 +17,96 @@ const InteriorDetails = () => {
   const [savedConfig, setSavedConfig] = useRecoilState(savedConfigAtom);
   const editSelector = useRecoilValue(localEditSelector);
   const [currentConfigChoice, setCurrentConfigChoice] = useRecoilState(optionsCurrentConfigAtom);
-  console.log(localEdit);
+  console.log(currentConfigChoice);
   return (
     <>
       {carConfig && currentConfigPage && currentConfigPage === 2 && (
         <>
           <div className="editDetails__img">
-            {!currentConfigChoice ? (
+            {!editSelector ? (
               <>
-                <img
-                  src={require("../../../../images/" +
-                    carConfig.carModel +
-                    "/interior/dash/" +
-                    carConfig.interior.dash +
-                    ".png")}
-                  style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
-                />
+                {currentPage === 1 ? (
+                  <img
+                    src={require("../../../../images/" +
+                      carConfig.carModel +
+                      "/interior/seats/" +
+                      carConfig.interior.seats +
+                      ".png")}
+                    style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
+                  />
+                ) : (
+                  <img
+                    src={require("../../../../images/" +
+                      carConfig.carModel +
+                      "/interior/dash/" +
+                      carConfig.interior.seats +
+                      ".png")}
+                    style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
+                  />
+                )}
                 <Pagination pagesNumber={2} />
               </>
             ) : (
-              <div>{currentConfigChoice}</div>
+              <>
+                {currentPage === 1 ? (
+                  <img
+                    src={require("../../../../images/" +
+                      carConfig.carModel +
+                      "/interior/seats/" +
+                      editSelector.value +
+                      ".png")}
+                    style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
+                  />
+                ) : (
+                  <img
+                    src={require("../../../../images/" +
+                      carConfig.carModel +
+                      "/interior/dash/" +
+                      editSelector.value +
+                      ".png")}
+                    style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
+                  />
+                )}
+                <Pagination pagesNumber={2} />
+              </>
             )}
           </div>
 
           {currentConfigChoice ? (
             <div className="editDetails__choice__second">
               <div className="editDetails__choice__second__wrapper">
-                {currentConfigChoice === "dash"
-                  ? dash.map((item: string, i: number) => (
-                      <div
-                        key={i}
-                        onClick={() => {
-                          setLocalEdit({ value: item, edit: "dash" });
-                        }}
-                      >
-                        <div className="editDetails__choice__second__wrapper__color">{item}</div>
+                {currentConfigChoice === "seats" &&
+                  seats.map((item: string, i: number) => (
+                    <div className="editDetails__choice__second__wrapper__color">
+                      <div key={i} onClick={() => setLocalEdit({ value: item, edit: "seats" })}>
+                        <div className="editDetails__choice__second__wrapper__color__mark">
+                          <img
+                            src={require("../../../../images/short_seats/" + item + ".png")}
+                            style={{ blockSize: "70px", borderRadius: "100%" }}
+                          />
+                          {!localEdit.value
+                            ? carConfig &&
+                              item === carConfig.interior.seats && (
+                                <div className="editDetails__choice__second__wrapper__chosen">
+                                  <span className="material-symbols-outlined editDetails__choice__second__wrapper__chosen__done">
+                                    done
+                                  </span>
+                                </div>
+                              )
+                            : item === localEdit.value && (
+                                <div className="editDetails__choice__second__wrapper__chosen">
+                                  <span className="material-symbols-outlined editDetails__choice__second__wrapper__chosen__done">
+                                    done
+                                  </span>
+                                </div>
+                              )}
+                        </div>
                       </div>
-                    ))
-                  : seats.map((item: string, i: number) => <div key={i}>{item}</div>)}
+                      <ColorTitleComponent color={item} />
+                    </div>
+                  ))}
               </div>
+              <DoneButton />
             </div>
           ) : (
             <div className="editDetails__choice">
@@ -64,34 +117,14 @@ const InteriorDetails = () => {
                   onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
                 >
                   <img
-                    src={require("../../../../images/" +
-                      carConfig.carModel +
-                      "/interior/seats/" +
-                      carConfig.interior.seats +
-                      ".png")}
-                    style={{ blockSize: "60px", borderRadius: "100%" }}
+                    src={require("../../../../images/short_seats/" + carConfig.interior.seats + ".png")}
+                    style={{ blockSize: "70px", borderRadius: "100%" }}
                   />
                   <span>
-                    <p className="editDetails__choice__wrapper__title">seats</p>
-                    <p className="editDetails__choice__wrapper__sub">paint color</p>
-                  </span>
-                </div>
-                <div
-                  title="dash"
-                  className="editDetails__choice__wrapper"
-                  onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
-                >
-                  <img
-                    src={require("../../../../images/" +
-                      carConfig.carModel +
-                      "/interior/dash/" +
-                      carConfig.interior.dash +
-                      ".png")}
-                    style={{ blockSize: "60px", borderRadius: "100%" }}
-                  />
-                  <span>
-                    <p className="editDetails__choice__wrapper__title">dash</p>
-                    <p className="editDetails__choice__wrapper__sub">paint color</p>
+                    <p className="editDetails__choice__wrapper__title">
+                      <ColorTitleComponent color={carConfig.interior.seats} />
+                    </p>
+                    <p className="editDetails__choice__wrapper__sub">color</p>
                   </span>
                 </div>
               </div>
@@ -102,7 +135,7 @@ const InteriorDetails = () => {
                 </div>
                 <button className="editDetails__choice__button" onClick={() => setCurrentConfigPage(currentConfigPage + 1)}>
                   <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    Interior{" "}
+                    Interior
                     <span className="material-symbols-outlined" style={{ color: "#FCFCFD", fontSize: "16px" }}>
                       keyboard_arrow_right
                     </span>
