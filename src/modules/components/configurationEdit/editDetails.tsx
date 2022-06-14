@@ -4,8 +4,8 @@ import { carCustomConfiguratorAtom, configuratorAtom, savedConfigAtom } from "..
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../storage/pageAtoms";
 
-import ExteriorDetails from "./exteriorDetails";
-import InteriorDetails from "./interiorDetails";
+import ExteriorDetails from "./exterior/exteriorDetails";
+import InteriorDetails from "./Interior/interiorDetails";
 
 const EditDetails = () => {
   const carConfig = useRecoilValue(carCustomConfiguratorAtom);

@@ -25,17 +25,17 @@ const ConfigurationDetails = () => {
             <div className="configurationDetails__details__exterior">
               <span className="configurationDetails__details__exterior__title">Exterior</span>
               <div className="configurationDetails__details__exterior__color">
-                <img src={require("../../../images/" + carConfig.exterior.color + ".png")} />{" "}
+                <img src={require("../../../images/" + carConfig.exterior.color + ".png")} />
                 <div className="configurationDetails__details__text">
                   <p>{carConfig.exterior.color}</p>
                   <p>0€</p>
                 </div>
               </div>
               <div className="configurationDetails__details__exterior__wheels">
-                <img src={require("../../../images/" + carConfig.exterior.wheels + ".png")} />
+                <img src={require("../../../images/" + carConfig.exterior.wheels + ".png")} style={{ blockSize: "60px" }} />
 
                 <div className="configurationDetails__details__text">
-                  <p>{carConfig.exterior.wheels}</p>
+                  <div>{carConfig.exterior.wheels === "one" ? <p>22” Magnesium 5-spoke</p> : <p>22” Alloy 10-spoke</p>}</div>
                   <p>0€</p>
                 </div>
               </div>

@@ -66,13 +66,13 @@ const Options = () => {
               className="options__edit__right__block"
               style={currentConfig === 2 ? { fontWeight: "700" } : { fontWeight: "400" }}
             >
-              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Interior
+              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>02</p> Interior
             </div>{" "}
             <div
               className="options__edit__right__block"
               style={currentConfig === 3 ? { fontWeight: "700" } : { fontWeight: "400" }}
             >
-              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Summary
+              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>03</p> Summary
             </div>
           </div>
         )

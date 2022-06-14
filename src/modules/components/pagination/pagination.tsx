@@ -25,7 +25,7 @@ const Pagination = (props: Pages) => {
       <button
         className="pagination__button material-symbols-outlined"
         onClick={() => setCurrentPage(currentPage + 1)}
-        disabled={currentPage === 5}
+        disabled={currentPage === pagesNumber}
       >
         keyboard_arrow_right
       </button>

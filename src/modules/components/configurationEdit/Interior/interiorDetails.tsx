@@ -1,8 +1,9 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { carCustomConfiguratorAtom, configuratorAtom, savedConfigAtom, selectedCarAtom } from "../../storage/carAtoms";
-import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
-import { previewCurrentPageAtom } from "../../storage/pageAtoms";
-import PopupInfo from "../popupInfo/popupInfo";
+import { carCustomConfiguratorAtom, configuratorAtom, savedConfigAtom, selectedCarAtom } from "../../../storage/carAtoms";
+import { optionsCurrentConfigAtom } from "../../../storage/optionsAtom";
+import { previewCurrentPageAtom } from "../../../storage/pageAtoms";
+import Pagination from "../../pagination/pagination";
+import PopupInfo from "../../popupInfo/popupInfo";
 
 const InteriorDetails = () => {
   const [carConfig, setCarConfig] = useRecoilState(carCustomConfiguratorAtom);
@@ -15,10 +16,20 @@ const InteriorDetails = () => {
     <>
       {carConfig && currentConfigPage && currentConfigPage === 2 && (
         <>
-          <div className="editDetails__img">seats</div>
+          <div className="editDetails__img">
+            <img
+              src={require("../../../../images/" + carConfig.interior.dash + ".png")}
+              style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
+            />
+            <Pagination pagesNumber={2} />
+          </div>
 
           {currentConfigChoice ? (
-            <div className="editDetails__choice__second">biraš {currentConfigChoice}</div>
+            <div className="editDetails__choice__second">
+              {currentConfigChoice === "dash"
+                ? dash.map((item: string, i: number) => <div key={i}>{item}</div>)
+                : seats.map((item: string, i: number) => <div key={i}>{item}</div>)}
+            </div>
           ) : (
             <div className="editDetails__choice">
               <div className="editDetails__choice__items">
@@ -28,7 +39,7 @@ const InteriorDetails = () => {
                   onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
                 >
                   <img
-                    src={require("../../../images/" + carConfig.interior.seats + ".png")}
+                    src={require("../../../../images/" + carConfig.interior.seats + ".png")}
                     style={{ blockSize: "60px", borderRadius: "100%" }}
                   />
                   <span>
@@ -42,7 +53,7 @@ const InteriorDetails = () => {
                   onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
                 >
                   <img
-                    src={require("../../../images/" + carConfig.interior.dash + ".png")}
+                    src={require("../../../../images/" + carConfig.interior.dash + ".png")}
                     style={{ blockSize: "60px", borderRadius: "100%" }}
                   />
                   <span>
