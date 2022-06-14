@@ -24,7 +24,12 @@ const EditChoiceSecondComponent = () => {
             >
               <div className="editDetails__choice__second__wrapper__color">
                 <div className="editDetails__choice__second__wrapper__color__mark">
-                  <img src={require("../../../../images/" + item + ".png")} style={{ blockSize: "60px" }} />
+                  {carConfig && (
+                    <img
+                      src={require("../../../../images/" + carConfig.carModel + "/exterior/wheels/" + item + ".png")}
+                      style={{ blockSize: "60px" }}
+                    />
+                  )}
                   {localEdit.value
                     ? item === localEdit.value && <CheckMarkComponent />
                     : carConfig && item === carConfig.exterior.wheels && <CheckMarkComponent />}
@@ -58,7 +63,7 @@ const EditChoiceSecondComponent = () => {
                 <div className="editDetails__choice__second__wrapper__color">
                   <div className="editDetails__choice__second__wrapper__color__mark">
                     <img
-                      src={require("../../../../images/" + item + ".png")}
+                      src={require("../../../../images/colors/" + item + ".png")}
                       style={{ blockSize: "60px", borderRadius: "100%" }}
                     />
                     {localEdit.value

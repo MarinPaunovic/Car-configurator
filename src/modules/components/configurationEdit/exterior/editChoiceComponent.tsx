@@ -19,7 +19,7 @@ const EditChoiceComponent = () => {
           {carConfig && (
             <>
               <img
-                src={require("../../../../images/" + carConfig.exterior.color + ".png")}
+                src={require("../../../../images/colors/" + carConfig.exterior.color + ".png")}
                 style={{ blockSize: "60px", borderRadius: "100%" }}
               />
               <span>
@@ -36,7 +36,14 @@ const EditChoiceComponent = () => {
         >
           {carConfig && (
             <>
-              <img src={require("../../../../images/" + carConfig.exterior.wheels + ".png")} style={{ blockSize: "60px" }} />
+              <img
+                src={require("../../../../images/" +
+                  carConfig.carModel +
+                  "/exterior/wheels/" +
+                  carConfig.exterior.wheels +
+                  ".png")}
+                style={{ blockSize: "60px" }}
+              />
               <span>
                 <p className="editDetails__choice__wrapper__title">
                   {carConfig.exterior.wheels === "one" ? "22˝ Magnesium 5-spoke" : "22˝ Alloy 10-spoke"}

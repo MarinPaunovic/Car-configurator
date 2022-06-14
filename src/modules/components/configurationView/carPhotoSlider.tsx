@@ -27,11 +27,11 @@ const CarPhotoSlider = () => {
             className="configurationView__img"
             src={require("../../../images/" +
               carModel +
-              "_" +
+              "/exterior/" +
               color[0] +
-              "_" +
+              "/" +
               wheels[0] +
-              "_preview/" +
+              "/" +
               currentPage +
               ".png")}
             style={{ blockSize: "300px" }}

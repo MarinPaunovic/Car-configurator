@@ -1,5 +1,6 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { carCustomConfiguratorAtom, configuratorAtom, savedConfigAtom, selectedCarAtom } from "../../../storage/carAtoms";
+import { localEditAtom, localEditSelector } from "../../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../../storage/pageAtoms";
 import Pagination from "../../pagination/pagination";
@@ -9,26 +10,50 @@ const InteriorDetails = () => {
   const [carConfig, setCarConfig] = useRecoilState(carCustomConfiguratorAtom);
   const { carModel, color, seats, dash, wheels } = useRecoilValue(selectedCarAtom);
   const [currentPage, setCurrentPage] = useRecoilState(previewCurrentPageAtom);
+  const [localEdit, setLocalEdit] = useRecoilState(localEditAtom);
   const [currentConfigPage, setCurrentConfigPage] = useRecoilState<number>(configuratorAtom);
   const [savedConfig, setSavedConfig] = useRecoilState(savedConfigAtom);
+  const editSelector = useRecoilValue(localEditSelector);
   const [currentConfigChoice, setCurrentConfigChoice] = useRecoilState(optionsCurrentConfigAtom);
+  console.log(localEdit);
   return (
     <>
       {carConfig && currentConfigPage && currentConfigPage === 2 && (
         <>
           <div className="editDetails__img">
-            <img
-              src={require("../../../../images/" + carConfig.interior.dash + ".png")}
-              style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
-            />
-            <Pagination pagesNumber={2} />
+            {!currentConfigChoice ? (
+              <>
+                <img
+                  src={require("../../../../images/" +
+                    carConfig.carModel +
+                    "/interior/dash/" +
+                    carConfig.interior.dash +
+                    ".png")}
+                  style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
+                />
+                <Pagination pagesNumber={2} />
+              </>
+            ) : (
+              <div>{currentConfigChoice}</div>
+            )}
           </div>
 
           {currentConfigChoice ? (
             <div className="editDetails__choice__second">
-              {currentConfigChoice === "dash"
-                ? dash.map((item: string, i: number) => <div key={i}>{item}</div>)
-                : seats.map((item: string, i: number) => <div key={i}>{item}</div>)}
+              <div className="editDetails__choice__second__wrapper">
+                {currentConfigChoice === "dash"
+                  ? dash.map((item: string, i: number) => (
+                      <div
+                        key={i}
+                        onClick={() => {
+                          setLocalEdit({ value: item, edit: "dash" });
+                        }}
+                      >
+                        <div className="editDetails__choice__second__wrapper__color">{item}</div>
+                      </div>
+                    ))
+                  : seats.map((item: string, i: number) => <div key={i}>{item}</div>)}
+              </div>
             </div>
           ) : (
             <div className="editDetails__choice">
@@ -39,7 +64,11 @@ const InteriorDetails = () => {
                   onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
                 >
                   <img
-                    src={require("../../../../images/" + carConfig.interior.seats + ".png")}
+                    src={require("../../../../images/" +
+                      carConfig.carModel +
+                      "/interior/seats/" +
+                      carConfig.interior.seats +
+                      ".png")}
                     style={{ blockSize: "60px", borderRadius: "100%" }}
                   />
                   <span>
@@ -53,7 +82,11 @@ const InteriorDetails = () => {
                   onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
                 >
                   <img
-                    src={require("../../../../images/" + carConfig.interior.dash + ".png")}
+                    src={require("../../../../images/" +
+                      carConfig.carModel +
+                      "/interior/dash/" +
+                      carConfig.interior.dash +
+                      ".png")}
                     style={{ blockSize: "60px", borderRadius: "100%" }}
                   />
                   <span>

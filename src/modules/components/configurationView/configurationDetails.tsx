@@ -25,14 +25,24 @@ const ConfigurationDetails = () => {
             <div className="configurationDetails__details__exterior">
               <span className="configurationDetails__details__exterior__title">Exterior</span>
               <div className="configurationDetails__details__exterior__color">
-                <img src={require("../../../images/" + carConfig.exterior.color + ".png")} />
+                <img
+                  src={require("../../../images/colors/" + carConfig.exterior.color + ".png")}
+                  style={{ blockSize: "60px", borderRadius: "100%" }}
+                />
                 <div className="configurationDetails__details__text">
                   <p>{carConfig.exterior.color}</p>
                   <p>0€</p>
                 </div>
               </div>
               <div className="configurationDetails__details__exterior__wheels">
-                <img src={require("../../../images/" + carConfig.exterior.wheels + ".png")} style={{ blockSize: "60px" }} />
+                <img
+                  src={require("../../../images/" +
+                    carConfig.carModel +
+                    "/exterior/wheels/" +
+                    carConfig.exterior.wheels +
+                    ".png")}
+                  style={{ blockSize: "60px" }}
+                />
 
                 <div className="configurationDetails__details__text">
                   <div>{carConfig.exterior.wheels === "one" ? <p>22” Magnesium 5-spoke</p> : <p>22” Alloy 10-spoke</p>}</div>
@@ -42,20 +52,10 @@ const ConfigurationDetails = () => {
             </div>
             <div className="configurationDetails__details__interior">
               <span className="configurationDetails__details__exterior__title">Interior</span>
-              <div className="configurationDetails__details__exterior__color">
-                <img
-                  src={require("../../../images/" + carConfig.interior.dash + ".png")}
-                  style={{ height: "60px", width: "60px", borderRadius: "100%" }}
-                />
-                <div className="configurationDetails__details__text">
-                  <p>{carConfig.interior.dash}</p>
-                  <p>0€</p>
-                </div>
-              </div>
               <div className="configurationDetails__details__exterior__wheels">
                 <img
-                  src={require("../../../images/" + carConfig.interior.seats + ".png")}
-                  style={{ borderRadius: "100%" }}
+                  src={require("../../../images/short_seats/" + carConfig.interior.seats + ".png")}
+                  style={{ borderRadius: "100%", blockSize: "60px" }}
                 />
                 <div className="configurationDetails__details__text">
                   <p>{carConfig.interior.seats}</p>

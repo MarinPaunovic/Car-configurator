@@ -51,7 +51,16 @@ const SelectCarComponent = () => {
             cars.map((item, i) => {
               return (
                 <div className="selectCar__car" key={i}>
-                  <img src={require("../../../images/" + item.carModel + ".png")} className="selectCar__car__img"></img>
+                  <img
+                    src={require("../../../images/" +
+                      item.carModel +
+                      "/exterior/" +
+                      item.color[0] +
+                      "/" +
+                      item.wheels[1] +
+                      "/1.png")}
+                    className="selectCar__car__img"
+                  ></img>
                   <div className="selectCar__car__textWrapper">
                     <div className="selectCar__car__productionYear">{item.productionYear}</div>
                     <div className="selelctCar__car__carModel">{item.carModel}</div>

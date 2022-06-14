@@ -9,13 +9,13 @@ import EditChoiceComponent from "./editChoiceComponent";
 import EditChoiceSecondComponent from "./editChoiceSecondComponent";
 
 const ExteriorDetails = () => {
-  const [carConfig, setCarConfig] = useRecoilState(carCustomConfiguratorAtom);
-  const { carModel, color, wheels } = useRecoilValue(selectedCarAtom);
-  const [currentPage, setCurrentPage] = useRecoilState(previewCurrentPageAtom);
-  const [currentConfigPage, setCurrentConfigPage] = useRecoilState(configuratorAtom);
-  const [currentConfigChoice, setCurrentConfigChoice] = useRecoilState(optionsCurrentConfigAtom);
+  const carConfig = useRecoilValue(carCustomConfiguratorAtom);
+  const { carModel } = useRecoilValue(selectedCarAtom);
+  const currentPage = useRecoilValue(previewCurrentPageAtom);
+  const currentConfigPage = useRecoilValue(configuratorAtom);
+  const currentConfigChoice = useRecoilValue(optionsCurrentConfigAtom);
   const setChoiceTitle = useSetRecoilState(getTitleAtom);
-  const [localEdit, setLocalEdit] = useRecoilState(localEditAtom);
+  const localEdit = useRecoilValue(localEditAtom);
   const editSelector = useRecoilValue(localEditSelector);
   useEffect(() => {
     if (currentConfigChoice) {
@@ -30,6 +30,14 @@ const ExteriorDetails = () => {
         return;
       case "wheels":
         setChoiceTitle("Wheels");
+        return;
+      case "dash":
+        setChoiceTitle("Dash color");
+        return;
+      case "seats":
+        setChoiceTitle("Seats color");
+        return;
+      default:
         return;
     }
   };
@@ -46,11 +54,11 @@ const ExteriorDetails = () => {
                     <img
                       src={require("../../../../images/" +
                         carModel +
-                        "_" +
+                        "/exterior/" +
                         editSelector.value +
-                        "_" +
+                        "/" +
                         carConfig.exterior.wheels +
-                        "_preview/" +
+                        "/" +
                         currentPage +
                         ".png")}
                       style={{ width: "100%" }}
@@ -63,11 +71,11 @@ const ExteriorDetails = () => {
                     <img
                       src={require("../../../../images/" +
                         carModel +
-                        "_" +
+                        "/exterior/" +
                         carConfig.exterior.color +
-                        "_" +
+                        "/" +
                         editSelector.value +
-                        "_preview/" +
+                        "/" +
                         currentPage +
                         ".png")}
                       style={{ width: "100%" }}
@@ -79,11 +87,11 @@ const ExteriorDetails = () => {
               <img
                 src={require("../../../../images/" +
                   carModel +
-                  "_" +
+                  "/exterior/" +
                   carConfig.exterior.color +
-                  "_" +
+                  "/" +
                   carConfig.exterior.wheels +
-                  "_preview/" +
+                  "/" +
                   currentPage +
                   ".png")}
                 style={{ width: "100%" }}
