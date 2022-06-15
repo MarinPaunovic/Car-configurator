@@ -2,7 +2,11 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { carCustomConfiguratorAtom } from "../../storage/carAtoms";
 import { localEditAtom, localEditSelector } from "../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
-
+export type CarConfig = {
+  carModel: string;
+  interior: { seats: string; dash: string };
+  exterior: { wheels: string; color: string };
+};
 export const DoneButton = () => {
   const setCarConfig = useSetRecoilState(carCustomConfiguratorAtom);
   const editSelector = useRecoilValue(localEditSelector);
@@ -10,7 +14,7 @@ export const DoneButton = () => {
   const setLocalEdit = useSetRecoilState(localEditAtom);
 
   const handleConfigChange = () => {
-    setCarConfig((prevState) => {
+    setCarConfig((prevState: CarConfig) => {
       if (!prevState) {
         return undefined;
       }

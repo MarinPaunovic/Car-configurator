@@ -34,7 +34,6 @@ const loginWithEmailAndPassword = async (email: string, password: string) => {
 export const loginHandler = async (remember: boolean, type: string, email?: string, password?: string) => {
   if (type == "login") {
     if (remember && email && password) {
-      console.log(2);
       await setPersistence(auth, browserLocalPersistence).then(async () => await loginWithEmailAndPassword(email, password));
     } else if (email && password) {
       await setPersistence(auth, browserSessionPersistence).then(

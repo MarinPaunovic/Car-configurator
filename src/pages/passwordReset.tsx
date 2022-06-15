@@ -13,7 +13,6 @@ const PasswordReset = () => {
       <input type={"text"} placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
       <button
         onClick={() => {
-          console.log(email);
           sendPasswordResetEmail(auth, email).then(() => {
             alert("Password reset sent!");
             setEmail("");

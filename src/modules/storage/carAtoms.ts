@@ -9,25 +9,25 @@ export interface ICar {
   color: Array<string>;
   productionYear: number;
 }
-
+//svi auti
 export const carsAtom = atom({
   key: "cars",
   default: <ICar>{},
   effects_UNSTABLE: [persistAtom],
 });
-
+//auto koji odaberem
 export const selectedCarAtom = atom({
   key: "selectedCar",
   default: {},
   effects_UNSTABLE: [persistAtom],
 });
-
+//slider za options menu
 export const configuratorAtom = atom({
   key: "currentConfigurator",
   default: 1,
   effects_UNSTABLE: [persistAtom],
 });
-
+//default config za svaki auto(odabrani)
 export const carDefaultConfiguratorSelector = selector({
   key: "defaultCarConfigurator",
 
@@ -53,14 +53,15 @@ export const carDefaultConfiguratorSelector = selector({
           interior: { seats: "black-gray", dash: "lunar-silver" },
         };
       default:
-        return;
+        return undefined;
     }
   },
 });
-
+//izmjena po default configu
 export const carCustomConfiguratorAtom = atom({
   key: "customCarConfigurator",
   default: carDefaultConfiguratorSelector,
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const savedConfigAtom = atom({

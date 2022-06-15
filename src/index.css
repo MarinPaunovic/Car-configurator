@@ -6,6 +6,7 @@
 @import "./modules/components/configurationView/configurationView.css";
 @import "./modules/components/pagination/pagination.css";
 @import "./modules/components/configurationEdit/configurationEdit.css";
+@import "./modules/components/configurationEdit/summary/summaryDetails.css";
 
 * {
   margin: 0px;

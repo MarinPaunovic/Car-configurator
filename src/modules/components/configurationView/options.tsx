@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { configuratorAtom, selectedCarAtom } from "../../storage/carAtoms";
+import {
+  carCustomConfiguratorAtom,
+  carDefaultConfiguratorSelector,
+  configuratorAtom,
+  selectedCarAtom,
+} from "../../storage/carAtoms";
 import { getTitleAtom, localEditAtom } from "../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 
@@ -12,6 +17,8 @@ const Options = () => {
   const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom);
   const title = useRecoilValue(getTitleAtom);
   const setLocalEdit = useSetRecoilState(localEditAtom);
+  const customConfig = useSetRecoilState(carCustomConfiguratorAtom);
+  const defaultConfig = useRecoilValue(carDefaultConfiguratorSelector);
   const currentPage = window.location.pathname;
   let isMounted = useRef(false);
 
@@ -78,7 +85,7 @@ const Options = () => {
         )
       ) : (
         <div className="options__right">
-          <Link className="options__right__edit" to="/configurationEdit">
+          <Link className="options__right__edit" to="/configurationEdit" onClick={() => customConfig(defaultConfig)}>
             Edit configuration
           </Link>
           <button className="options__right__delete">Delete</button>

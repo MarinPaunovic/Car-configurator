@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { carCustomConfiguratorAtom, selectedCarAtom } from "../../../storage/carAtoms";
-import { optionsCurrentConfigAtom } from "../../../storage/optionsAtom";
 
 type ColorTitle = {
   color: string;

@@ -1,6 +1,6 @@
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { carCustomConfiguratorAtom, configuratorAtom, savedConfigAtom, selectedCarAtom } from "../../../storage/carAtoms";
-import { localEditAtom, localEditSelector } from "../../../storage/editAtoms";
+import { localEditAtom, localEditSelector, summaryAtom } from "../../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../../storage/pageAtoms";
 import Pagination from "../../pagination/pagination";
@@ -17,7 +17,7 @@ const InteriorDetails = () => {
   const [savedConfig, setSavedConfig] = useRecoilState(savedConfigAtom);
   const editSelector = useRecoilValue(localEditSelector);
   const [currentConfigChoice, setCurrentConfigChoice] = useRecoilState(optionsCurrentConfigAtom);
-  console.log(currentConfigChoice);
+  const summary = useSetRecoilState(summaryAtom);
   return (
     <>
       {carConfig && currentConfigPage && currentConfigPage === 2 && (
@@ -77,8 +77,8 @@ const InteriorDetails = () => {
               <div className="editDetails__choice__second__wrapper">
                 {currentConfigChoice === "seats" &&
                   seats.map((item: string, i: number) => (
-                    <div className="editDetails__choice__second__wrapper__color">
-                      <div key={i} onClick={() => setLocalEdit({ value: item, edit: "seats" })}>
+                    <div className="editDetails__choice__second__wrapper__color" key={i}>
+                      <div onClick={() => setLocalEdit({ value: item, edit: "seats" })}>
                         <div className="editDetails__choice__second__wrapper__color__mark">
                           <img
                             src={require("../../../../images/short_seats/" + item + ".png")}
@@ -133,9 +133,15 @@ const InteriorDetails = () => {
                   <PopupInfo text={"text info unutar edita"} className="editDetails__choice__popup" />
                   <span className="editDetails__choice__popup__price">120000€</span>
                 </div>
-                <button className="editDetails__choice__button" onClick={() => setCurrentConfigPage(currentConfigPage + 1)}>
+                <button
+                  className="editDetails__choice__button"
+                  onClick={() => {
+                    setCurrentConfigPage(currentConfigPage + 1);
+                    summary(true);
+                  }}
+                >
                   <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    Interior
+                    Summary
                     <span className="material-symbols-outlined" style={{ color: "#FCFCFD", fontSize: "16px" }}>
                       keyboard_arrow_right
                     </span>

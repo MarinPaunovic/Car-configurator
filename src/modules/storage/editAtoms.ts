@@ -1,4 +1,5 @@
 import { atom, selector } from "recoil";
+import { persistAtom } from "./userAtoms";
 
 export const getTitleAtom = atom({
   key: "getTitle",
@@ -33,4 +34,10 @@ export const localEditSelector = selector({
         return;
     }
   },
+});
+
+export const summaryAtom = atom({
+  key: "summaryAtom",
+  default: false,
+  effects_UNSTABLE: [persistAtom],
 });
