@@ -37,3 +37,100 @@
 .homepage__configurator__emptyMessage :hover {
   color: #2525ff;
 }
+
+.savedConfigs__wrapper {
+  position: relative;
+  align-items: center;
+  display: grid;
+  width: 60%;
+  margin-left: 20%;
+  height: 180px;
+  grid-template-columns: 49.5% 1% 49.5%;
+  background-color: #fcfcfd;
+  margin-bottom: 28px;
+}
+
+.savedConfigs__createdAt {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 5%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9d9daf;
+}
+.savedConfigs__splitter {
+  height: 70%;
+  background-color: #c7c7d1;
+  width: 1px;
+}
+
+.savedConfigs__button {
+  position: absolute;
+  top: 10%;
+  right: 2%;
+  color: #9898f0;
+}
+
+.savedConfigs__info {
+  display: flex;
+  flex-direction: column;
+}
+.savedConfigs__info__wrapper p:nth-child(1) {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  color: #73738c;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.savedConfigs__info__wrapper p:nth-child(2) {
+  font-family: "Optician Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 32px;
+
+  letter-spacing: -2px;
+
+  color: #1e1ed2;
+}
+.savedConfigs__info__wrapper p:nth-child(3) {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #505062;
+}
+.savedConfigs__button__vert:hover {
+  cursor: pointer;
+}
+
+.savedConfigs__popupMenu {
+  position: absolute;
+  bottom: -38px;
+  left: -25.5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.homepage__savedConfigs {
+  margin-left: 20%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+
+  color: #2e2e38;
+}

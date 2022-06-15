@@ -30,9 +30,10 @@ const EditDetails = () => {
 
   return (
     <div className="editDetails">
-      {Object.keys(savedConfig).length !== 0 ? (
+      {/* {Object.keys(savedConfig).length !== 0 ? (
         <div className="editDetails__saved">saved config setup</div>
-      ) : currentConfigPage === 3 ? (
+      ) :  */}
+      {currentConfigPage === 3 ? (
         <SummaryDetails />
       ) : (
         carConfig && (

@@ -121,9 +121,9 @@ const InteriorDetails = () => {
                     style={{ blockSize: "70px", borderRadius: "100%" }}
                   />
                   <span>
-                    <p className="editDetails__choice__wrapper__title">
+                    <div className="editDetails__choice__wrapper__title">
                       <ColorTitleComponent color={carConfig.interior.seats} />
-                    </p>
+                    </div>
                     <p className="editDetails__choice__wrapper__sub">color</p>
                   </span>
                 </div>

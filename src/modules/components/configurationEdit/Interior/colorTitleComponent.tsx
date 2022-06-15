@@ -37,6 +37,6 @@ const ColorTitleComponent = (props: ColorTitle) => {
     }
   };
 
-  return <p>{colorTitle}</p>;
+  return <div>{colorTitle}</div>;
 };
 export default ColorTitleComponent;

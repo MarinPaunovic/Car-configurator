@@ -1,23 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
-import {
-  carCustomConfiguratorAtom,
-  carDefaultConfiguratorSelector,
-  carsAtom,
-  selectedCarAtom,
-} from "../../storage/carAtoms";
-
-interface ICar {
-  carModel: string;
-  wheels: Array<string>;
-  seats: Array<string>;
-  dash: Array<string>;
-  color: Array<string>;
-  productionYear: number;
-}
+import { carsAtom, ICar, selectedCarAtom } from "../../storage/carAtoms";
 
 const SelectCarComponent = () => {
   const setSelectedCar = useSetRecoilState(selectedCarAtom);
@@ -29,7 +15,6 @@ const SelectCarComponent = () => {
       isMounted.current = true;
       return;
     }
-    // setSelectedCar({});
     getDocs(collection(db, "Cars")).then((data) => {
       const carArray = data.docs.map((item) => {
         let myTypeCarArray: ICar = {

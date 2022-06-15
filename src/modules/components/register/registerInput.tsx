@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import RememberMe from "../rememeberMe/rememberMe";
 import { onClick } from "./registerFunctions";
 
@@ -9,8 +9,6 @@ const RegisterInput = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [remember, setRemember] = useState(false);
-
-  let navigate = useNavigate();
 
   return (
     <div className="login">

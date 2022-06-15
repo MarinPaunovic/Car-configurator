@@ -1,6 +1,11 @@
 import { atom, selector } from "recoil";
 import { persistAtom } from "./userAtoms";
 
+export type CarConfig = {
+  carModel: string;
+  interior: { seats: string; dash: string };
+  exterior: { wheels: string; color: string };
+};
 export interface ICar {
   carModel: string;
   wheels: Array<string>;
@@ -8,6 +13,11 @@ export interface ICar {
   dash: Array<string>;
   color: Array<string>;
   productionYear: number;
+  createdAt?: Array<string>;
+}
+export interface SavedConfigFetch extends ICar {
+  createdAt: Array<string>;
+  id: string;
 }
 //svi auti
 export const carsAtom = atom({
@@ -67,4 +77,5 @@ export const carCustomConfiguratorAtom = atom({
 export const savedConfigAtom = atom({
   key: "savedConfiguration",
   default: {},
+  effects_UNSTABLE: [persistAtom],
 });

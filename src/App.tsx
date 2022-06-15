@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -32,7 +32,6 @@ const App = () => {
       unsub();
     };
   }, []);
-
   return (
     <Router>
       <Routes>

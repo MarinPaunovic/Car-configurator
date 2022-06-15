@@ -1,11 +1,29 @@
+import { addDoc, collection, serverTimestamp, Timestamp } from "firebase/firestore";
+import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { selectedCarAtom } from "../../../storage/carAtoms";
+import { auth, db } from "../../../auth/db";
+import { CarConfig, carCustomConfiguratorAtom, ICar, selectedCarAtom } from "../../../storage/carAtoms";
 import CarPhotoSlider from "../../configurationView/carPhotoSlider";
 import ConfigurationDetails from "../../configurationView/configurationDetails";
 import PopupInfo from "../../popupInfo/popupInfo";
 
 const SummaryDetails = () => {
   const { year, carModel } = useRecoilValue(selectedCarAtom);
+  const carConfig = useRecoilValue<CarConfig>(carCustomConfiguratorAtom);
+
+  const saveConfig = () => {
+    if (auth.currentUser) {
+      addDoc(collection(db, "SavedConfigurations"), {
+        uid: auth.currentUser.uid,
+        productionYear: year,
+        carModel: carConfig.carModel,
+        exterior: { color: carConfig.exterior.color, wheels: carConfig.exterior.wheels },
+        interior: { seats: carConfig.interior.seats, dash: carConfig.interior.dash },
+        createdAt: serverTimestamp(),
+      });
+    }
+  };
+
   return (
     <div className="configurationView">
       <CarPhotoSlider />
@@ -21,7 +39,9 @@ const SummaryDetails = () => {
             <p className="configurationDetails__header__amount">120,000.12€</p>
           </div>
         </div>
-        <button className="summary__button"> Save your configuration </button>
+        <Link className="summary__button" onClick={() => saveConfig()} to="/">
+          Save your configuration
+        </Link>
       </div>
     </div>
   );

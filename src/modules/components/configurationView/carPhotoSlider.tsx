@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { carCustomConfiguratorAtom, selectedCarAtom } from "../../storage/carAtoms";
+import { CarConfig, carCustomConfiguratorAtom, selectedCarAtom } from "../../storage/carAtoms";
 import { summaryAtom } from "../../storage/editAtoms";
 import { previewCurrentPageAtom } from "../../storage/pageAtoms";
-import { CarConfig } from "../configurationEdit/doneButton";
+
 import Pagination from "../pagination/pagination";
 
 const CarPhotoSlider = () => {
