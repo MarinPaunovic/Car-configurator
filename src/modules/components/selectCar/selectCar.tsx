@@ -1,20 +1,22 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
 import { carsAtom, ICar, selectedCarAtom } from "../../storage/carAtoms";
 
 const SelectCarComponent = () => {
   const setSelectedCar = useSetRecoilState(selectedCarAtom);
+  const test = useRecoilValue(selectedCarAtom);
   const [cars, setCars] = useRecoilState<ICar[]>(carsAtom);
-
+  console.log(test);
   let isMounted = useRef(false);
   useEffect(() => {
     if (!isMounted.current) {
       isMounted.current = true;
       return;
     }
+    setSelectedCar({});
     getDocs(collection(db, "Cars")).then((data) => {
       const carArray = data.docs.map((item) => {
         let myTypeCarArray: ICar = {
@@ -28,6 +30,7 @@ const SelectCarComponent = () => {
         return myTypeCarArray;
       });
       setCars(carArray);
+      return () => console.log(test);
     });
   }, []);
 

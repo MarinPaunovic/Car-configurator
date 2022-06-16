@@ -1,17 +1,49 @@
-import { deleteDoc, doc } from "firebase/firestore";
-import { useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
-import { savedConfigAtom, SavedConfigFetch } from "../../storage/carAtoms";
+import {
+  CarConfig,
+  carCustomConfiguratorAtom,
+  savedConfigAtom,
+  SavedConfigFetch,
+  selectedCarAtom,
+} from "../../storage/carAtoms";
+import { savedConfigEditAtom } from "../../storage/editAtoms";
 import { popupMenuAtom } from "../../storage/optionsAtom";
 
 const SavedConfigs = () => {
   const savedConfigs = useRecoilValue<Array<SavedConfigFetch>>(savedConfigAtom);
   const [popupMenu, setPopupMenu] = useRecoilState(popupMenuAtom);
-  const [toggle, setToggle] = useState(false);
+  const setSavedConfig = useSetRecoilState(savedConfigEditAtom);
+  const carCustomEdit = useSetRecoilState(carCustomConfiguratorAtom);
+  const selectedCar = useSetRecoilState(selectedCarAtom);
+  const navigate = useNavigate();
+
+  const handleEdit = async (id: string) => {
+    setPopupMenu("");
+    await getDoc(doc(db, "SavedConfigurations", id)).then(async (snap) => {
+      if (snap.exists()) {
+        console.log(snap.data().carModel);
+        let array: CarConfig = {
+          carModel: snap.data().carModel,
+          exterior: { color: snap.data().exterior.color, wheels: snap.data().exterior.wheels },
+          interior: { dash: snap.data().interior.dash, seats: snap.data().interior.seats },
+        };
+        await getDocs(query(collection(db, "Cars"), where("carModel", "==", snap.data().carModel))).then((snap) => {
+          selectedCar(snap.docs[0].data());
+        });
+        setSavedConfig(id);
+        carCustomEdit(array);
+      }
+    });
+    navigate("/configurationEdit");
+  };
 
   const handleDelete = (id: string) => {
-    deleteDoc(doc(db, "SavedConfigurations", id));
+    console.log(id);
+    setPopupMenu("");
+    // deleteDoc(doc(db, "SavedConfigurations", id));
   };
   return (
     <>
@@ -42,21 +74,28 @@ const SavedConfigs = () => {
                 </div>
               </div>
             </div>
-            <div
-              className="savedConfigs__button"
-              onClick={() => {
-                if (popupMenu && popupMenu === item.id) {
-                  setPopupMenu("");
-                } else setPopupMenu(item.id);
-              }}
-            >
-              <span className="material-symbols-outlined savedConfigs__button__vert">more_vert</span>
+            <div className="savedConfigs__button">
+              <button
+                className="material-symbols-outlined savedConfigs__button__vert"
+                onClick={() => {
+                  if (popupMenu && popupMenu === item.id) {
+                    setPopupMenu("");
+                  } else setPopupMenu(item.id);
+                }}
+              >
+                more_vert
+              </button>
               <div
                 className="savedConfigs__popupMenu"
                 style={popupMenu === item.id ? { display: "flex" } : { display: "none" }}
               >
-                <button onClick={() => undefined}>Edit Configuration</button>
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                <button className="savedConfigs__editButton" onClick={() => handleEdit(item.id)}>
+                  Edit configuration
+                </button>
+                <span className="savedConfigs__button__splitter"></span>
+                <button className="savedConfigs__deleteButton" onClick={() => handleDelete(item.id)}>
+                  Delete
+                </button>
               </div>
             </div>
           </div>

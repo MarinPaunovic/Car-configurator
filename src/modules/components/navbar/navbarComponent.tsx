@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logout from "../logout/logout";
 
 const NavbarComponent = () => {
   const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="navbar">
-      <div className="navbar__logo">
+      <div className="navbar__logo" onClick={() => navigate("/")}>
         <img src={require("../../../images/prototypLogo.png")}></img>
       </div>
       <div className="navbar__rightSide">

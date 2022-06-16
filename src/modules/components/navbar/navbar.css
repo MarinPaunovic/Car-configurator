@@ -11,6 +11,9 @@
 .navbar__logo {
   margin-left: 25px;
 }
+.navbar__logo:hover {
+  cursor: pointer;
+}
 
 .navbar__rightSide {
   display: flex;

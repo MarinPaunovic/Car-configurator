@@ -1,15 +1,22 @@
-import { addDoc, collection, serverTimestamp, Timestamp } from "firebase/firestore";
-import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import { addDoc, collection, doc, serverTimestamp, Timestamp, updateDoc } from "firebase/firestore";
+import { Link, useNavigate } from "react-router-dom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { auth, db } from "../../../auth/db";
 import { CarConfig, carCustomConfiguratorAtom, ICar, selectedCarAtom } from "../../../storage/carAtoms";
+import { savedConfigEditAtom } from "../../../storage/editAtoms";
 import CarPhotoSlider from "../../configurationView/carPhotoSlider";
 import ConfigurationDetails from "../../configurationView/configurationDetails";
 import PopupInfo from "../../popupInfo/popupInfo";
 
 const SummaryDetails = () => {
-  const { year, carModel } = useRecoilValue(selectedCarAtom);
+  const { year, productionYear, carModel } = useRecoilValue(selectedCarAtom);
+  const test = useRecoilValue(selectedCarAtom);
   const carConfig = useRecoilValue<CarConfig>(carCustomConfiguratorAtom);
+  const savedConfigEdit = useRecoilValue(savedConfigEditAtom);
+  const setSavedConfig = useSetRecoilState(savedConfigEditAtom);
+  const carCustomEdit = useSetRecoilState(carCustomConfiguratorAtom);
+  const selectedCar = useSetRecoilState(selectedCarAtom);
+  const navigate = useNavigate();
 
   const saveConfig = () => {
     if (auth.currentUser) {
@@ -20,6 +27,22 @@ const SummaryDetails = () => {
         exterior: { color: carConfig.exterior.color, wheels: carConfig.exterior.wheels },
         interior: { seats: carConfig.interior.seats, dash: carConfig.interior.dash },
         createdAt: serverTimestamp(),
+      }).then(() => navigate("/"));
+    }
+  };
+
+  const updateConfig = () => {
+    if (auth.currentUser && savedConfigEdit) {
+      updateDoc(doc(db, "SavedConfigurations", savedConfigEdit), {
+        uid: auth.currentUser.uid,
+        productionYear: productionYear,
+        carModel: carConfig.carModel,
+        exterior: { color: carConfig.exterior.color, wheels: carConfig.exterior.wheels },
+        interior: { seats: carConfig.interior.seats, dash: carConfig.interior.dash },
+        createdAt: serverTimestamp(),
+      }).then(() => {
+        setSavedConfig({});
+        navigate("/");
       });
     }
   };
@@ -39,9 +62,17 @@ const SummaryDetails = () => {
             <p className="configurationDetails__header__amount">120,000.12€</p>
           </div>
         </div>
-        <Link className="summary__button" onClick={() => saveConfig()} to="/">
+        <button
+          className="summary__button"
+          onClick={() => {
+            if (savedConfigEdit.length > 0) {
+              updateConfig();
+            } else saveConfig();
+          }}
+          // to="#"
+        >
           Save your configuration
-        </Link>
+        </button>
       </div>
     </div>
   );

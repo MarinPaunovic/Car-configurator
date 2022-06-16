@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { carCustomConfiguratorAtom, configuratorAtom, savedConfigAtom, selectedCarAtom } from "../../storage/carAtoms";
+import { carCustomConfiguratorAtom, configuratorAtom } from "../../storage/carAtoms";
+import { savedConfigEditAtom } from "../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../storage/pageAtoms";
 
@@ -12,9 +13,7 @@ const EditDetails = () => {
   const carConfig = useRecoilValue(carCustomConfiguratorAtom);
   const setCurrentPage = useSetRecoilState(previewCurrentPageAtom);
   const currentConfigPage = useRecoilValue(configuratorAtom);
-  const savedConfig = useRecoilValue(savedConfigAtom);
   const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom);
-  const resetSelectedCar = useSetRecoilState(selectedCarAtom);
   let isMounted = useRef(false);
 
   useEffect(() => {
@@ -30,9 +29,6 @@ const EditDetails = () => {
 
   return (
     <div className="editDetails">
-      {/* {Object.keys(savedConfig).length !== 0 ? (
-        <div className="editDetails__saved">saved config setup</div>
-      ) :  */}
       {currentConfigPage === 3 ? (
         <SummaryDetails />
       ) : (

@@ -1,4 +1,5 @@
 import { atom, selector } from "recoil";
+import { CarConfig } from "./carAtoms";
 import { persistAtom } from "./userAtoms";
 
 export const getTitleAtom = atom({
@@ -39,5 +40,11 @@ export const localEditSelector = selector({
 export const summaryAtom = atom({
   key: "summaryAtom",
   default: false,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const savedConfigEditAtom = atom({
+  key: "savedConfigEditAtom",
+  default: <string>{},
   effects_UNSTABLE: [persistAtom],
 });

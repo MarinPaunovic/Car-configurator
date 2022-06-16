@@ -49,6 +49,9 @@
   background-color: #fcfcfd;
   margin-bottom: 28px;
 }
+.savedConfigs__wrapper:last-child {
+  margin-bottom: 0px;
+}
 
 .savedConfigs__createdAt {
   display: flex;
@@ -95,9 +98,7 @@
   font-weight: 400;
   font-size: 36px;
   line-height: 32px;
-
   letter-spacing: -2px;
-
   color: #1e1ed2;
 }
 .savedConfigs__info__wrapper p:nth-child(3) {
@@ -113,16 +114,23 @@
 .savedConfigs__button__vert:hover {
   cursor: pointer;
 }
-
+.savedConfigs__button__vert {
+  border: none;
+  background-color: #fcfcfd;
+}
 .savedConfigs__popupMenu {
   position: absolute;
-  bottom: -38px;
-  left: -25.5px;
+  top: 24px;
+  right: 0;
   display: flex;
   flex-direction: column;
+  width: 170px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
+  align-items: left;
+  background-color: #ffffff;
 }
 
-.homepage__savedConfigs {
+.homepage__savedConfigs__title {
   margin-left: 20%;
   margin-top: 2.5%;
   margin-bottom: 2.5%;
@@ -131,6 +139,52 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
-
   color: #2e2e38;
+}
+.savedConfigs__editButton {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #3f3fe4;
+
+  background-color: #ffffff;
+  border: none;
+  margin-left: 10%;
+  width: fit-content;
+  height: fit-content;
+  margin-block: 5%;
+}
+.savedConfigs__deleteButton {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #d2341e;
+
+  background-color: #ffffff;
+  border: none;
+  margin-left: 10%;
+  margin-block: 5%;
+  width: fit-content;
+  height: fit-content;
+}
+
+.savedConfigs__editButton:hover,
+.savedConfigs__deleteButton:hover {
+  cursor: pointer;
+}
+
+.savedConfigs__button__splitter {
+  width: 10px;
+  height: 0.5px;
+  width: 100%;
+  background-color: #f1f1f4;
+  z-index: 1;
+}
+
+.homepage__savedConfigs {
+  min-height: 100vh;
 }

@@ -45,8 +45,8 @@ const Homepage = () => {
     <div className="homepage">
       <NavbarComponent />
       {savedConfigs ? (
-        <div>
-          <div className="homepage__savedConfigs">View saved configurations</div>
+        <div className="homepage__savedConfigs">
+          <div className="homepage__savedConfigs__title">View saved configurations</div>
           <SavedConfigs />
         </div>
       ) : (
