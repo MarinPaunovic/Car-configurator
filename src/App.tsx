@@ -1,8 +1,10 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut, Unsubscribe } from "firebase/auth";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { auth } from "./modules/auth/db";
+import { auth, db } from "./modules/auth/db";
+import { ICar, savedConfigAtom, SavedConfigFetch } from "./modules/storage/carAtoms";
 import { userAtom } from "./modules/storage/userAtoms";
 import ConfigurationEdit from "./pages/configurationEdit";
 import ConfigurationView from "./pages/configurationView";
@@ -14,24 +16,20 @@ import SelectCar from "./pages/selectCar";
 
 const App = () => {
   const [userInfo, setUserInfo] = useRecoilState(userAtom);
-  const isMounted = useRef(false);
+
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
     const unsub = onAuthStateChanged(auth, (user) => {
-      if (user && !userInfo.email) {
+      if (user) {
         setUserInfo({ name: user.displayName, uid: user.uid, email: user.email });
+        return;
       }
-      if (!user) {
-        setUserInfo({ name: "", email: "", uid: "" });
-      }
+      setUserInfo({ name: "", email: "", uid: "" });
     });
     return () => {
       unsub();
     };
   }, []);
+
   return (
     <Router>
       <Routes>

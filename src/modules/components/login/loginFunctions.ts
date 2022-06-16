@@ -11,11 +11,11 @@ const loginWithGoogle = async () => {
   await singInWithGoogle().then(() => {
     if (auth.currentUser) {
       getDocs(query(collection(db, "Users"), where("uid", "==", auth.currentUser.uid))).then((data) => {
-        if (data.empty) {
+        if (data.empty && auth.currentUser) {
           addDoc(collection(db, "Users"), {
-            name: auth.currentUser?.displayName,
-            email: auth.currentUser?.email,
-            uid: auth.currentUser?.uid,
+            name: auth.currentUser.displayName,
+            email: auth.currentUser.email,
+            uid: auth.currentUser.uid,
           });
         }
       });

@@ -1,7 +1,8 @@
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDoc, getDocs, onSnapshot, query, where } from "firebase/firestore";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { db } from "../../auth/db";
+import { auth, db } from "../../auth/db";
 import {
   CarConfig,
   carCustomConfiguratorAtom,
@@ -41,9 +42,8 @@ const SavedConfigs = () => {
   };
 
   const handleDelete = (id: string) => {
-    console.log(id);
+    deleteDoc(doc(db, "SavedConfigurations", id));
     setPopupMenu("");
-    // deleteDoc(doc(db, "SavedConfigurations", id));
   };
   return (
     <>
@@ -77,7 +77,8 @@ const SavedConfigs = () => {
             <div className="savedConfigs__button">
               <button
                 className="material-symbols-outlined savedConfigs__button__vert"
-                onClick={() => {
+                onClick={(e) => {
+                  console.log(e.currentTarget.className);
                   if (popupMenu && popupMenu === item.id) {
                     setPopupMenu("");
                   } else setPopupMenu(item.id);
