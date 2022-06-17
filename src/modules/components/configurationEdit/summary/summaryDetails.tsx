@@ -10,7 +10,6 @@ import PopupInfo from "../../popupInfo/popupInfo";
 
 const SummaryDetails = () => {
   const { year, productionYear, carModel } = useRecoilValue(selectedCarAtom);
-  const test = useRecoilValue(selectedCarAtom);
   const carConfig = useRecoilValue<CarConfig>(carCustomConfiguratorAtom);
   const savedConfigEdit = useRecoilValue(savedConfigEditAtom);
   const setSavedConfig = useSetRecoilState(savedConfigEditAtom);
@@ -69,7 +68,6 @@ const SummaryDetails = () => {
               updateConfig();
             } else saveConfig();
           }}
-          // to="#"
         >
           Save your configuration
         </button>

@@ -85,7 +85,7 @@ const Options = () => {
         )
       ) : (
         <div className="options__right">
-          <Link className="options__right__edit" to="/configurationEdit" onClick={() => customConfig(defaultConfig)}>
+          <Link className="options__right__edit" to="/configuration-edit" onClick={() => customConfig(defaultConfig)}>
             Edit configuration
           </Link>
           <button className="options__right__delete">Delete</button>

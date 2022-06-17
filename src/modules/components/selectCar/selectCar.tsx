@@ -7,9 +7,7 @@ import { carsAtom, ICar, selectedCarAtom } from "../../storage/carAtoms";
 
 const SelectCarComponent = () => {
   const setSelectedCar = useSetRecoilState(selectedCarAtom);
-  const test = useRecoilValue(selectedCarAtom);
   const [cars, setCars] = useRecoilState<ICar[]>(carsAtom);
-  console.log(test);
   let isMounted = useRef(false);
   useEffect(() => {
     if (!isMounted.current) {
@@ -30,7 +28,6 @@ const SelectCarComponent = () => {
         return myTypeCarArray;
       });
       setCars(carArray);
-      return () => console.log(test);
     });
   }, []);
 
@@ -71,7 +68,7 @@ const SelectCarComponent = () => {
                           dash: item.dash,
                         })
                       }
-                      to="/configurationView"
+                      to="/configuration-view"
                     >
                       Configure Now
                     </Link>

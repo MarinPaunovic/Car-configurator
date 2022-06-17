@@ -1,16 +1,15 @@
-import { collection, doc, getDocs, onSnapshot, query, Unsubscribe, where } from "firebase/firestore";
+import { collection, onSnapshot, query, Unsubscribe, where } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { auth, db } from "../modules/auth/db";
 import Configurator from "../modules/components/homepage/configurator";
 import SavedConfigs from "../modules/components/homepage/savedConfigs";
 import NavbarComponent from "../modules/components/navbar/navbarComponent";
 import { ICar, savedConfigAtom, SavedConfigFetch } from "../modules/storage/carAtoms";
-import { popupMenuAtom } from "../modules/storage/optionsAtom";
 
 const Homepage = () => {
   const [savedConfigs, setSavedConfig] = useRecoilState<ICar[]>(savedConfigAtom);
-  const [popupMenu, setPopupMenu] = useRecoilState(popupMenuAtom);
+
   const [loading, setLoading] = useState(true);
 
   let isMounted = useRef(false);
@@ -20,11 +19,10 @@ const Homepage = () => {
       isMounted.current = true;
       return;
     }
-    console.log("test");
+    let unsub: Unsubscribe = () => {};
     if (auth.currentUser) {
-      console.log("test");
-      getDocs(query(collection(db, "SavedConfigurations"), where("uid", "==", auth.currentUser.uid))).then((data) => {
-        const savedConfig = data.docs.map((item) => {
+      unsub = onSnapshot(query(collection(db, "SavedConfigurations"), where("uid", "==", auth.currentUser.uid)), (snap) => {
+        const savedConfig = snap.docs.map((item) => {
           let dataFetch: SavedConfigFetch = {
             id: item.id,
             carModel: item.data().carModel,
@@ -48,6 +46,9 @@ const Homepage = () => {
         setLoading(false);
       });
     }
+    return () => {
+      unsub();
+    };
   }, [auth.currentUser]);
 
   return (

@@ -65,7 +65,7 @@ const LoginComponent = () => {
               Dont have account yet? Create one <Link to="/register">here</Link>
             </div>
             <div className="login__menu__passwordReset">
-              I forgot my <Link to="/passwordReset">password</Link>
+              I forgot my <Link to="/password-reset">password</Link>
             </div>
           </div>
         </div>

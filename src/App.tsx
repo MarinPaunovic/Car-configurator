@@ -1,10 +1,8 @@
-import { onAuthStateChanged, signOut, Unsubscribe } from "firebase/auth";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
-import { useEffect, useRef } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { auth, db } from "./modules/auth/db";
-import { ICar, savedConfigAtom, SavedConfigFetch } from "./modules/storage/carAtoms";
+import { auth } from "./modules/auth/db";
 import { userAtom } from "./modules/storage/userAtoms";
 import ConfigurationEdit from "./pages/configurationEdit";
 import ConfigurationView from "./pages/configurationView";
@@ -37,8 +35,8 @@ const App = () => {
           <>
             <Route path="/" element={<Homepage />} />
             <Route path="/configure" element={<SelectCar />} />
-            <Route path="/configurationView" element={<ConfigurationView />} />
-            <Route path="/configurationEdit" element={<ConfigurationEdit />} />
+            <Route path="/configuration-view" element={<ConfigurationView />} />
+            <Route path="/configuration-edit" element={<ConfigurationEdit />} />
             <Route path="*" element={<Navigate to="/" />} />
           </>
         ) : (
@@ -46,7 +44,7 @@ const App = () => {
             {" "}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/passwordReset" element={<PasswordReset />} />
+            <Route path="/password-reset" element={<PasswordReset />} />
             <Route path="/*" element={<Navigate to="/login" />} />
           </>
         )}

@@ -38,7 +38,7 @@ const SavedConfigs = () => {
         carCustomEdit(array);
       }
     });
-    navigate("/configurationEdit");
+    navigate("/configuration-view");
   };
 
   const handleDelete = (id: string) => {
