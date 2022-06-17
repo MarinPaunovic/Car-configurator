@@ -188,3 +188,21 @@
 .homepage__savedConfigs {
   min-height: 100vh;
 }
+
+.homepage__deleteMessage {
+  position: fixed;
+  left: 84.5%;
+  flex-direction: column;
+  transition: ease 1.5s;
+  background-color: lightcoral;
+  text-overflow: ellipsis;
+  border-radius: 20px;
+  width: 15%;
+}
+.homepage__deleteMessage p {
+  margin-block: 5%;
+  margin-right: 2.5%;
+  color: #ffe5e5;
+  text-align: left;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

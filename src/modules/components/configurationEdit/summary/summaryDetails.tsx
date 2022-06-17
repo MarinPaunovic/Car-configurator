@@ -13,8 +13,6 @@ const SummaryDetails = () => {
   const carConfig = useRecoilValue<CarConfig>(carCustomConfiguratorAtom);
   const savedConfigEdit = useRecoilValue(savedConfigEditAtom);
   const setSavedConfig = useSetRecoilState(savedConfigEditAtom);
-  const carCustomEdit = useSetRecoilState(carCustomConfiguratorAtom);
-  const selectedCar = useSetRecoilState(selectedCarAtom);
   const navigate = useNavigate();
 
   const saveConfig = () => {

@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
 import { carsAtom, ICar, selectedCarAtom } from "../../storage/carAtoms";
+import { savedConfigEditAtom } from "../../storage/editAtoms";
 
 const SelectCarComponent = () => {
   const setSelectedCar = useSetRecoilState(selectedCarAtom);
+  const setSavedConfigEdit = useSetRecoilState(savedConfigEditAtom);
   const [cars, setCars] = useRecoilState<ICar[]>(carsAtom);
   let isMounted = useRef(false);
   useEffect(() => {
@@ -27,8 +29,10 @@ const SelectCarComponent = () => {
         };
         return myTypeCarArray;
       });
+
       setCars(carArray);
     });
+    setSavedConfigEdit("");
   }, []);
 
   return (

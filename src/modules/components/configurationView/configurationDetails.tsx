@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   carCustomConfiguratorAtom,
@@ -5,7 +6,7 @@ import {
   configuratorAtom,
   selectedCarAtom,
 } from "../../storage/carAtoms";
-import { summaryAtom } from "../../storage/editAtoms";
+import { savedConfigEditAtom, summaryAtom } from "../../storage/editAtoms";
 import PopupInfo from "../popupInfo/popupInfo";
 
 const ConfigurationDetails = () => {
@@ -14,7 +15,8 @@ const ConfigurationDetails = () => {
   const carCustomConfig = useRecoilValue(carCustomConfiguratorAtom);
   const currentConfigPage = useSetRecoilState(configuratorAtom);
   const summary = useRecoilValue(summaryAtom);
-
+  const savedConfigEdit = useRecoilValue(savedConfigEditAtom);
+  console.log(savedConfigEdit, summary);
   return (
     <>
       <div className="configurationDetails__header">
@@ -31,14 +33,16 @@ const ConfigurationDetails = () => {
         <div className="configurationDetails__details">
           <div className="configurationDetails__details__title">Your configuration details</div>
           <div className="configurationDetails__details__wrapper">
-            {summary ? (
+            {summary || savedConfigEdit ? (
               <>
                 <div className="configurationDetails__details__exterior">
                   <span className="configurationDetails__details__exterior__title summary__title__wrapper">
                     Exterior
-                    <button className="summary__title__button" onClick={() => currentConfigPage(1)}>
-                      Edit
-                    </button>
+                    {summary && (
+                      <button className="summary__title__button" onClick={() => currentConfigPage(1)}>
+                        Edit
+                      </button>
+                    )}
                   </span>
 
                   <div className="configurationDetails__details__exterior__color">
@@ -76,9 +80,11 @@ const ConfigurationDetails = () => {
                 <div className="configurationDetails__details__interior">
                   <span className="configurationDetails__details__exterior__title summary__title__wrapper">
                     Interior{" "}
-                    <button className="summary__title__button" onClick={() => currentConfigPage(2)}>
-                      Edit
-                    </button>
+                    {summary && (
+                      <button className="summary__title__button" onClick={() => currentConfigPage(2)}>
+                        Edit
+                      </button>
+                    )}
                   </span>
 
                   <div className="configurationDetails__details__exterior__wheels">

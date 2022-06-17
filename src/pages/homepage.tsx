@@ -1,15 +1,18 @@
 import { collection, onSnapshot, query, Unsubscribe, where } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { auth, db } from "../modules/auth/db";
 import Configurator from "../modules/components/homepage/configurator";
 import SavedConfigs from "../modules/components/homepage/savedConfigs";
 import NavbarComponent from "../modules/components/navbar/navbarComponent";
 import { ICar, savedConfigAtom, SavedConfigFetch } from "../modules/storage/carAtoms";
+import { deleteMessageAtom } from "../modules/storage/deleteMessageAtom";
+import { popupMenuAtom } from "../modules/storage/optionsAtom";
 
 const Homepage = () => {
   const [savedConfigs, setSavedConfig] = useRecoilState<ICar[]>(savedConfigAtom);
-
+  const deleteMessage = useRecoilValue(deleteMessageAtom);
+  const setPopupMenu = useSetRecoilState(popupMenuAtom);
   const [loading, setLoading] = useState(true);
 
   let isMounted = useRef(false);
@@ -47,6 +50,7 @@ const Homepage = () => {
       });
     }
     return () => {
+      setPopupMenu("");
       unsub();
     };
   }, [auth.currentUser]);
@@ -59,11 +63,22 @@ const Homepage = () => {
         <div>Loading...</div>
       ) : Object.keys(savedConfigs).length ? (
         <div className="homepage__savedConfigs">
+          <div className="homepage__deleteMessage" style={deleteMessage ? { left: "84.5%" } : { left: "100%" }}>
+            <p style={{ textAlign: "center" }}>Your configuration is successfully deleted!</p>
+          </div>
           <div className="homepage__savedConfigs__title">View saved configurations</div>
           <SavedConfigs />
         </div>
       ) : (
-        <Configurator />
+        <>
+          <div
+            className="homepage__deleteMessage"
+            style={deleteMessage ? { left: "84.5%", top: "15%" } : { left: "100%", top: "15%" }}
+          >
+            <p style={{ textAlign: "center" }}>Your configuration is successfully deleted!</p>
+          </div>
+          <Configurator />
+        </>
       )}
     </div>
   );

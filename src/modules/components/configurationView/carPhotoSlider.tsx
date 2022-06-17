@@ -1,20 +1,19 @@
 import { useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { CarConfig, carCustomConfiguratorAtom, selectedCarAtom } from "../../storage/carAtoms";
-import { summaryAtom } from "../../storage/editAtoms";
+import { savedConfigEditAtom, summaryAtom } from "../../storage/editAtoms";
 import { previewCurrentPageAtom } from "../../storage/pageAtoms";
 
 import Pagination from "../pagination/pagination";
 
 const CarPhotoSlider = () => {
   const { carModel, color, wheels } = useRecoilValue(selectedCarAtom);
-  const test = useRecoilValue(selectedCarAtom);
+  const savedConfigEdit = useRecoilValue(savedConfigEditAtom);
   const [currentPage, setCurrentPage] = useRecoilState(previewCurrentPageAtom);
   const summary = useRecoilValue(summaryAtom);
   const carCustomConfig = useRecoilValue<CarConfig>(carCustomConfiguratorAtom);
   let pages: number = 5;
   let isMounted = useRef(false);
-  console.log(test);
   useEffect(() => {
     if (!isMounted.current) {
       isMounted.current = true;
@@ -28,7 +27,7 @@ const CarPhotoSlider = () => {
     <>
       {color && (
         <>
-          {summary ? (
+          {summary || savedConfigEdit ? (
             <img
               className="configurationView__img"
               src={require("../../../images/" +

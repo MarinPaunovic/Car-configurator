@@ -1,13 +1,15 @@
+import { deleteDoc, doc } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { db } from "../../auth/db";
 import {
   carCustomConfiguratorAtom,
   carDefaultConfiguratorSelector,
   configuratorAtom,
   selectedCarAtom,
 } from "../../storage/carAtoms";
-import { getTitleAtom, localEditAtom } from "../../storage/editAtoms";
+import { getTitleAtom, localEditAtom, savedConfigEditAtom } from "../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 
 const Options = () => {
@@ -17,10 +19,13 @@ const Options = () => {
   const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom);
   const title = useRecoilValue(getTitleAtom);
   const setLocalEdit = useSetRecoilState(localEditAtom);
+  const savedConfigEdit = useRecoilValue(savedConfigEditAtom);
   const customConfig = useSetRecoilState(carCustomConfiguratorAtom);
   const defaultConfig = useRecoilValue(carDefaultConfiguratorSelector);
   const currentPage = window.location.pathname;
   let isMounted = useRef(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!isMounted.current) {
@@ -32,6 +37,11 @@ const Options = () => {
       setLocalEdit({ edit: "", value: "" });
     };
   }, []);
+
+  const handleDelete = () => {
+    deleteDoc(doc(db, "SavedConfigurations", savedConfigEdit));
+    navigate("/");
+  };
   return (
     <div className={optionsCurrentConfig ? "options__short" : "options"}>
       <div className={optionsCurrentConfig ? "options__left__second" : "options__left"}>
@@ -42,7 +52,7 @@ const Options = () => {
         <div className="options__left__carModel">{carModel}</div>
       </div>
 
-      {currentPage === "/configurationEdit" ? (
+      {currentPage === "/configuration-edit" ? (
         optionsCurrentConfig ? (
           <div className="options__edit__right__second">
             <div className="options__edit__right__second__title">{title}</div>
@@ -85,10 +95,22 @@ const Options = () => {
         )
       ) : (
         <div className="options__right">
-          <Link className="options__right__edit" to="/configuration-edit" onClick={() => customConfig(defaultConfig)}>
+          <Link
+            className="options__right__edit"
+            to="/configuration-edit"
+            onClick={() => {
+              if (!savedConfigEdit) {
+                customConfig(defaultConfig);
+              }
+            }}
+          >
             Edit configuration
           </Link>
-          <button className="options__right__delete">Delete</button>
+          {savedConfigEdit && (
+            <button className="options__right__delete" onClick={() => handleDelete()}>
+              Delete
+            </button>
+          )}
         </div>
       )}
     </div>

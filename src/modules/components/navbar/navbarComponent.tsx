@@ -20,7 +20,14 @@ const NavbarComponent = () => {
         </button>
       </div>
       <div className="navbar__slideMenu" style={toggle ? { left: "89.75%" } : { left: "100%" }}>
-        <button>My saved configurations</button>
+        <button
+          onClick={() => {
+            navigate("/");
+            setToggle(!toggle);
+          }}
+        >
+          My saved configurations
+        </button>
         <span className="navbar__slideMenu__separator"></span>
         <Logout />
       </div>
