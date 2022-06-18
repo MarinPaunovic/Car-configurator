@@ -9,13 +9,12 @@ import { useSetRecoilState } from "recoil";
 const ConfigurationView = () => {
   const setSummary = useSetRecoilState(summaryAtom);
 
-  let isMounted = useRef(false);
+  // let isMounted = useRef(false);
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
-    console.log("ovo");
+    // if (!isMounted.current) {
+    //   isMounted.current = true;
+    //   return;
+    // }
     setSummary(false);
   }, []);
   return (

@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { previewCurrentPageAtom } from "../../storage/pageAtoms";
 

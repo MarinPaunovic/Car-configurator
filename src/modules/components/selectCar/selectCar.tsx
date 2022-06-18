@@ -1,7 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
 import { carsAtom, ICar, selectedCarAtom } from "../../storage/carAtoms";
 import { savedConfigEditAtom } from "../../storage/editAtoms";
@@ -10,12 +10,12 @@ const SelectCarComponent = () => {
   const setSelectedCar = useSetRecoilState(selectedCarAtom);
   const setSavedConfigEdit = useSetRecoilState(savedConfigEditAtom);
   const [cars, setCars] = useRecoilState<ICar[]>(carsAtom);
-  let isMounted = useRef(false);
+  // let isMounted = useRef(false);
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
+    // if (!isMounted.current) {
+    //   isMounted.current = true;
+    //   return;
+    // }
     setSelectedCar({});
     getDocs(collection(db, "Cars")).then((data) => {
       const carArray = data.docs.map((item) => {
@@ -29,7 +29,7 @@ const SelectCarComponent = () => {
         };
         return myTypeCarArray;
       });
-
+      console.log(carArray);
       setCars(carArray);
     });
     setSavedConfigEdit("");

@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   carCustomConfiguratorAtom,
@@ -16,7 +15,7 @@ const ConfigurationDetails = () => {
   const currentConfigPage = useSetRecoilState(configuratorAtom);
   const summary = useRecoilValue(summaryAtom);
   const savedConfigEdit = useRecoilValue(savedConfigEditAtom);
-  console.log(savedConfigEdit, summary);
+
   return (
     <>
       <div className="configurationDetails__header">

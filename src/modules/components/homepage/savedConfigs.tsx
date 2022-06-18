@@ -1,8 +1,7 @@
-import { collection, deleteDoc, doc, getDoc, getDocs, onSnapshot, query, where } from "firebase/firestore";
-import { useEffect, useRef, useState } from "react";
+import { collection, deleteDoc, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { auth, db } from "../../auth/db";
+import { db } from "../../auth/db";
 import {
   CarConfig,
   carCustomConfiguratorAtom,
@@ -26,14 +25,12 @@ const SavedConfigs = () => {
   const handleEdit = async (id: string) => {
     await getDoc(doc(db, "SavedConfigurations", id)).then(async (snap) => {
       if (snap.exists()) {
-        console.log(snap.data().carModel);
         let array: CarConfig = {
           carModel: snap.data().carModel,
           exterior: { color: snap.data().exterior.color, wheels: snap.data().exterior.wheels },
           interior: { dash: snap.data().interior.dash, seats: snap.data().interior.seats },
         };
         await getDocs(query(collection(db, "Cars"), where("carModel", "==", snap.data().carModel))).then((snap) => {
-          console.log(snap.docs[0].data(), "SNAPSHOT");
           selectedCar(snap.docs[0].data());
         });
         setSavedConfig(id);
@@ -85,7 +82,6 @@ const SavedConfigs = () => {
               <button
                 className="material-symbols-outlined savedConfigs__button__vert"
                 onClick={(e) => {
-                  console.log(e.currentTarget.className);
                   if (popupMenu && popupMenu === item.id) {
                     setPopupMenu("");
                   } else setPopupMenu(item.id);

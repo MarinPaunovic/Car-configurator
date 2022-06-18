@@ -1,5 +1,4 @@
 import { atom, selector } from "recoil";
-import { CarConfig } from "./carAtoms";
 import { persistAtom } from "./userAtoms";
 
 export const getTitleAtom = atom({

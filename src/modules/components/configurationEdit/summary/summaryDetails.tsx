@@ -1,8 +1,8 @@
-import { addDoc, collection, doc, serverTimestamp, Timestamp, updateDoc } from "firebase/firestore";
-import { Link, useNavigate } from "react-router-dom";
+import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { auth, db } from "../../../auth/db";
-import { CarConfig, carCustomConfiguratorAtom, ICar, selectedCarAtom } from "../../../storage/carAtoms";
+import { CarConfig, carCustomConfiguratorAtom, selectedCarAtom } from "../../../storage/carAtoms";
 import { savedConfigEditAtom } from "../../../storage/editAtoms";
 import CarPhotoSlider from "../../configurationView/carPhotoSlider";
 import ConfigurationDetails from "../../configurationView/configurationDetails";

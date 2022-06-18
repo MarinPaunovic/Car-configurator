@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { carCustomConfiguratorAtom, configuratorAtom, savedConfigAtom, selectedCarAtom } from "../../../storage/carAtoms";
+import { carCustomConfiguratorAtom, configuratorAtom, selectedCarAtom } from "../../../storage/carAtoms";
 import { localEditAtom, localEditSelector, summaryAtom } from "../../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../../storage/pageAtoms";
@@ -9,12 +9,11 @@ import DoneButton from "../doneButton";
 import ColorTitleComponent from "./colorTitleComponent";
 
 const InteriorDetails = () => {
-  const [carConfig, setCarConfig] = useRecoilState(carCustomConfiguratorAtom);
-  const { carModel, color, seats, dash, wheels } = useRecoilValue(selectedCarAtom);
-  const [currentPage, setCurrentPage] = useRecoilState(previewCurrentPageAtom);
+  const carConfig = useRecoilValue(carCustomConfiguratorAtom);
+  const { seats } = useRecoilValue(selectedCarAtom);
+  const currentPage = useRecoilValue(previewCurrentPageAtom);
   const [localEdit, setLocalEdit] = useRecoilState(localEditAtom);
   const [currentConfigPage, setCurrentConfigPage] = useRecoilState<number>(configuratorAtom);
-  const [savedConfig, setSavedConfig] = useRecoilState(savedConfigAtom);
   const editSelector = useRecoilValue(localEditSelector);
   const [currentConfigChoice, setCurrentConfigChoice] = useRecoilState(optionsCurrentConfigAtom);
   const summary = useSetRecoilState(summaryAtom);

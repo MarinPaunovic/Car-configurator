@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { carCustomConfiguratorAtom, configuratorAtom } from "../../storage/carAtoms";
-import { savedConfigEditAtom } from "../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../storage/pageAtoms";
 
@@ -14,13 +13,13 @@ const EditDetails = () => {
   const setCurrentPage = useSetRecoilState(previewCurrentPageAtom);
   const currentConfigPage = useRecoilValue(configuratorAtom);
   const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom);
-  let isMounted = useRef(false);
+  // let isMounted = useRef(false);
 
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
+    // if (!isMounted.current) {
+    //   isMounted.current = true;
+    //   return;
+    // }
     return () => {
       setCurrentPage(1);
       setCurrentConfigChoice("");

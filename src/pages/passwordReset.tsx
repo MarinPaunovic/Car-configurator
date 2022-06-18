@@ -1,4 +1,4 @@
-import { sendPasswordResetEmail, verifyPasswordResetCode } from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../modules/auth/db";

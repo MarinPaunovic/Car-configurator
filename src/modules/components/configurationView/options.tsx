@@ -1,5 +1,5 @@
 import { deleteDoc, doc } from "firebase/firestore";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { db } from "../../auth/db";
@@ -23,15 +23,15 @@ const Options = () => {
   const customConfig = useSetRecoilState(carCustomConfiguratorAtom);
   const defaultConfig = useRecoilValue(carDefaultConfiguratorSelector);
   const currentPage = window.location.pathname;
-  let isMounted = useRef(false);
+  // let isMounted = useRef(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
+    // if (!isMounted.current) {
+    //   isMounted.current = true;
+    //   return;
+    // }
     return () => {
       setCurrentConfig(1);
       setLocalEdit({ edit: "", value: "" });

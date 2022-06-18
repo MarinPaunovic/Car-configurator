@@ -15,14 +15,9 @@ const Homepage = () => {
   const setPopupMenu = useSetRecoilState(popupMenuAtom);
   const [loading, setLoading] = useState(true);
 
-  let isMounted = useRef(false);
-
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
     let unsub: Unsubscribe = () => {};
+    console.log("test");
     if (auth.currentUser) {
       unsub = onSnapshot(query(collection(db, "SavedConfigurations"), where("uid", "==", auth.currentUser.uid)), (snap) => {
         const savedConfig = snap.docs.map((item) => {
@@ -45,6 +40,7 @@ const Homepage = () => {
           };
           return dataFetch;
         });
+        console.log(savedConfig);
         setSavedConfig(savedConfig);
         setLoading(false);
       });

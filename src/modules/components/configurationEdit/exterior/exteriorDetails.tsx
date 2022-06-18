@@ -17,7 +17,7 @@ const ExteriorDetails = () => {
   const setChoiceTitle = useSetRecoilState(getTitleAtom);
   const localEdit = useRecoilValue(localEditAtom);
   const editSelector = useRecoilValue(localEditSelector);
-  console.log(carConfig);
+
   useEffect(() => {
     if (currentConfigChoice) {
       getTitle();

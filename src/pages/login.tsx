@@ -5,11 +5,9 @@ import { userAtom } from "../modules/storage/userAtoms";
 
 const Login = () => {
   const savedConfig = useRecoilValue(userAtom);
-  console.log(savedConfig);
   return (
     <>
       <LoginComponent />
-      <button onClick={() => console.log(savedConfig)}>click</button>
     </>
   );
 };

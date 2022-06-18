@@ -13,12 +13,12 @@ const CarPhotoSlider = () => {
   const summary = useRecoilValue(summaryAtom);
   const carCustomConfig = useRecoilValue<CarConfig>(carCustomConfiguratorAtom);
   let pages: number = 5;
-  let isMounted = useRef(false);
+  // let isMounted = useRef(false);
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
+    // if (!isMounted.current) {
+    //   isMounted.current = true;
+    //   return;
+    // }
     return () => {
       setCurrentPage(1);
     };
