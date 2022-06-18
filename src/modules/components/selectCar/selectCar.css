@@ -5,7 +5,7 @@
   gap: 32px;
   margin-left: 10%;
   margin-top: 3.5%;
-  margin-right: 5%;
+  margin-right: 10%;
 }
 
 .selectCar__car {
@@ -125,10 +125,9 @@
 
 @media only screen and (max-width: 800px) {
   .selectCar__car__img {
-    block-size: 450px;
-    max-width: 100%;
-    max-height: 100%;
-    margin-left: 0px;
+width:100%;
+object-fit: cover;
+zoom:50%;
   }
   .selelctCar__car__carModel {
     font-size: 48px;
@@ -149,6 +148,23 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .selectCar__car__img{
+        width:100%;
+    object-fit:cover;
+    zoom:30%;
+
+  }
+
+  .selectCar__label__one{
+    font-size:20px;
+  }
+  .selectCar__label__two{
+    font-size:13px;
+  }
+  .selectCar{
+    margin-left:10%;
+    margin-right:10%;
+  }
   .selelctCar__car__carModel {
     font-size: 35px;
   }

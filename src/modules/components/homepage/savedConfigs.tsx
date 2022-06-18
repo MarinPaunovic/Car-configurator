@@ -30,7 +30,9 @@ const SavedConfigs = () => {
           exterior: { color: snap.data().exterior.color, wheels: snap.data().exterior.wheels },
           interior: { dash: snap.data().interior.dash, seats: snap.data().interior.seats },
         };
-        await getDocs(query(collection(db, "Cars"), where("carModel", "==", snap.data().carModel))).then((snap) => {
+        await getDocs(
+          query(collection(db, "Cars"), where("carModel", "==", snap.data().carModel))
+        ).then((snap) => {
           selectedCar(snap.docs[0].data());
         });
         setSavedConfig(id);
@@ -56,8 +58,14 @@ const SavedConfigs = () => {
           <div className="savedConfigs__wrapper" key={i}>
             <div>
               <img
-                src={require("../../../images/" + item.carModel + "/exterior/" + item.color + "/" + item.wheels + "/3.png")}
-                style={{ blockSize: "150px" }}
+                src={require("../../../images/" +
+                  item.carModel +
+                  "/exterior/" +
+                  item.color +
+                  "/" +
+                  item.wheels +
+                  "/3.png")}
+                style={{ blockSize: "150px", width: "100%", objectFit: "contain" }}
               />
             </div>
             <div className="savedConfigs__splitter"></div>
@@ -101,7 +109,8 @@ const SavedConfigs = () => {
                   className="savedConfigs__deleteButton"
                   onClick={() => {
                     setPopupMenu("");
-                    window.confirm("Do you really want to delete configuration?") && handleDelete(item.id);
+                    window.confirm("Do you really want to delete configuration?") &&
+                      handleDelete(item.id);
                   }}
                 >
                   Delete

@@ -19,7 +19,7 @@ const NavbarComponent = () => {
           <div className="navbar__dropdownRectangleCopy"></div>
         </button>
       </div>
-      <div className="navbar__slideMenu" style={toggle ? { left: "89.75%" } : { left: "100%" }}>
+      <div className="navbar__slideMenu" style={!toggle ? { right: "-197px" } : { right: "0%" }}>
         <button
           onClick={() => {
             navigate("/");
