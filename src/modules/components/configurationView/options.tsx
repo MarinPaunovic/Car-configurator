@@ -67,29 +67,31 @@ const Options = () => {
             </span>
           </div>
         ) : (
-          <div className="options__edit__right">
+          <div className="options__edit__right__wrapper">
             {currentConfig > 1 && (
               <button onClick={() => setCurrentConfig(currentConfig - 1)} className="options__edit__right__arrowLeft">
                 <span className="material-symbols-outlined">keyboard_arrow_left</span>
               </button>
             )}
-            <div
-              className="options__edit__right__block"
-              style={currentConfig === 1 ? { fontWeight: "700" } : { fontWeight: "400" }}
-            >
-              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Exterior
-            </div>
-            <div
-              className="options__edit__right__block"
-              style={currentConfig === 2 ? { fontWeight: "700" } : { fontWeight: "400" }}
-            >
-              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>02</p> Interior
-            </div>{" "}
-            <div
-              className="options__edit__right__block"
-              style={currentConfig === 3 ? { fontWeight: "700" } : { fontWeight: "400" }}
-            >
-              <p style={{ fontWeight: "400", color: "#9D9DAF" }}>03</p> Summary
+            <div className="options__edit__right">
+              <div
+                className="options__edit__right__block"
+                style={currentConfig === 1 ? { fontWeight: "700" } : { fontWeight: "400" }}
+              >
+                <p style={{ fontWeight: "400", color: "#9D9DAF" }}>01</p> Exterior
+              </div>
+              <div
+                className="options__edit__right__block"
+                style={currentConfig === 2 ? { fontWeight: "700" } : { fontWeight: "400" }}
+              >
+                <p style={{ fontWeight: "400", color: "#9D9DAF" }}>02</p> Interior
+              </div>{" "}
+              <div
+                className="options__edit__right__block"
+                style={currentConfig === 3 ? { fontWeight: "700" } : { fontWeight: "400" }}
+              >
+                <p style={{ fontWeight: "400", color: "#9D9DAF" }}>03</p> Summary
+              </div>
             </div>
           </div>
         )

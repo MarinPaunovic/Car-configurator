@@ -1,23 +1,27 @@
-.editDetails {
-  height: calc(100vh - 150px);
-}
-
 .editDetails__new {
-  position: relative;
+  position: absolute;
+  width: 100%;
   display: grid;
   grid-template-columns: 81% 19%;
-  height: 100%;
+  min-height: calc(100vh - 150px);
 }
-.editDetails__img {
+.editDetails__wrapper {
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   gap: 40px;
   background-color: #f1f1f4;
 }
+.editDetails__img {
+  block-size: 500px;
+  width: 100%;
+  object-fit: cover;
+}
 
 .configurationEdit {
-  height: 100vh;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 .editDetails__choice {
@@ -215,4 +219,178 @@
   min-height: 68px;
   border: none;
   background-color: #1e1ed2;
+}
+
+.editDetails__choice__smallScreen__title {
+  display: none;
+  margin-top: 2%;
+  font-size: 24px;
+  font-family: "inter";
+  color: #2e2e38;
+  overflow: hidden;
+}
+.options__edit__right__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.interior__left__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  background-color: #f1f1f4;
+  height: 100%;
+}
+.interior__img {
+  width: 90%;
+  margin-left: 5%;
+}
+@media only screen and (max-width: 1550px) {
+  .editDetails__img {
+    max-height: 450px;
+  }
+}
+@media only screen and (max-width: 1320px) {
+  .editDetails__img {
+    max-height: 400px;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  .editDetails__new {
+    grid-template-columns: 77% 23%;
+  }
+  .editDetails__img {
+    max-height: 350px;
+  }
+  .editDetails__img {
+    block-size: 450px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+@media only screen and (max-width: 1110px) {
+  .editDetails__img {
+    max-height: 300px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .editDetails__new {
+    grid-template-columns: 74% 26%;
+  }
+  .editDetails__img {
+    max-height: 250px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .editDetails__new {
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: 70% 30%;
+  }
+
+  .editDetails__choice__smallScreen__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    width: 90%;
+    justify-content: space-between;
+  }
+  .editDetails__choice__items {
+    margin-top: 35px;
+    margin-left: 5%;
+  }
+  .editDetails__choice__popup {
+    margin-left: 5%;
+  }
+  .editDetails__choice__popup__price {
+    margin-right: 5%;
+  }
+  .editDetails__choice {
+    border-top: 1px solid #c7c7d1;
+    gap: 20px;
+    border-left: none;
+  }
+  .doneButton {
+    position: relative;
+  }
+  .editDetails__choice__second__wrapper {
+    gap: 0px;
+    margin: 0px;
+    gap: 10px;
+  }
+  .editDetails__choice__second {
+    border-top: 1.1px solid #b2b2bb;
+  }
+  .options__short {
+    grid-template-rows: none;
+    grid-template-columns: none;
+    display: flex;
+  }
+  .options__left__second {
+    width: 100%;
+  }
+  .options__edit__right__second__title__x {
+    display: none;
+  }
+  .options__edit__right__second__title {
+    display: none;
+  }
+  .doneButton {
+    margin-top: 5%;
+  }
+  .editDetails__choice__second__wrapper__each {
+    margin-left: 5%;
+  }
+  .editDetails__choice__second {
+    border-left: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .editDetails__img {
+    max-height: 225px;
+  }
+  .options__edit__right {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .editDetails__img {
+    max-height: 200px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .options__edit__right {
+    font-size: 12px;
+    gap: 15px;
+  }
+}
+
+@media only screen and (max-width: 485px) {
+  .editDetails__img {
+    max-height: 185px;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .editDetails__img {
+    max-height: 160px;
+  }
+}
+
+@media only screen and (max-width: 435px) {
+  .options__edit__right {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: flex-start;
+  }
+}
+@media only screen and (max-height: 315px) {
+  .interior__img {
+    margin-bottom: 15px;
+  }
 }

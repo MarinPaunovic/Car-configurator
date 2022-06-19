@@ -40,3 +40,14 @@
 .pagination .pagination__button:hover {
   cursor: pointer;
 }
+@media only screen and (max-height: 770px) {
+  .pagination {
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-height: 315px) {
+  .pagination {
+    margin-top: 0px;
+  }
+}

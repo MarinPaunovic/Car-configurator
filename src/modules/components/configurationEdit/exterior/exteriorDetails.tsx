@@ -47,12 +47,13 @@ const ExteriorDetails = () => {
     <>
       {currentConfigPage && currentConfigPage === 1 && carConfig && (
         <>
-          <div className="editDetails__img">
+          <div className="editDetails__wrapper">
             {localEdit.edit && localEdit.edit.length !== 0 ? (
               localEdit.edit === "color" ? (
                 <>
                   {editSelector && (
                     <img
+                      className="editDetails__img"
                       src={require("../../../../images/" +
                         carModel +
                         "/exterior/" +
@@ -62,7 +63,6 @@ const ExteriorDetails = () => {
                         "/" +
                         currentPage +
                         ".png")}
-                      style={{ width: "100%" }}
                     />
                   )}
                 </>
@@ -70,6 +70,7 @@ const ExteriorDetails = () => {
                 <>
                   {editSelector && (
                     <img
+                      className="editDetails__img"
                       src={require("../../../../images/" +
                         carModel +
                         "/exterior/" +
@@ -79,13 +80,13 @@ const ExteriorDetails = () => {
                         "/" +
                         currentPage +
                         ".png")}
-                      style={{ width: "100%" }}
                     />
                   )}
                 </>
               )
             ) : (
               <img
+                className="editDetails__img"
                 src={require("../../../../images/" +
                   carModel +
                   "/exterior/" +
@@ -95,7 +96,6 @@ const ExteriorDetails = () => {
                   "/" +
                   currentPage +
                   ".png")}
-                style={{ width: "100%" }}
               />
             )}
             <Pagination pagesNumber={5} />

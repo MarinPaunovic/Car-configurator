@@ -97,6 +97,8 @@
 }
 
 .configurationView__img {
+  width: 100%;
+  object-fit: contain;
   margin-top: 40px;
 }
 
@@ -105,6 +107,7 @@
   background-color: #f1f1f4;
   min-height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
 .configurationDetails__header {
@@ -266,4 +269,126 @@
 }
 .configurationDetails__details__total__amount {
   color: #2e2e38;
+}
+
+@media only screen and (max-width: 960px) {
+  .configurationView__img {
+    object-fit: contain;
+    margin-top: 0;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .configurationView__img {
+    max-height: 250px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .configurationView__img {
+    max-height: 250px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .configurationDetails__header {
+    border-bottom: solid 1.5px #595967;
+  }
+  .configurationDetails__details {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .configurationDetails__details__title {
+    width: fit-content;
+  }
+  .options__left__carModel {
+    font-size: 24px;
+  }
+  .options__left__year {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .configurationView__img {
+    max-height: 200px;
+  }
+  .options__left__carModel {
+    font-size: 20px;
+  }
+  .options__left__year {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 410px) {
+  .configurationDetails__header__info__carModel {
+    font-size: 40px;
+  }
+  .configurationDetails__header__info__year {
+    font-size: 20px;
+  }
+  .options__left__carModel {
+    font-size: 18px;
+  }
+  .options__left__year {
+    font-size: 18px;
+  }
+  .options__right__edit {
+    font-size: 14px;
+  }
+  .configurationDetails__details__total {
+    margin-bottom: 70px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .configurationDetails__details__title {
+    font-size: 20px;
+  }
+  .options__left {
+    gap: 5px;
+    text-align: left;
+  }
+  .configurationDetails__header__info__carModel {
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 340px) {
+  .options__left__year {
+    font-size: 16px;
+  }
+  .options__left__carModel {
+    font-size: 16px;
+  }
+  .options__right__edit {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 310px) {
+  .configurationDetails__header__amount {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 290px) {
+  .options__left__year {
+    font-size: 16px;
+  }
+  .options__left__carModel {
+    font-size: 16px;
+  }
+  .options__right__edit {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-height: 300px) {
+  .pagination {
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (min-height: 1300px) {
+  .summary__wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+  }
 }

@@ -1,6 +1,6 @@
 .navbar {
   background-color: #2e2e38;
-  position:relative;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -86,7 +86,7 @@
   display: flex;
   height: fit-content;
   width: fit-content;
-  position: fixed;
+  position: absolute;
   top: 80px;
   background-color: #ffffff;
   flex-direction: column;
@@ -116,8 +116,8 @@
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
 }
 
-@media only screen and (max-width:360px){
-.navbar__rightSide{
-  gap:17px;
-}
+@media only screen and (max-width: 360px) {
+  .navbar__rightSide {
+    gap: 17px;
+  }
 }

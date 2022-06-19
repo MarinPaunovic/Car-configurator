@@ -1,6 +1,6 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { carCustomConfiguratorAtom, configuratorAtom, selectedCarAtom } from "../../../storage/carAtoms";
-import { localEditAtom, localEditSelector, summaryAtom } from "../../../storage/editAtoms";
+import { getTitleAtom, localEditAtom, localEditSelector, summaryAtom } from "../../../storage/editAtoms";
 import { optionsCurrentConfigAtom } from "../../../storage/optionsAtom";
 import { previewCurrentPageAtom } from "../../../storage/pageAtoms";
 import Pagination from "../../pagination/pagination";
@@ -15,69 +15,79 @@ const InteriorDetails = () => {
   const [localEdit, setLocalEdit] = useRecoilState(localEditAtom);
   const [currentConfigPage, setCurrentConfigPage] = useRecoilState<number>(configuratorAtom);
   const editSelector = useRecoilValue(localEditSelector);
+  const title = useRecoilValue(getTitleAtom);
   const [currentConfigChoice, setCurrentConfigChoice] = useRecoilState(optionsCurrentConfigAtom);
   const summary = useSetRecoilState(summaryAtom);
   return (
     <>
       {carConfig && currentConfigPage && currentConfigPage === 2 && (
         <>
-          <div className="editDetails__img">
-            {!editSelector ? (
-              <>
-                {currentPage === 1 ? (
-                  <img
-                    src={require("../../../../images/" +
-                      carConfig.carModel +
-                      "/interior/seats/" +
-                      carConfig.interior.seats +
-                      ".png")}
-                    style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
-                  />
-                ) : (
-                  <img
-                    src={require("../../../../images/" +
-                      carConfig.carModel +
-                      "/interior/dash/" +
-                      carConfig.interior.seats +
-                      ".png")}
-                    style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
-                  />
-                )}
-                <Pagination pagesNumber={2} />
-              </>
-            ) : (
-              <>
-                {currentPage === 1 ? (
-                  <img
-                    src={require("../../../../images/" +
-                      carConfig.carModel +
-                      "/interior/seats/" +
-                      editSelector.value +
-                      ".png")}
-                    style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
-                  />
-                ) : (
-                  <img
-                    src={require("../../../../images/" +
-                      carConfig.carModel +
-                      "/interior/dash/" +
-                      editSelector.value +
-                      ".png")}
-                    style={{ width: "95%", height: "55%", marginLeft: "2.5%" }}
-                  />
-                )}
-                <Pagination pagesNumber={2} />
-              </>
-            )}
-          </div>
+          {!editSelector ? (
+            <div className="interior__left__wrapper">
+              {currentPage === 1 ? (
+                <img
+                  className="interior__img"
+                  src={require("../../../../images/" +
+                    carConfig.carModel +
+                    "/interior/seats/" +
+                    carConfig.interior.seats +
+                    ".png")}
+                />
+              ) : (
+                <img
+                  className="interior__img"
+                  src={require("../../../../images/" +
+                    carConfig.carModel +
+                    "/interior/dash/" +
+                    carConfig.interior.seats +
+                    ".png")}
+                />
+              )}
+              <Pagination pagesNumber={2} />
+            </div>
+          ) : (
+            <div className="interior__left__wrapper">
+              {currentPage === 1 ? (
+                <img
+                  className="interior__img"
+                  src={require("../../../../images/" +
+                    carConfig.carModel +
+                    "/interior/seats/" +
+                    editSelector.value +
+                    ".png")}
+                />
+              ) : (
+                <img
+                  className="interior__img"
+                  src={require("../../../../images/" + carConfig.carModel + "/interior/dash/" + editSelector.value + ".png")}
+                />
+              )}
+              <Pagination pagesNumber={2} />
+            </div>
+          )}
 
           {currentConfigChoice ? (
             <div className="editDetails__choice__second">
               <div className="editDetails__choice__second__wrapper">
+                <div className="editDetails__choice__smallScreen__title">
+                  {title}
+                  <span
+                    className="material-symbols-outlined editDetails__choice__smallScreen__title__x"
+                    onClick={() => {
+                      setCurrentConfigChoice("");
+                      setLocalEdit({ value: "", edit: "" });
+                    }}
+                  >
+                    x
+                  </span>
+                </div>
                 {currentConfigChoice === "seats" &&
                   seats.map((item: string, i: number) => (
                     <div className="editDetails__choice__second__wrapper__color" key={i}>
-                      <div onClick={() => setLocalEdit({ value: item, edit: "seats" })}>
+                      <div
+                        className="editDetails__choice__second__wrapper__each"
+                        onClick={() => setLocalEdit({ value: item, edit: "seats" })}
+                      >
                         <div className="editDetails__choice__second__wrapper__color__mark">
                           <img
                             src={require("../../../../images/short_seats/" + item + ".png")}
