@@ -105,7 +105,7 @@
 .configurationView {
   text-align: center;
   background-color: #f1f1f4;
-  min-height: 100vh;
+  min-height: calc(100vh - 150px);
   width: 100%;
   overflow: hidden;
 }
@@ -322,6 +322,12 @@
   .configurationDetails__header__info__carModel {
     font-size: 40px;
   }
+  .options__right {
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-end;
+    justify-content: center;
+  }
   .configurationDetails__header__info__year {
     font-size: 20px;
   }
@@ -334,6 +340,10 @@
   .options__right__edit {
     font-size: 14px;
   }
+  .options__right__delete {
+    font-size: 14px;
+  }
+
   .configurationDetails__details__total {
     margin-bottom: 70px;
   }
@@ -342,6 +352,12 @@
 @media only screen and (max-width: 360px) {
   .configurationDetails__details__title {
     font-size: 20px;
+  }
+  .options__right {
+    margin-right: 10px;
+  }
+  .options__right__delete {
+    font-size: 15px;
   }
   .options__left {
     gap: 5px;
@@ -353,12 +369,15 @@
 }
 @media only screen and (max-width: 340px) {
   .options__left__year {
-    font-size: 16px;
+    font-size: 14px;
   }
   .options__left__carModel {
-    font-size: 16px;
+    font-size: 14px;
   }
   .options__right__edit {
+    font-size: 12px;
+  }
+  .options__right__delete {
     font-size: 12px;
   }
 }
@@ -369,15 +388,6 @@
 }
 
 @media only screen and (max-width: 290px) {
-  .options__left__year {
-    font-size: 16px;
-  }
-  .options__left__carModel {
-    font-size: 16px;
-  }
-  .options__right__edit {
-    font-size: 12px;
-  }
 }
 @media only screen and (max-height: 300px) {
   .pagination {

@@ -50,8 +50,8 @@ const SummaryDetails = () => {
       <ConfigurationDetails />
       <div className="summary__wrapper">
         <div className="summary__left">
-          <div className="options__left">
-            <p className="options__left__year">{year}</p>
+          <div className="options__left__summary">
+            <p className="options__left__year">{year || productionYear}</p>
             <p className="options__left__carModel">{carModel}</p>
           </div>
           <div className="summary__left__infos">

@@ -29,7 +29,6 @@ const SelectCarComponent = () => {
         };
         return myTypeCarArray;
       });
-      console.log(carArray);
       setCars(carArray);
     });
     setSavedConfigEdit("");

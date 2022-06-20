@@ -212,10 +212,18 @@
   .homepage__configurator__carImage {
     object-fit: cover;
   }
+  .savedConfigs__wrapper {
+    width: 65%;
+    margin-left: 17.5%;
+  }
 }
 @media only screen and (max-width: 550px) {
   .homepage__configurator__carImage {
     zoom: 50%;
+  }
+  .savedConfigs__wrapper {
+    width: 70%;
+    margin-left: 15%;
   }
 }
 
@@ -243,6 +251,10 @@
 @media only screen and (max-width: 400px) {
   .homepage__configurator__carImage {
     zoom: 40%;
+  }
+  .savedConfigs__wrapper {
+    width: 80%;
+    margin-left: 10%;
   }
 }
 

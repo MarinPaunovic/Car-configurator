@@ -246,6 +246,9 @@
   width: 90%;
   margin-left: 5%;
 }
+/* .editDetails {
+  min-height: calc(100vh - 400px);
+} */
 @media only screen and (max-width: 1550px) {
   .editDetails__img {
     max-height: 450px;
@@ -348,12 +351,17 @@
     border-left: none;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 610px) {
   .editDetails__img {
     max-height: 225px;
   }
   .options__edit__right {
     font-size: 13px;
+  }
+  .configurationDetails__header__amount {
+    font-size: 20px;
+  }
+  .summary__left__infos {
   }
 }
 @media only screen and (max-width: 540px) {

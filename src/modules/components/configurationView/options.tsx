@@ -13,7 +13,7 @@ import { getTitleAtom, localEditAtom, savedConfigEditAtom } from "../../storage/
 import { optionsCurrentConfigAtom } from "../../storage/optionsAtom";
 
 const Options = () => {
-  const { year, carModel } = useRecoilValue(selectedCarAtom);
+  const { year, carModel, productionYear } = useRecoilValue(selectedCarAtom);
   const [currentConfig, setCurrentConfig] = useRecoilState(configuratorAtom);
   const optionsCurrentConfig = useRecoilValue(optionsCurrentConfigAtom);
   const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom);
@@ -48,7 +48,7 @@ const Options = () => {
         <Link to="/configure">
           <img src={require("../../../images/navigateBack.png")} style={{ blockSize: "22px" }} />
         </Link>
-        <div className="options__left__year">{year}</div>
+        <div className="options__left__year">{year || productionYear}</div>
         <div className="options__left__carModel">{carModel}</div>
       </div>
 
