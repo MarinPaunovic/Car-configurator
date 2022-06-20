@@ -57,7 +57,7 @@ const Homepage = () => {
         <div>Loading...</div>
       ) : Object.keys(savedConfigs).length ? (
         <div className="homepage__savedConfigs">
-          <div className="homepage__deleteMessage" style={deleteMessage ? { left: "84.5%" } : { left: "100%" }}>
+          <div className="homepage__deleteMessage" style={deleteMessage ? { right: "0%" } : { right: "-200px" }}>
             <p style={{ textAlign: "center" }}>Your configuration is successfully deleted!</p>
           </div>
           <div className="homepage__savedConfigs__title">View saved configurations</div>
@@ -67,7 +67,7 @@ const Homepage = () => {
         <>
           <div
             className="homepage__deleteMessage"
-            style={deleteMessage ? { left: "84.5%", top: "15%" } : { left: "100%", top: "15%" }}
+            style={deleteMessage ? { right: "0%", top: "15%" } : { right: "-200px", top: "15%" }}
           >
             <p style={{ textAlign: "center" }}>Your configuration is successfully deleted!</p>
           </div>
