@@ -163,6 +163,37 @@
   gap: 25px;
   font-family: Arial, Helvetica, sans-serif;
 }
+.passwordReset__input {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 20%;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+  padding-block: 150px;
+}
+.passwordReset__input__email {
+  width: 80%;
+  padding-inline: 10px;
+  padding-block: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  border-width: 0.5px;
+}
+.passwordReset__test {
+  background-color: #2e2e38;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  gap: 25px;
+  color: whitesmoke;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 @media only screen and (max-width: 1700px) {
   .login__inputBox__wrapper {
@@ -207,6 +238,9 @@
     display: flex;
     flex-direction: column;
   }
+  .passwordReset__input {
+    padding-block: 50px;
+  }
   .login__rememberMe {
     display: flex;
     flex-direction: column;
@@ -216,6 +250,13 @@
     grid-template-rows: auto;
   }
   .login__test {
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    min-height: fit-content;
+    padding: 15px;
+    padding-top: 50px;
+  }
+  .passwordReset__test {
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0px;
     min-height: fit-content;
