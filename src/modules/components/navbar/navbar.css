@@ -1,123 +1,123 @@
 .navbar {
-  background-color: #2e2e38;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 80px;
-  width: 100%;
-  align-items: center;
+	background-color: #2e2e38;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 80px;
+	width: 100%;
+	align-items: center;
 }
 
 .navbar__logo {
-  margin-left: 25px;
+	margin-left: 25px;
 }
 .navbar__logo:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .navbar__rightSide {
-  display: flex;
-  flex-direction: row;
-  gap: 55px;
-  margin-right: 30px;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	gap: 55px;
+	margin-right: 30px;
+	align-items: center;
 }
 
 .navbar__configure {
-  font-weight: 600;
-  font-family: "Inter", sans-serif;
-  padding: 5px 7.5px;
-  border: solid;
-  border-width: 0.5px;
-  border-color: #f1f1f4;
-  color: #f1f1f4;
-  background-color: #2e2e38;
-  transition: ease 0.5s;
+	font-weight: 600;
+	font-family: 'Inter', sans-serif;
+	padding: 5px 7.5px;
+	border: solid;
+	border-width: 0.5px;
+	border-color: #f1f1f4;
+	color: #f1f1f4;
+	background-color: #2e2e38;
+	transition: ease 0.5s;
 }
 .navbar__configure:hover {
-  cursor: pointer;
-  border-color: #cececf;
-  color: #cececf;
-  transition: ease 0.5s;
+	cursor: pointer;
+	border-color: #cececf;
+	color: #cececf;
+	transition: ease 0.5s;
 }
 
 .navbar__dropdown {
-  color: #f1f1f4;
-  background-color: #2e2e38;
-  border: none;
-  width: fit-content;
-  height: fit-content;
-  padding-top: 7.5px;
-  padding-bottom: 7.5px;
+	color: #f1f1f4;
+	background-color: #2e2e38;
+	border: none;
+	width: fit-content;
+	height: fit-content;
+	padding-top: 7.5px;
+	padding-bottom: 7.5px;
 }
 
 .navbar__dropdown:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .navbar__dropdownRectangle {
-  height: 3px;
-  width: 40px;
-  background-color: #f1f1f4;
-  border-radius: 3px;
-  transition: ease 0.5s;
+	height: 3px;
+	width: 40px;
+	background-color: #f1f1f4;
+	border-radius: 3px;
+	transition: ease 0.5s;
 }
 
 .navbar__dropdownRectangleCopy {
-  height: 3px;
-  width: 31px;
-  background-color: #f1f1f4;
-  margin-top: 5px;
-  border-radius: 3px;
-  transition: ease 0.5s;
+	height: 3px;
+	width: 31px;
+	background-color: #f1f1f4;
+	margin-top: 5px;
+	border-radius: 3px;
+	transition: ease 0.5s;
 }
 
 .navbar__dropdown:hover .navbar__dropdownRectangle {
-  background-color: #cececf;
-  transition: ease 0.5s;
+	background-color: #cececf;
+	transition: ease 0.5s;
 }
 .navbar__dropdown:hover .navbar__dropdownRectangleCopy {
-  background-color: #cececf;
-  transition: ease 0.5s;
+	background-color: #cececf;
+	transition: ease 0.5s;
 }
 
 .navbar__slideMenu {
-  display: flex;
-  height: fit-content;
-  width: fit-content;
-  position: absolute;
-  top: 80px;
-  background-color: #ffffff;
-  flex-direction: column;
-  transition: ease 1.5s;
+	display: flex;
+	height: fit-content;
+	width: fit-content;
+	position: absolute;
+	top: 80px;
+	background-color: #ffffff;
+	flex-direction: column;
+	transition: ease 1.5s;
 }
 
 .navbar__slideMenu button {
-  margin: 10px 15px;
-  padding: 4px 8px;
-  border: None;
-  background-color: #ffffff;
-  font-size: 14px;
+	margin: 10px 15px;
+	padding: 4px 8px;
+	border: None;
+	background-color: #ffffff;
+	font-size: 14px;
 }
 .navbar__slideMenu button:hover {
-  cursor: pointer;
-  color: lightslategray;
+	cursor: pointer;
+	color: lightslategray;
 }
 
 .navbar__slideMenu__separator {
-  height: 1.5px;
-  width: 100%;
-  background-color: gray;
+	height: 1.5px;
+	width: 100%;
+	background-color: gray;
 }
 
 .navbar__slideMenu {
-  z-index: 1;
-  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
+	z-index: 1;
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
 }
 
 @media only screen and (max-width: 360px) {
-  .navbar__rightSide {
-    gap: 17px;
-  }
+	.navbar__rightSide {
+		gap: 17px;
+	}
 }
