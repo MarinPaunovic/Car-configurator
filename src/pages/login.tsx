@@ -1,15 +1,11 @@
-import { useRecoilValue } from "recoil";
-import LoginComponent from "../modules/components/login/login";
-import { savedConfigAtom } from "../modules/storage/carAtoms";
-import { userAtom } from "../modules/storage/userAtoms";
+import LoginComponent from '../modules/components/login/loginComponent'
 
 const Login = () => {
-  const savedConfig = useRecoilValue(userAtom);
-  return (
-    <>
-      <LoginComponent />
-    </>
-  );
-};
+	return (
+		<>
+			<LoginComponent />
+		</>
+	)
+}
 
-export default Login;
+export default Login
