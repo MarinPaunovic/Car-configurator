@@ -1,13 +1,13 @@
-import NavbarComponent from "../modules/components/navbar/navbarComponent";
-import SelectCarComponent from "../modules/components/selectCar/selectCar";
+import NavbarComponent from '../modules/components/navbar/navbarComponent'
+import SelectCarComponent from '../modules/components/selectCar/selectCarComponent'
 
 const SelectCar = () => {
-  return (
-    <div className="selectCarWrapper">
-      <NavbarComponent />
-      <SelectCarComponent />
-    </div>
-  );
-};
+	return (
+		<div className="selectCarWrapper">
+			<NavbarComponent />
+			<SelectCarComponent />
+		</div>
+	)
+}
 
-export default SelectCar;
+export default SelectCar
