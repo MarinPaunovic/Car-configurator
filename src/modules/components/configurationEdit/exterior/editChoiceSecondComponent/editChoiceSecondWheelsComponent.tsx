@@ -1,14 +1,17 @@
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { carCustomConfiguratorAtom, selectedCarAtom } from '../../../../storage/carAtoms'
-import { getTitleAtom, localEditAtom } from '../../../../storage/editAtoms'
-import { optionsCurrentConfigAtom } from '../../../../storage/optionsAtom'
+import { localEditAtom } from '../../../../storage/editAtoms'
 import CheckMarkComponent from '../../checkMarkComponent'
 
 const EditChoiceSecondWheelsComponent = () => {
 	const { wheels } = useRecoilValue(selectedCarAtom)
 	const [localEdit, setLocalEdit] = useRecoilState(localEditAtom)
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
-	const title = useRecoilValue(getTitleAtom)
+
+	if (!wheels) {
+		return
+	}
+
 	return (
 		<>
 			{wheels &&
