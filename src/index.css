@@ -1,15 +1,15 @@
-@import "./modules/components/navbar/navbar.css";
-@import "./modules/components/homepage/homepage.css";
-@import "./modules/components/login/login.css";
-@import "./modules/components/register/register.css";
-@import "./modules/components/selectCar/selectCar.css";
-@import "./modules/components/configurationView/configurationView.css";
-@import "./modules/components/pagination/pagination.css";
-@import "./modules/components/configurationEdit/configurationEdit.css";
-@import "./modules/components/configurationEdit/summary/summaryDetails.css";
+@import './modules/components/navbar/navbar.css';
+@import './modules/components/homepage/homepage.css';
+@import './modules/components/login/login.css';
+@import './modules/components/register/register.css';
+@import './modules/components/selectCar/selectCar.css';
+@import './modules/components/configurationView/configurationView.css';
+@import './modules/components/pagination/pagination.css';
+@import './modules/components/configurationEdit/configurationEdit.css';
+@import './modules/components/configurationEdit/summary/summaryDetails.css';
 
 * {
-  margin: 0px;
-  padding: 0px;
-  text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
 }
