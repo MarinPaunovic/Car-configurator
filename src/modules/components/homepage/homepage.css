@@ -1,339 +1,341 @@
 .homepage {
-  min-height: 100vh;
-  background-color: #f1f1f4;
-  position: relative;
-  overflow: hidden;
+	min-height: 100vh;
+	background-color: #f1f1f4;
+	position: relative;
+	overflow: hidden;
 }
 .homepage__configurator {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: 30%;
-  width: 90%;
-  margin-inline: 5%;
-  align-items: center;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 30%;
+	width: 90%;
+	margin-inline: 5%;
+	align-items: center;
 }
 .homepage__configurator__carImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  zoom: 60%;
-  opacity: 0.2;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	zoom: 60%;
+	opacity: 0.2;
 }
 
 .homepage__configurator__emptyMessage {
-  width: 440px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-size: 20px;
-  line-height: 28px;
-  text-align: center;
-  color: #73738c;
+	width: 440px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-size: 20px;
+	line-height: 28px;
+	text-align: center;
+	color: #73738c;
 }
 
 .homepage__configurator__emptyMessage :link {
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 28px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 28px;
 }
 
 .homepage__configurator__emptyMessage :hover {
-  color: #2525ff;
+	color: #2525ff;
 }
 
 .savedConfigs__wrapper {
-  position: relative;
-  align-items: center;
-  display: grid;
-  width: 60%;
-  margin-left: 20%;
-  height: 180px;
-  grid-template-columns: 49.5% 1% 49.5%;
-  background-color: #fcfcfd;
-  margin-bottom: 28px;
+	position: relative;
+	align-items: center;
+	display: grid;
+	width: 60%;
+	margin-left: 20%;
+	height: 180px;
+	grid-template-columns: 49.5% 1% 49.5%;
+	background-color: #fcfcfd;
+	margin-bottom: 28px;
 }
 .savedConfigs__wrapper:last-child {
-  margin-bottom: 0px;
+	margin-bottom: 0px;
 }
 
 .savedConfigs__createdAt {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  margin-top: 5%;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: #9d9daf;
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
+	margin-top: 5%;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 16px;
+	color: #9d9daf;
 }
 .savedConfigs__splitter {
-  height: 70%;
-  background-color: #c7c7d1;
-  width: 1px;
+	height: 70%;
+	background-color: #c7c7d1;
+	width: 1px;
 }
 
 .savedConfigs__button {
-  position: absolute;
-  top: 10%;
-  right: 2%;
-  color: #9898f0;
+	position: absolute;
+	top: 10%;
+	right: 2%;
+	color: #9898f0;
 }
 
 .savedConfigs__info {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 .savedConfigs__info__wrapper p:nth-child(1) {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 16px;
-  color: #73738c;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 16px;
+	color: #73738c;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 }
 .savedConfigs__info__wrapper p:nth-child(2) {
-  font-family: "Optician Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 32px;
-  letter-spacing: -2px;
-  color: #1e1ed2;
+	font-family: 'Optician Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 36px;
+	line-height: 32px;
+	letter-spacing: -2px;
+	color: #1e1ed2;
 }
 .savedConfigs__info__wrapper p:nth-child(3) {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #505062;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 16px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #505062;
 }
 .savedConfigs__button__vert:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 .savedConfigs__button__vert {
-  border: none;
-  background-color: #fcfcfd;
+	border: none;
+	background-color: #fcfcfd;
 }
 .savedConfigs__popupMenu {
-  position: absolute;
-  top: 24px;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  width: 170px;
-  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
-  align-items: left;
-  background-color: #ffffff;
+	position: absolute;
+	top: 24px;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	width: 170px;
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
+	align-items: left;
+	background-color: #ffffff;
 }
-
+.homepage__savedConfigs {
+	margin-bottom: 5%;
+}
 .homepage__savedConfigs__title {
-  margin-left: 20%;
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 32px;
-  color: #2e2e38;
+	margin-left: 20%;
+	margin-top: 2.5%;
+	margin-bottom: 2.5%;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+	color: #2e2e38;
 }
 .savedConfigs__editButton {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: #3f3fe4;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	color: #3f3fe4;
 
-  background-color: #ffffff;
-  border: none;
-  margin-left: 10%;
-  width: fit-content;
-  height: fit-content;
-  margin-block: 5%;
+	background-color: #ffffff;
+	border: none;
+	margin-left: 10%;
+	width: fit-content;
+	height: fit-content;
+	margin-block: 5%;
 }
 .savedConfigs__deleteButton {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: #d2341e;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	color: #d2341e;
 
-  background-color: #ffffff;
-  border: none;
-  margin-left: 10%;
-  margin-block: 5%;
-  width: fit-content;
-  height: fit-content;
+	background-color: #ffffff;
+	border: none;
+	margin-left: 10%;
+	margin-block: 5%;
+	width: fit-content;
+	height: fit-content;
 }
 
 .savedConfigs__editButton:hover,
 .savedConfigs__deleteButton:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .savedConfigs__button__splitter {
-  width: 10px;
-  height: 0.5px;
-  width: 100%;
-  background-color: #f1f1f4;
-  z-index: 1;
+	width: 10px;
+	height: 0.5px;
+	width: 100%;
+	background-color: #f1f1f4;
+	z-index: 1;
 }
 
 .homepage__deleteMessage {
-  width: 200px;
-  display: flex;
-  position: absolute;
-  transition: ease 1.5s;
-  background-color: lightcoral;
-  border-radius: 20px;
+	width: 200px;
+	display: flex;
+	position: absolute;
+	transition: ease 1.5s;
+	background-color: lightcoral;
+	border-radius: 20px;
 }
 .homepage__deleteMessage p {
-  width: 100%;
-  padding-block: 7px;
-  padding-inline: 2.5px;
-  color: #ffe5e5;
-  text-align: left;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	width: 100%;
+	padding-block: 7px;
+	padding-inline: 2.5px;
+	color: #ffe5e5;
+	text-align: left;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 @media only screen and (max-width: 950px) {
-  .homepage__configurator__carImage {
-    object-fit: cover;
-  }
-  .savedConfigs__wrapper {
-    width: 65%;
-    margin-left: 17.5%;
-  }
+	.homepage__configurator__carImage {
+		object-fit: cover;
+	}
+	.savedConfigs__wrapper {
+		width: 65%;
+		margin-left: 17.5%;
+	}
 }
 @media only screen and (max-width: 550px) {
-  .homepage__configurator__carImage {
-    zoom: 50%;
-  }
-  .savedConfigs__wrapper {
-    width: 70%;
-    margin-left: 15%;
-  }
+	.homepage__configurator__carImage {
+		zoom: 50%;
+	}
+	.savedConfigs__wrapper {
+		width: 70%;
+		margin-left: 15%;
+	}
 }
 
 @media only screen and (max-width: 470px) {
-  .homepage__configurator__carImage {
-    zoom: 45%;
-  }
-  .homepage__configurator__emptyMessage {
-    width: 350px;
-    font-size: 15px;
-  }
-  .homepage__configurator__emptyMessage :link {
-    font-size: 15px;
-  }
-  .savedConfigs__info__wrapper p:nth-child(2) {
-    font-size: 25px;
-  }
-  .homepage__savedConfigs__title {
-    font-size: 15px;
-  }
-  .savedConfigs__createdAt {
-    font-size: 8px;
-  }
+	.homepage__configurator__carImage {
+		zoom: 45%;
+	}
+	.homepage__configurator__emptyMessage {
+		width: 350px;
+		font-size: 15px;
+	}
+	.homepage__configurator__emptyMessage :link {
+		font-size: 15px;
+	}
+	.savedConfigs__info__wrapper p:nth-child(2) {
+		font-size: 25px;
+	}
+	.homepage__savedConfigs__title {
+		font-size: 15px;
+	}
+	.savedConfigs__createdAt {
+		font-size: 8px;
+	}
 }
 @media only screen and (max-width: 400px) {
-  .homepage__configurator__carImage {
-    zoom: 40%;
-  }
-  .savedConfigs__wrapper {
-    width: 80%;
-    margin-left: 10%;
-  }
+	.homepage__configurator__carImage {
+		zoom: 40%;
+	}
+	.savedConfigs__wrapper {
+		width: 80%;
+		margin-left: 10%;
+	}
 }
 
 @media only screen and (max-width: 340px) {
-  .homepage__configurator__carImage {
-    zoom: 35%;
-  }
-  .homepage__configurator__emptyMessage {
-    font-size: 12px;
-    width: 250px;
-  }
-  .homepage__configurator__emptyMessage :link {
-    font-size: 12px;
-  }
+	.homepage__configurator__carImage {
+		zoom: 35%;
+	}
+	.homepage__configurator__emptyMessage {
+		font-size: 12px;
+		width: 250px;
+	}
+	.homepage__configurator__emptyMessage :link {
+		font-size: 12px;
+	}
 }
 
 @media only screen and (max-width: 330px) {
-  .savedConfigs__createdAt {
-    font-size: 7px;
-  }
+	.savedConfigs__createdAt {
+		font-size: 7px;
+	}
 }
 
 @media only screen and (max-width: 290px) {
-  .savedConfigs__info__wrapper p:nth-child(2) {
-    font-size: 18px;
-  }
-  .savedConfigs__info__wrapper p:nth-child(1) {
-    font-size: 10px;
-  }
-  .savedConfigs__info__wrapper p:nth-child(3) {
-    font-size: 10px;
-  }
-  .savedConfigs__wrapper {
-    height: 130px;
+	.savedConfigs__info__wrapper p:nth-child(2) {
+		font-size: 18px;
+	}
+	.savedConfigs__info__wrapper p:nth-child(1) {
+		font-size: 10px;
+	}
+	.savedConfigs__info__wrapper p:nth-child(3) {
+		font-size: 10px;
+	}
+	.savedConfigs__wrapper {
+		height: 130px;
 
-    align-content: center;
-  }
-  .savedConfigs__createdAt {
-    font-size: 6px;
-  }
-  .homepage__configurator__carImage {
-    zoom: 33%;
-  }
+		align-content: center;
+	}
+	.savedConfigs__createdAt {
+		font-size: 6px;
+	}
+	.homepage__configurator__carImage {
+		zoom: 33%;
+	}
 }
 
 @media only screen and (max-height: 770px) and (max-width: 1920px) {
-  .homepage__configurator {
-    top: 26%;
-  }
+	.homepage__configurator {
+		top: 26%;
+	}
 }
 
 @media only screen and (max-height: 600px) {
-  .homepage__configurator {
-    top: 20%;
-  }
+	.homepage__configurator {
+		top: 20%;
+	}
 }
 
 @media only screen and (max-height: 500px) {
-  .homepage__configurator {
-    position: relative;
-  }
+	.homepage__configurator {
+		position: relative;
+	}
 }
 @media only screen and (max-height: 415px) {
-  .homepage__configurator {
-    position: relative;
-  }
-  .homepage {
-    padding-bottom: 5%;
-  }
+	.homepage__configurator {
+		position: relative;
+	}
+	.homepage {
+		padding-bottom: 5%;
+	}
 }
 @media only screen and (max-height: 440px) {
-  .homepage__configurator__carImage {
-    zoom: 50%;
-  }
+	.homepage__configurator__carImage {
+		zoom: 50%;
+	}
 }
 @media only screen and (max-height: 415px) {
-  .homepage__configurator {
-    position: relative;
-  }
-  .homepage {
-    padding-bottom: 5%;
-  }
+	.homepage__configurator {
+		position: relative;
+	}
+	.homepage {
+		padding-bottom: 5%;
+	}
 }
