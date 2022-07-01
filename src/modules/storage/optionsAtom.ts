@@ -1,11 +1,11 @@
-import { atom } from "recoil";
+import { atom } from 'recoil'
 
 export const optionsCurrentConfigAtom = atom({
-  key: "optionsCurrentConfig",
-  default: "",
-});
+	key: 'optionsCurrentConfig',
+	default: ''
+})
 
 export const popupMenuAtom = atom({
-  key: "popupMenuAtom",
-  default: "",
-});
+	key: 'popupMenuAtom',
+	default: ''
+})
