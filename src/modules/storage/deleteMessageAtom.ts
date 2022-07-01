@@ -1,6 +1,6 @@
-import { atom } from "recoil";
+import { atom } from 'recoil'
 
 export const deleteMessageAtom = atom({
-  key: "deleteMessageAtom",
-  default: false,
-});
+	key: 'deleteMessageAtom',
+	default: false
+})
