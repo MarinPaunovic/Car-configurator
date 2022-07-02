@@ -18,7 +18,7 @@
 		"react-icon": "^1.0.0",
 		"react-icons": "^4.4.0",
 		"react-router-dom": "^6.3.0",
-		"react-scripts": "5.0.1",
+		"react-scripts": "^5.0.1",
 		"recoil": "^0.7.3-alpha.2",
 		"recoil-persist": "^4.2.0",
 		"typescript": "^4.7.2",
@@ -55,5 +55,11 @@
 		"singleQuote": true,
 		"printWidth": 125,
 		"tabWidth": 2
-	}
+	},
+	"compilerOptions": {
+		"baseUrl": "src"
+	},
+	"include": [
+		"src"
+	]
 }

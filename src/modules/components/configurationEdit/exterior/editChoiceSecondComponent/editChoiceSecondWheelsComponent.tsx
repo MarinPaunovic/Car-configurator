@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { carCustomConfiguratorAtom, selectedCarAtom } from '../../../../storage/carAtoms'
-import { localEditAtom } from '../../../../storage/editAtoms'
-import CheckMarkComponent from '../../checkMarkComponent'
+import { carCustomConfiguratorAtom, selectedCarAtom } from 'modules/storage/carAtoms'
+import { localEditAtom } from 'modules/storage/editAtoms'
+import CheckMarkComponent from 'modules/components/configurationEdit/checkMarkComponent'
 
 const EditChoiceSecondWheelsComponent = () => {
 	const { wheels } = useRecoilValue(selectedCarAtom)
@@ -27,7 +27,7 @@ const EditChoiceSecondWheelsComponent = () => {
 								{carConfig && (
 									<img
 										alt="car wheel"
-										src={require(`../../../../../images/${carConfig.carModel}/exterior/wheels/${item}.png`)}
+										src={require(`images/${carConfig.carModel}/exterior/wheels/${item}.png`)}
 										style={{
 											blockSize: '60px'
 										}}

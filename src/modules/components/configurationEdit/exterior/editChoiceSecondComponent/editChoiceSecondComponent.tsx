@@ -1,8 +1,8 @@
 import { useRecoilValue } from 'recoil'
-import { optionsCurrentConfigAtom } from '../../../../storage/optionsAtom'
-import DoneButton from '../../doneButton'
-import EditChoiceSecondColorComponent from './editChoiceSecondColorComponent'
-import EditChoiceSecondWheelsComponent from './editChoiceSecondWheelsComponent'
+import { optionsCurrentConfigAtom } from 'modules/storage/optionsAtom'
+import DoneButton from 'modules/components/configurationEdit/doneButton'
+import EditChoiceSecondColorComponent from 'modules/components/configurationEdit/exterior/editChoiceSecondComponent/editChoiceSecondColorComponent'
+import EditChoiceSecondWheelsComponent from 'modules/components/configurationEdit/exterior/editChoiceSecondComponent/editChoiceSecondWheelsComponent'
 
 const EditChoiceSecondComponent = () => {
 	const currentConfigChoice = useRecoilValue(optionsCurrentConfigAtom)

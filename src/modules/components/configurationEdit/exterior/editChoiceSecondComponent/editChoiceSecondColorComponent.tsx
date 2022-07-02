@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, selectedCarAtom } from '../../../../storage/carAtoms'
-import { getTitleAtom, localEditAtom } from '../../../../storage/editAtoms'
-import { optionsCurrentConfigAtom } from '../../../../storage/optionsAtom'
+import { carCustomConfiguratorAtom, selectedCarAtom } from 'modules/storage/carAtoms'
+import { getTitleAtom, localEditAtom } from 'modules/storage/editAtoms'
+import { optionsCurrentConfigAtom } from 'modules/storage/optionsAtom'
 
 const EditChoiceSecondColorComponent = () => {
 	const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom)
@@ -35,7 +35,7 @@ const EditChoiceSecondColorComponent = () => {
 						<div className="editDetails__choice__second__wrapper__color__mark">
 							<img
 								alt="car color"
-								src={require(`../../../../../images/colors/${item}.png`)}
+								src={require(`images/colors/${item}.png`)}
 								style={{
 									blockSize: '60px',
 									borderRadius: '100%'

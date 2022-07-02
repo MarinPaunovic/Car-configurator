@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, configuratorAtom } from '../../../storage/carAtoms'
-import { optionsCurrentConfigAtom } from '../../../storage/optionsAtom'
-import PopupInfo from '../../popupInfo/popupInfo'
+import { carCustomConfiguratorAtom, configuratorAtom } from 'modules/storage/carAtoms'
+import { optionsCurrentConfigAtom } from 'modules/storage/optionsAtom'
+import PopupInfo from 'modules/components/popupInfo/popupInfo'
 
 const EditChoiceComponent = () => {
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
@@ -20,7 +20,7 @@ const EditChoiceComponent = () => {
 						<>
 							<img
 								alt="car"
-								src={require(`../../../../images/colors/${carConfig.exterior.color}.png`)}
+								src={require(`images/colors/${carConfig.exterior.color}.png`)}
 								style={{
 									blockSize: '60px',
 									borderRadius: '100%'
@@ -42,7 +42,7 @@ const EditChoiceComponent = () => {
 						<>
 							<img
 								alt="car"
-								src={require(`../../../../images/${carConfig.carModel}/exterior/wheels/${carConfig.exterior.wheels}.png`)}
+								src={require(`images/${carConfig.carModel}/exterior/wheels/${carConfig.exterior.wheels}.png`)}
 								style={{ blockSize: '60px' }}
 							/>
 							<span>

@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, configuratorAtom, selectedCarAtom } from '../../../storage/carAtoms'
-import { getTitleAtom, localEditAtom, localEditSelector } from '../../../storage/editAtoms'
-import { optionsCurrentConfigAtom } from '../../../storage/optionsAtom'
-import { previewCurrentPageAtom } from '../../../storage/pageAtoms'
-import Pagination from '../../pagination/pagination'
-import EditChoiceComponent from './editChoiceComponent'
+import { carCustomConfiguratorAtom, configuratorAtom, selectedCarAtom } from 'modules/storage/carAtoms'
+import { getTitleAtom, localEditAtom, localEditSelector } from 'modules/storage/editAtoms'
+import { optionsCurrentConfigAtom } from 'modules/storage/optionsAtom'
+import { previewCurrentPageAtom } from 'modules/storage/pageAtoms'
+import Pagination from 'modules/components/pagination/pagination'
+import EditChoiceComponent from 'modules/components/configurationEdit/exterior/editChoiceComponent'
 import EditChoiceSecondComponent from './editChoiceSecondComponent/editChoiceSecondComponent'
 
 const ExteriorDetails = () => {
