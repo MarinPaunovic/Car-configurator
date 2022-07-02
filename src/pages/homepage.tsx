@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from 'firebase/auth'
 import { collection, onSnapshot, query, Unsubscribe, where } from 'firebase/firestore'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { auth, db } from 'modules/auth'
 import { Configurator, SavedConfigs, NavbarComponent } from 'modules/components'
@@ -11,13 +11,8 @@ export const Homepage = () => {
 	const deleteMessage = useRecoilValue(deleteMessageAtom)
 	const setPopupMenu = useSetRecoilState(popupMenuAtom)
 	const [loading, setLoading] = useState(true)
-	const isMounted = useRef(false)
 
 	useEffect(() => {
-		if (!isMounted.current) {
-			isMounted.current = true
-			return
-		}
 		let unsub: Unsubscribe = () => {}
 		onAuthStateChanged(auth, () => {
 			if (auth.currentUser) {
