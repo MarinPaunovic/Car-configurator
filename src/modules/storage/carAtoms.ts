@@ -22,7 +22,7 @@ export interface SavedConfigFetch extends ICar {
 //all cars
 export const carsAtom = atom({
 	key: 'cars',
-	default: <ICar>{},
+	default: {} as ICar,
 	effects_UNSTABLE: [persistAtom]
 })
 
@@ -76,6 +76,6 @@ export const carCustomConfiguratorAtom = atom({
 
 export const savedConfigAtom = atom({
 	key: 'savedConfiguration',
-	default: <ICar>{},
+	default: {} as ICar,
 	effects_UNSTABLE: [persistAtom]
 })
