@@ -8,10 +8,6 @@ const EditChoiceSecondWheelsComponent = () => {
 	const [localEdit, setLocalEdit] = useRecoilState(localEditAtom)
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
 
-	if (!wheels) {
-		return
-	}
-
 	return (
 		<>
 			{wheels &&
