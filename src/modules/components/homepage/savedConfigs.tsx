@@ -82,7 +82,7 @@ const SavedConfigs = () => {
 						<div className="savedConfigs__button">
 							<button
 								className="material-symbols-outlined savedConfigs__button__vert"
-								onClick={(e) => {
+								onClick={() => {
 									if (popupMenu && popupMenu === item.id) {
 										setPopupMenu('')
 									} else setPopupMenu(item.id)
