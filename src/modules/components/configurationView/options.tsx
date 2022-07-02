@@ -3,12 +3,7 @@ import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { db } from '../../auth/db'
-import {
-	carCustomConfiguratorAtom,
-	carDefaultConfiguratorSelector,
-	configuratorAtom,
-	selectedCarAtom
-} from '../../storage/carAtoms'
+import { configuratorAtom, selectedCarAtom } from '../../storage/carAtoms'
 import { getTitleAtom, localEditAtom, savedConfigEditAtom } from '../../storage/editAtoms'
 import { optionsCurrentConfigAtom } from '../../storage/optionsAtom'
 
@@ -20,8 +15,6 @@ const Options = () => {
 	const title = useRecoilValue(getTitleAtom)
 	const setLocalEdit = useSetRecoilState(localEditAtom)
 	const savedConfigEdit = useRecoilValue(savedConfigEditAtom)
-	const customConfig = useSetRecoilState(carCustomConfiguratorAtom)
-	const defaultConfig = useRecoilValue(carDefaultConfiguratorSelector)
 	const currentPage = window.location.pathname
 
 	const navigate = useNavigate()
@@ -92,22 +85,12 @@ const Options = () => {
 				)
 			) : (
 				<div className="options__right">
-					<Link
-						className="options__right__edit"
-						to="/configuration-edit"
-						onClick={() => {
-							if (!savedConfigEdit) {
-								customConfig(defaultConfig)
-							}
-						}}
-					>
+					<Link className="options__right__edit" to="/configuration-edit">
 						Edit configuration
 					</Link>
-					{savedConfigEdit && (
-						<button className="options__right__delete" onClick={() => handleDelete()}>
-							Delete
-						</button>
-					)}
+					<button className="options__right__delete" onClick={() => handleDelete()}>
+						Delete
+					</button>
 				</div>
 			)}
 		</div>

@@ -3,16 +3,20 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { db } from '../../auth/db'
-import { carsAtom, ICar, selectedCarAtom } from '../../storage/carAtoms'
-import { savedConfigEditAtom } from '../../storage/editAtoms'
+import { carCustomConfiguratorAtom, carsAtom, ICar, selectedCarAtom } from '../../storage/carAtoms'
+import { localEditAtom, savedConfigEditAtom } from '../../storage/editAtoms'
 
 const SelectCarComponent = () => {
 	const setSelectedCar = useSetRecoilState(selectedCarAtom)
 	const setSavedConfigEdit = useSetRecoilState(savedConfigEditAtom)
 	const [cars, setCars] = useRecoilState<ICar[]>(carsAtom)
+	const editSelector = useSetRecoilState(localEditAtom)
+	const setCustomCarConfig = useSetRecoilState(carCustomConfiguratorAtom)
 
 	useEffect(() => {
 		setSelectedCar({})
+		setCustomCarConfig({})
+		editSelector({ value: '', edit: '' })
 		getDocs(collection(db, 'Cars')).then((data) => {
 			const carArray = data.docs.map((item) => {
 				let myTypeCarArray: ICar = {
@@ -28,7 +32,7 @@ const SelectCarComponent = () => {
 			setCars(carArray)
 		})
 		setSavedConfigEdit('')
-	}, [setCars, setSavedConfigEdit, setSelectedCar])
+	}, [setCars, setSavedConfigEdit, setSelectedCar, editSelector, setCustomCarConfig])
 
 	return (
 		<>
@@ -51,7 +55,7 @@ const SelectCarComponent = () => {
 									<div className="selelctCar__car__carModel">{item.carModel}</div>
 									<Link
 										className="selectCar__car__button"
-										onClick={() =>
+										onClick={() => {
 											setSelectedCar({
 												carModel: item.carModel,
 												color: item.color,
@@ -60,8 +64,8 @@ const SelectCarComponent = () => {
 												wheels: item.wheels,
 												dash: item.dash
 											})
-										}
-										to="/configuration-view"
+										}}
+										to="/configuration-edit"
 									>
 										Configure Now
 									</Link>
