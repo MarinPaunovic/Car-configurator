@@ -1,8 +1,8 @@
 import { useRecoilValue } from 'recoil'
-import { selectedCarAtom } from '../../storage/carAtoms'
-import PopupInfo from '../popupInfo/popupInfo'
+import { selectedCarAtom } from 'modules/storage'
+import { PopupInfo } from 'modules/components'
 
-const ConfigurationDetailsHeader = () => {
+export const ConfigurationDetailsHeader = () => {
 	const { year, carModel } = useRecoilValue(selectedCarAtom)
 	return (
 		<div className="configurationDetails__header">
@@ -17,5 +17,3 @@ const ConfigurationDetailsHeader = () => {
 		</div>
 	)
 }
-
-export default ConfigurationDetailsHeader

@@ -1,9 +1,8 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, configuratorAtom } from 'modules/storage/carAtoms'
-import { optionsCurrentConfigAtom } from 'modules/storage/optionsAtom'
-import PopupInfo from 'modules/components/popupInfo/popupInfo'
+import { carCustomConfiguratorAtom, configuratorAtom, optionsCurrentConfigAtom } from 'modules/storage'
+import { PopupInfo } from 'modules/components'
 
-const EditChoiceComponent = () => {
+export const EditChoiceComponent = () => {
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
 	const [currentConfigPage, setCurrentConfigPage] = useRecoilState(configuratorAtom)
 	const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom)
@@ -78,5 +77,3 @@ const EditChoiceComponent = () => {
 		</div>
 	)
 }
-
-export default EditChoiceComponent

@@ -1,12 +1,16 @@
 import { useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { CarConfig, carCustomConfiguratorAtom, selectedCarAtom } from '../../storage/carAtoms'
-import { savedConfigEditAtom, summaryAtom } from '../../storage/editAtoms'
-import { previewCurrentPageAtom } from '../../storage/pageAtoms'
+import {
+	CarConfig,
+	carCustomConfiguratorAtom,
+	selectedCarAtom,
+	savedConfigEditAtom,
+	summaryAtom,
+	previewCurrentPageAtom
+} from 'modules/storage'
+import { Pagination } from 'modules/components'
 
-import Pagination from '../pagination/pagination'
-
-const CarPhotoSlider = () => {
+export const CarPhotoSlider = () => {
 	const { carModel, color, wheels } = useRecoilValue(selectedCarAtom)
 	const savedConfigEdit = useRecoilValue(savedConfigEditAtom)
 	const [currentPage, setCurrentPage] = useRecoilState(previewCurrentPageAtom)
@@ -43,5 +47,3 @@ const CarPhotoSlider = () => {
 		</>
 	)
 }
-
-export default CarPhotoSlider

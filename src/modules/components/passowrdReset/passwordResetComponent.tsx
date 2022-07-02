@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { sendPasswordResetEmail } from 'firebase/auth'
-import { auth } from '../../auth/db'
+import { auth } from 'modules/auth'
 
-const PasswordResetComponent = () => {
+export const PasswordResetComponent = () => {
 	const [email, setEmail] = useState('')
 	let navigate = useNavigate()
 
@@ -23,7 +23,7 @@ const PasswordResetComponent = () => {
 				<div className="login__inputBox__wrapper">
 					<div className="passwordReset__test">
 						<div className="passwordReset__inputBox">
-							<img alt="login car" className="login__img" src={require('../../../images/loginImg.png')}></img>
+							<img alt="login car" className="login__img" src={require('images/loginImg.png')}></img>
 						</div>
 						Car configurator
 					</div>
@@ -49,5 +49,3 @@ const PasswordResetComponent = () => {
 		</div>
 	)
 }
-
-export default PasswordResetComponent

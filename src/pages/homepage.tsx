@@ -2,15 +2,11 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { collection, onSnapshot, query, Unsubscribe, where } from 'firebase/firestore'
 import { useEffect, useRef, useState } from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { auth, db } from '../modules/auth/db'
-import Configurator from '../modules/components/homepage/configurator'
-import SavedConfigs from '../modules/components/homepage/savedConfigs'
-import NavbarComponent from '../modules/components/navbar/navbarComponent'
-import { savedConfigAtom, SavedConfigFetch } from '../modules/storage/carAtoms'
-import { deleteMessageAtom } from '../modules/storage/deleteMessageAtom'
-import { popupMenuAtom } from '../modules/storage/optionsAtom'
+import { auth, db } from 'modules/auth'
+import { Configurator, SavedConfigs, NavbarComponent } from 'modules/components'
+import { savedConfigAtom, SavedConfigFetch, deleteMessageAtom, popupMenuAtom } from 'modules/storage'
 
-const Homepage = () => {
+export const Homepage = () => {
 	const [savedConfigs, setSavedConfig] = useRecoilState(savedConfigAtom)
 	const deleteMessage = useRecoilValue(deleteMessageAtom)
 	const setPopupMenu = useSetRecoilState(popupMenuAtom)
@@ -88,5 +84,3 @@ const Homepage = () => {
 		</div>
 	)
 }
-
-export default Homepage

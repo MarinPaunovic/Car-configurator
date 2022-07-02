@@ -4,7 +4,7 @@ interface ColorTitle {
 	color: string
 }
 
-const ColorTitleComponent = (props: ColorTitle) => {
+export const ColorTitleComponent = (props: ColorTitle) => {
 	const { color } = props
 	const [colorTitle, setColorTitle] = useState('')
 
@@ -38,4 +38,3 @@ const ColorTitleComponent = (props: ColorTitle) => {
 
 	return <div>{colorTitle}</div>
 }
-export default ColorTitleComponent

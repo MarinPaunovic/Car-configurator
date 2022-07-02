@@ -1,7 +1,5 @@
-import RegisterInput from '../modules/components/register/registerInput'
+import { RegisterInput } from 'modules/components'
 
-const Register = () => {
+export const Register = () => {
 	return <RegisterInput />
 }
-
-export default Register

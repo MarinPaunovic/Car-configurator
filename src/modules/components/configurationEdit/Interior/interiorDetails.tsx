@@ -1,14 +1,18 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, configuratorAtom, selectedCarAtom } from '../../../storage/carAtoms'
-import { getTitleAtom, localEditAtom, localEditSelector, summaryAtom } from '../../../storage/editAtoms'
-import { optionsCurrentConfigAtom } from '../../../storage/optionsAtom'
-import { previewCurrentPageAtom } from '../../../storage/pageAtoms'
-import Pagination from '../../pagination/pagination'
-import PopupInfo from '../../popupInfo/popupInfo'
-import DoneButton from '../doneButton'
-import ColorTitleComponent from './colorTitleComponent'
+import {
+	previewCurrentPageAtom,
+	optionsCurrentConfigAtom,
+	getTitleAtom,
+	localEditAtom,
+	localEditSelector,
+	summaryAtom,
+	carCustomConfiguratorAtom,
+	configuratorAtom,
+	selectedCarAtom
+} from 'modules/storage'
+import { DoneButton, PopupInfo, Pagination, ColorTitleComponent } from 'modules/components'
 
-const InteriorDetails = () => {
+export const InteriorDetails = () => {
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
 	const { seats } = useRecoilValue(selectedCarAtom)
 	const currentPage = useRecoilValue(previewCurrentPageAtom)
@@ -158,5 +162,3 @@ const InteriorDetails = () => {
 		</>
 	)
 }
-
-export default InteriorDetails

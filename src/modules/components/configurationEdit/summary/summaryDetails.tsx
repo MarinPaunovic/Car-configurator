@@ -1,14 +1,11 @@
 import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { auth, db } from '../../../auth/db'
-import { CarConfig, carCustomConfiguratorAtom, selectedCarAtom } from '../../../storage/carAtoms'
-import { savedConfigEditAtom } from '../../../storage/editAtoms'
-import CarPhotoSlider from '../../configurationView/carPhotoSlider'
-import ConfigurationDetails from '../../configurationView/configurationDetails'
-import PopupInfo from '../../popupInfo/popupInfo'
+import { auth, db } from 'modules/auth'
+import { CarConfig, carCustomConfiguratorAtom, selectedCarAtom, savedConfigEditAtom } from 'modules/storage'
+import { CarPhotoSlider, ConfigurationDetails, PopupInfo } from 'modules/components'
 
-const SummaryDetails = () => {
+export const SummaryDetails = () => {
 	const { year, productionYear, carModel } = useRecoilValue(selectedCarAtom)
 	const carConfig = useRecoilValue<CarConfig>(carCustomConfiguratorAtom)
 	const savedConfigEdit = useRecoilValue(savedConfigEditAtom)
@@ -72,4 +69,3 @@ const SummaryDetails = () => {
 		</div>
 	)
 }
-export default SummaryDetails

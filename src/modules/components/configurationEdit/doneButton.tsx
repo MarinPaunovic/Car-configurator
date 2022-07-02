@@ -1,7 +1,11 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { CarConfig, carCustomConfiguratorAtom } from '../../storage/carAtoms'
-import { localEditAtom, localEditSelector } from '../../storage/editAtoms'
-import { optionsCurrentConfigAtom } from '../../storage/optionsAtom'
+import {
+	localEditAtom,
+	localEditSelector,
+	CarConfig,
+	carCustomConfiguratorAtom,
+	optionsCurrentConfigAtom
+} from 'modules/storage'
 
 export const DoneButton = () => {
 	const setCarConfig = useSetRecoilState(carCustomConfiguratorAtom)
@@ -60,5 +64,3 @@ export const DoneButton = () => {
 		</div>
 	)
 }
-
-export default DoneButton

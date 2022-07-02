@@ -1,9 +1,9 @@
 import { signOut } from 'firebase/auth'
 import { useSetRecoilState } from 'recoil'
-import { auth } from '../../auth/db'
-import { savedConfigAtom } from '../../storage/carAtoms'
+import { auth } from 'modules/auth'
+import { savedConfigAtom } from 'modules/storage'
 
-const Logout = () => {
+export const Logout = () => {
 	const savedConfig = useSetRecoilState(savedConfigAtom)
 	return (
 		<div>
@@ -18,5 +18,3 @@ const Logout = () => {
 		</div>
 	)
 }
-
-export default Logout

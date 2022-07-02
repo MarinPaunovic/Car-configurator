@@ -1,11 +1,11 @@
 import { useRecoilState } from 'recoil'
-import { previewCurrentPageAtom } from '../../storage/pageAtoms'
+import { previewCurrentPageAtom } from 'modules/storage'
 
 interface Pages {
 	pagesNumber: number
 }
 
-const Pagination = (props: Pages) => {
+export const Pagination = (props: Pages) => {
 	const [currentPage, setCurrentPage] = useRecoilState(previewCurrentPageAtom)
 	const { pagesNumber } = props
 
@@ -31,5 +31,3 @@ const Pagination = (props: Pages) => {
 		</div>
 	)
 }
-
-export default Pagination

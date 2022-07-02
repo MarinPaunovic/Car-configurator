@@ -1,14 +1,15 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import {
+	savedConfigEditAtom,
+	summaryAtom,
 	carCustomConfiguratorAtom,
 	carDefaultConfiguratorSelector,
 	configuratorAtom,
 	selectedCarAtom
-} from '../../storage/carAtoms'
-import { savedConfigEditAtom, summaryAtom } from '../../storage/editAtoms'
-import PopupInfo from '../popupInfo/popupInfo'
+} from 'modules/storage'
+import { PopupInfo } from 'modules/components'
 
-const ConfigurationDetails = () => {
+export const ConfigurationDetails = () => {
 	const { carModel, year } = useRecoilValue(selectedCarAtom)
 	const carConfig = useRecoilValue(carDefaultConfiguratorSelector)
 	const carCustomConfig = useRecoilValue(carCustomConfiguratorAtom)
@@ -153,5 +154,3 @@ const ConfigurationDetails = () => {
 		</>
 	)
 }
-
-export default ConfigurationDetails

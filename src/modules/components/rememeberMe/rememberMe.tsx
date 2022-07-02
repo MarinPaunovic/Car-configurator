@@ -3,7 +3,7 @@ interface IRememberMe {
 	setRemember: (remember: boolean) => void
 }
 
-const RememberMe = (props: IRememberMe) => {
+export const RememberMe = (props: IRememberMe) => {
 	const { remember, setRemember } = props
 	return (
 		<div className="login__rememberMe">
@@ -21,5 +21,3 @@ const RememberMe = (props: IRememberMe) => {
 		</div>
 	)
 }
-
-export default RememberMe

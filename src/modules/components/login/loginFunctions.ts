@@ -5,7 +5,7 @@ import {
 	signInWithEmailAndPassword
 } from 'firebase/auth'
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
-import { auth, db, singInWithGoogle } from '../../auth/db'
+import { auth, db, singInWithGoogle } from 'modules/auth'
 
 const loginWithGoogle = async () => {
 	await singInWithGoogle().then(() => {

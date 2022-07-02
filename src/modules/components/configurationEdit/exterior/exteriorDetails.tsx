@@ -1,14 +1,18 @@
 import { useEffect } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, configuratorAtom, selectedCarAtom } from 'modules/storage/carAtoms'
-import { getTitleAtom, localEditAtom, localEditSelector } from 'modules/storage/editAtoms'
-import { optionsCurrentConfigAtom } from 'modules/storage/optionsAtom'
-import { previewCurrentPageAtom } from 'modules/storage/pageAtoms'
-import Pagination from 'modules/components/pagination/pagination'
-import EditChoiceComponent from 'modules/components/configurationEdit/exterior/editChoiceComponent'
-import EditChoiceSecondComponent from './editChoiceSecondComponent/editChoiceSecondComponent'
+import {
+	optionsCurrentConfigAtom,
+	previewCurrentPageAtom,
+	getTitleAtom,
+	localEditAtom,
+	localEditSelector,
+	carCustomConfiguratorAtom,
+	configuratorAtom,
+	selectedCarAtom
+} from 'modules/storage'
+import { EditChoiceComponent, EditChoiceSecondComponent, Pagination } from 'modules/components'
 
-const ExteriorDetails = () => {
+export const ExteriorDetails = () => {
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
 	const { carModel } = useRecoilValue(selectedCarAtom)
 	const currentPage = useRecoilValue(previewCurrentPageAtom)
@@ -54,7 +58,7 @@ const ExteriorDetails = () => {
 										<img
 											alt="car"
 											className="editDetails__img"
-											src={require(`../../../../images/${carModel}/exterior/${editSelector.value}/${carConfig.exterior.wheels}/${currentPage}.png`)}
+											src={require(`images/${carModel}/exterior/${editSelector.value}/${carConfig.exterior.wheels}/${currentPage}.png`)}
 										/>
 									)}
 								</>
@@ -64,7 +68,7 @@ const ExteriorDetails = () => {
 										<img
 											alt="car"
 											className="editDetails__img"
-											src={require(`../../../../images/${carModel}/exterior/${carConfig.exterior.color}/${editSelector.value}/${currentPage}.png`)}
+											src={require(`images/${carModel}/exterior/${carConfig.exterior.color}/${editSelector.value}/${currentPage}.png`)}
 										/>
 									)}
 								</>
@@ -73,7 +77,7 @@ const ExteriorDetails = () => {
 							<img
 								alt="car"
 								className="editDetails__img"
-								src={require(`../../../../images/${carModel}/exterior/${carConfig.exterior.color}/${carConfig.exterior.wheels}/${currentPage}.png`)}
+								src={require(`images/${carModel}/exterior/${carConfig.exterior.color}/${carConfig.exterior.wheels}/${currentPage}.png`)}
 							/>
 						)}
 						<Pagination pagesNumber={5} />
@@ -84,5 +88,3 @@ const ExteriorDetails = () => {
 		</>
 	)
 }
-
-export default ExteriorDetails

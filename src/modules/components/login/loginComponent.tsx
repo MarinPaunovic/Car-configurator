@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import RememberMe from '../rememeberMe/rememberMe'
+import { RememberMe, loginHandler } from 'modules/components'
 
-import { loginHandler } from './loginFunctions'
-
-const LoginComponent = () => {
+export const LoginComponent = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [remember, setRemember] = useState(false)
@@ -73,4 +71,3 @@ const LoginComponent = () => {
 		</div>
 	)
 }
-export default LoginComponent

@@ -2,11 +2,17 @@ import { collection, getDocs } from 'firebase/firestore'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useRecoilState, useSetRecoilState } from 'recoil'
-import { db } from '../../auth/db'
-import { carCustomConfiguratorAtom, carsAtom, ICar, selectedCarAtom } from '../../storage/carAtoms'
-import { localEditAtom, savedConfigEditAtom } from '../../storage/editAtoms'
+import { db } from 'modules/auth'
+import {
+	localEditAtom,
+	savedConfigEditAtom,
+	carCustomConfiguratorAtom,
+	carsAtom,
+	ICar,
+	selectedCarAtom
+} from 'modules/storage'
 
-const SelectCarComponent = () => {
+export const SelectCarComponent = () => {
 	const setSelectedCar = useSetRecoilState(selectedCarAtom)
 	const setSavedConfigEdit = useSetRecoilState(savedConfigEditAtom)
 	const [cars, setCars] = useRecoilState<ICar[]>(carsAtom)
@@ -47,7 +53,7 @@ const SelectCarComponent = () => {
 							<div className="selectCar__car" key={i}>
 								<img
 									alt="car"
-									src={require(`../../../images/${item.carModel}/exterior/${item.color[0]}/${item.wheels[1]}/1.png`)}
+									src={require(`images/${item.carModel}/exterior/${item.color[0]}/${item.wheels[1]}/1.png`)}
 									className="selectCar__car__img"
 								></img>
 								<div className="selectCar__car__textWrapper">
@@ -77,5 +83,3 @@ const SelectCarComponent = () => {
 		</>
 	)
 }
-
-export default SelectCarComponent

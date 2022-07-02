@@ -1,0 +1,7 @@
+export * from './configurationEdit'
+export * from './configurationView'
+export * from './homepage'
+export * from './login'
+export * from './passwordReset'
+export * from './register'
+export * from './selectCar'

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import RememberMe from '../rememeberMe/rememberMe'
-import { onClick } from './registerFunctions'
 
-const RegisterInput = () => {
+import { onClick, RememberMe } from 'modules/components'
+
+export const RegisterInput = () => {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
@@ -22,7 +22,7 @@ const RegisterInput = () => {
 				<div className="login__inputBox__wrapper">
 					<div className="login__test">
 						<div>
-							<img alt="login car" className="login__img" src={require('../../../images/loginImg.png')}></img>
+							<img alt="login car" className="login__img" src={require('images/loginImg.png')}></img>
 						</div>
 						Car configurator
 					</div>
@@ -70,5 +70,3 @@ const RegisterInput = () => {
 		</div>
 	)
 }
-
-export default RegisterInput

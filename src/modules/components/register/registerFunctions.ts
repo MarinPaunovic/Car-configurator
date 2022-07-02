@@ -5,7 +5,7 @@ import {
 	setPersistence
 } from 'firebase/auth'
 import { addDoc, collection } from 'firebase/firestore'
-import { auth, db } from '../../auth/db'
+import { auth, db } from 'modules/auth'
 
 export const onClick = async (name: string, email: string, password: string, confirmPassword: string, remember: boolean) => {
 	let bool = false

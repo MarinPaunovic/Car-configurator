@@ -1,7 +1,6 @@
-import NavbarComponent from '../modules/components/navbar/navbarComponent'
-import SelectCarComponent from '../modules/components/selectCar/selectCarComponent'
+import { NavbarComponent, SelectCarComponent } from 'modules/components'
 
-const SelectCar = () => {
+export const SelectCar = () => {
 	return (
 		<div className="selectCarWrapper">
 			<NavbarComponent />
@@ -9,5 +8,3 @@ const SelectCar = () => {
 		</div>
 	)
 }
-
-export default SelectCar

@@ -1,14 +1,16 @@
 import { useEffect } from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, carDefaultConfiguratorSelector, configuratorAtom } from '../../storage/carAtoms'
-import { savedConfigEditAtom } from '../../storage/editAtoms'
-import { optionsCurrentConfigAtom } from '../../storage/optionsAtom'
-import { previewCurrentPageAtom } from '../../storage/pageAtoms'
-import ExteriorDetails from './exterior/exteriorDetails'
-import InteriorDetails from './Interior/interiorDetails'
-import SummaryDetails from './summary/summaryDetails'
+import {
+	savedConfigEditAtom,
+	previewCurrentPageAtom,
+	optionsCurrentConfigAtom,
+	carCustomConfiguratorAtom,
+	carDefaultConfiguratorSelector,
+	configuratorAtom
+} from 'modules/storage'
+import { ExteriorDetails, InteriorDetails, SummaryDetails } from 'modules/components'
 
-const EditDetails = () => {
+export const EditDetails = () => {
 	const [carConfig, setCarConfig] = useRecoilState(carCustomConfiguratorAtom)
 	const setCurrentPage = useSetRecoilState(previewCurrentPageAtom)
 	const currentConfigPage = useRecoilValue(configuratorAtom)
@@ -41,5 +43,3 @@ const EditDetails = () => {
 		</div>
 	)
 }
-
-export default EditDetails

@@ -2,12 +2,17 @@ import { deleteDoc, doc } from 'firebase/firestore'
 import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { db } from '../../auth/db'
-import { configuratorAtom, selectedCarAtom } from '../../storage/carAtoms'
-import { getTitleAtom, localEditAtom, savedConfigEditAtom } from '../../storage/editAtoms'
-import { optionsCurrentConfigAtom } from '../../storage/optionsAtom'
+import { db } from 'modules/auth'
+import {
+	configuratorAtom,
+	selectedCarAtom,
+	getTitleAtom,
+	localEditAtom,
+	savedConfigEditAtom,
+	optionsCurrentConfigAtom
+} from 'modules/storage'
 
-const Options = () => {
+export const Options = () => {
 	const { year, carModel, productionYear } = useRecoilValue(selectedCarAtom)
 	const [currentConfig, setCurrentConfig] = useRecoilState(configuratorAtom)
 	const optionsCurrentConfig = useRecoilValue(optionsCurrentConfigAtom)
@@ -96,5 +101,3 @@ const Options = () => {
 		</div>
 	)
 }
-
-export default Options

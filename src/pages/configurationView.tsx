@@ -1,12 +1,9 @@
-import Options from '../modules/components/configurationView/options'
-import NavbarComponent from '../modules/components/navbar/navbarComponent'
-import CarPhotoSlider from '../modules/components/configurationView/carPhotoSlider'
-import ConfigurationDetails from '../modules/components/configurationView/configurationDetails'
+import { CarPhotoSlider, ConfigurationDetails, NavbarComponent, Options } from 'modules/components'
 import { useEffect } from 'react'
-import { summaryAtom } from '../modules/storage/editAtoms'
+import { summaryAtom } from 'modules/storage'
 import { useSetRecoilState } from 'recoil'
 
-const ConfigurationView = () => {
+export const ConfigurationView = () => {
 	const setSummary = useSetRecoilState(summaryAtom)
 
 	useEffect(() => {
@@ -21,5 +18,3 @@ const ConfigurationView = () => {
 		</div>
 	)
 }
-
-export default ConfigurationView

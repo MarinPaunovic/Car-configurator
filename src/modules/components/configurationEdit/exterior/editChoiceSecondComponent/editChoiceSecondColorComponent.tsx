@@ -1,9 +1,13 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, selectedCarAtom } from 'modules/storage/carAtoms'
-import { getTitleAtom, localEditAtom } from 'modules/storage/editAtoms'
-import { optionsCurrentConfigAtom } from 'modules/storage/optionsAtom'
+import {
+	getTitleAtom,
+	localEditAtom,
+	optionsCurrentConfigAtom,
+	carCustomConfiguratorAtom,
+	selectedCarAtom
+} from 'modules/storage'
 
-const EditChoiceSecondColorComponent = () => {
+export const EditChoiceSecondColorComponent = () => {
 	const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom)
 	const [localEdit, setLocalEdit] = useRecoilState(localEditAtom)
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
@@ -77,5 +81,3 @@ const EditChoiceSecondColorComponent = () => {
 		</>
 	)
 }
-
-export default EditChoiceSecondColorComponent

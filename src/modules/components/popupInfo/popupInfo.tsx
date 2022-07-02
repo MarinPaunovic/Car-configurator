@@ -3,7 +3,7 @@ interface Text {
 	className: string
 }
 
-const PopupInfo = (props: Text) => {
+export const PopupInfo = (props: Text) => {
 	const { text, className } = props
 	return (
 		<div className={className}>
@@ -25,4 +25,3 @@ const PopupInfo = (props: Text) => {
 		</div>
 	)
 }
-export default PopupInfo

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Logout from '../logout/logout'
+import { Logout } from 'modules/components'
 
-const NavbarComponent = () => {
+export const NavbarComponent = () => {
 	const [toggle, setToggle] = useState(false)
 	const navigate = useNavigate()
 	return (
 		<div className="navbar">
 			<div className="navbar__logo" onClick={() => navigate('/')}>
-				<img alt="prototyp logo" src={require('../../../images/prototypLogo.png')}></img>
+				<img alt="prototyp logo" src={require('images/prototypLogo.png')}></img>
 			</div>
 			<div className="navbar__rightSide">
 				<Link className="navbar__configure" to="/configure">
@@ -34,5 +34,3 @@ const NavbarComponent = () => {
 		</div>
 	)
 }
-
-export default NavbarComponent

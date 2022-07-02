@@ -1,8 +1,6 @@
-import EditDetails from '../modules/components/configurationEdit/editDetails'
-import Options from '../modules/components/configurationView/options'
-import NavbarComponent from '../modules/components/navbar/navbarComponent'
+import { EditDetails, Options, NavbarComponent } from 'modules/components'
 
-const ConfigurationEdit = () => {
+export const ConfigurationEdit = () => {
 	return (
 		<div className="configurationEdit">
 			<NavbarComponent />
@@ -11,5 +9,3 @@ const ConfigurationEdit = () => {
 		</div>
 	)
 }
-
-export default ConfigurationEdit

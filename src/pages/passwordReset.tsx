@@ -1,7 +1,5 @@
-import PasswordResetComponent from '../modules/components/passowrdReset/passwordResetComponent'
+import { PasswordResetComponent } from 'modules/components'
 
-const PasswordReset = () => {
+export const PasswordReset = () => {
 	return <PasswordResetComponent />
 }
-
-export default PasswordReset
