@@ -13,7 +13,7 @@ interface Edit {
 
 export const localEditAtom = atom({
 	key: 'localEditAtom',
-	default: <Edit>{}
+	default: {} as Edit
 })
 
 export const localEditSelector = selector({
