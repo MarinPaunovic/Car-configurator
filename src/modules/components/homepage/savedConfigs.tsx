@@ -58,7 +58,7 @@ export const SavedConfigs = () => {
 							<img
 								alt="car"
 								src={require(`images/${item.carModel}/exterior/${item.color}/${item.wheels}/3.png`)}
-								style={{ blockSize: '150px', width: '100%', objectFit: 'contain' }}
+								style={{ blockSize: '150px', width: '84%', objectFit: 'contain', marginLeft: '8%' }}
 							/>
 						</div>
 						<div className="savedConfigs__splitter"></div>
