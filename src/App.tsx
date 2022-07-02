@@ -1,8 +1,9 @@
 import { onAuthStateChanged } from 'firebase/auth'
 import { useEffect } from 'react'
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { auth } from './modules/auth/db'
+import { savedConfigEditAtom } from './modules/storage/editAtoms'
 import { userAtom } from './modules/storage/userAtoms'
 import ConfigurationEdit from './pages/configurationEdit'
 import ConfigurationView from './pages/configurationView'
@@ -14,7 +15,7 @@ import SelectCar from './pages/selectCar'
 
 const App = () => {
 	const [userInfo, setUserInfo] = useRecoilState(userAtom)
-
+	const SavedConfig = useRecoilValue(savedConfigEditAtom)
 	useEffect(() => {
 		const unsub = onAuthStateChanged(auth, (user) => {
 			if (user) {
@@ -35,9 +36,9 @@ const App = () => {
 					<>
 						<Route path="/" element={<Homepage />} />
 						<Route path="/configure" element={<SelectCar />} />
-						<Route path="/configuration-view" element={<ConfigurationView />} />
+						{SavedConfig && <Route path="/configuration-view" element={<ConfigurationView />} />}
 						<Route path="/configuration-edit" element={<ConfigurationEdit />} />
-						<Route path="*" element={<Navigate to="/" />} />
+						<Route path="*" element={<Navigate to={'/'} />} />
 					</>
 				) : (
 					<>
