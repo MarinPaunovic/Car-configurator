@@ -15,7 +15,7 @@ export const NavbarComponent = () => {
 				<img alt="prototyp logo" src={require('images/prototypLogo.png')}></img>
 			</div>
 			<div className="navbar__rightSide">
-				{Object.keys(savedConfigs).length && (
+				{Object.keys(savedConfigs).length !== 0 && (
 					<Link className="navbar__configure" to="/configure">
 						Configure a car
 					</Link>
@@ -25,7 +25,7 @@ export const NavbarComponent = () => {
 					<div className="navbar__dropdownRectangleCopy"></div>
 				</button>
 			</div>
-			<div className="navbar__slideMenu" style={!toggle ? { right: '-197px' } : { right: '0%' }}>
+			<div className="navbar__slideMenu" style={!toggle ? { right: '-206.05px' } : { right: '0%' }}>
 				<button
 					onClick={() => {
 						navigate('/')
