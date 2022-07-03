@@ -3,7 +3,7 @@ import { collection, onSnapshot, query, Unsubscribe, where } from 'firebase/fire
 import { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { auth, db } from 'modules/auth'
-import { Configurator, SavedConfigs, NavbarComponent } from 'modules/components'
+import { Configurator, SavedConfigs, NavbarComponent, ConfigureACarButton } from 'modules/components'
 import { savedConfigAtom, SavedConfigFetch, deleteMessageAtom, popupMenuAtom } from 'modules/storage'
 
 export const Homepage = () => {
@@ -62,7 +62,11 @@ export const Homepage = () => {
 					<div className="homepage__deleteMessage" style={deleteMessage ? { right: '0%' } : { right: '-200px' }}>
 						<p style={{ textAlign: 'center' }}>Your configuration is successfully deleted!</p>
 					</div>
-					<div className="homepage__savedConfigs__title">View saved configurations</div>
+					<div className="homepage__savedConfigs__title">
+						View saved configurations
+						<ConfigureACarButton />
+					</div>
+
 					<SavedConfigs />
 				</div>
 			) : (
@@ -73,6 +77,10 @@ export const Homepage = () => {
 					>
 						<p style={{ textAlign: 'center' }}>Your configuration is successfully deleted!</p>
 					</div>
+					<div className="homepage__savedConfigs__title">
+						View saved configurations <ConfigureACarButton />
+					</div>
+
 					<Configurator />
 				</>
 			)}
