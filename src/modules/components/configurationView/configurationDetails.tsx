@@ -48,7 +48,7 @@ export const ConfigurationDetails = () => {
 									<div className="configurationDetails__details__exterior__color">
 										<img
 											alt="car color"
-											src={require(`../../../images/colors/${carCustomConfig.exterior.color}.png`)}
+											src={require(`images/colors/${carCustomConfig.exterior.color}.png`)}
 											style={{ blockSize: '60px', borderRadius: '100%' }}
 										/>
 										<div className="configurationDetails__details__text">
@@ -59,7 +59,7 @@ export const ConfigurationDetails = () => {
 									<div className="configurationDetails__details__exterior__wheels">
 										<img
 											alt="car wheels"
-											src={require(`../../../images/${carCustomConfig.carModel}/exterior/wheels/${carCustomConfig.exterior.wheels}.png`)}
+											src={require(`images/${carCustomConfig.carModel}/exterior/wheels/${carCustomConfig.exterior.wheels}.png`)}
 											style={{ blockSize: '60px' }}
 										/>
 
@@ -85,10 +85,10 @@ export const ConfigurationDetails = () => {
 										)}
 									</span>
 
-									<div className="configurationDetails__details__exterior__wheels">
+									<div className="configurationDetails__details__exterior__seats">
 										<img
 											alt="car seats"
-											src={require(`../../../images/short_seats/${carCustomConfig.interior.seats}.png`)}
+											src={require(`images/short_seats/${carCustomConfig.interior.seats}.png`)}
 											style={{ borderRadius: '100%', blockSize: '60px' }}
 										/>
 										<div className="configurationDetails__details__text">
@@ -105,7 +105,7 @@ export const ConfigurationDetails = () => {
 									<div className="configurationDetails__details__exterior__color">
 										<img
 											alt="car color"
-											src={require(`../../../images/colors/${carConfig.exterior.color}.png`)}
+											src={require(`images/colors/${carConfig.exterior.color}.png`)}
 											style={{ blockSize: '60px', borderRadius: '100%' }}
 										/>
 										<div className="configurationDetails__details__text">
@@ -116,7 +116,7 @@ export const ConfigurationDetails = () => {
 									<div className="configurationDetails__details__exterior__wheels">
 										<img
 											alt="car wheels"
-											src={require(`../../../images/${carConfig.carModel}/exterior/wheels/${carConfig.exterior.wheels}.png`)}
+											src={require(`images/${carConfig.carModel}/exterior/wheels/${carConfig.exterior.wheels}.png`)}
 											style={{ blockSize: '60px' }}
 										/>
 
@@ -130,10 +130,10 @@ export const ConfigurationDetails = () => {
 								</div>
 								<div className="configurationDetails__details__interior">
 									<span className="configurationDetails__details__exterior__title">Interior</span>
-									<div className="configurationDetails__details__exterior__wheels">
+									<div className="configurationDetails__details__exterior__seats">
 										<img
 											alt="car seats"
-											src={require(`../../../images/short_seats/${carConfig.interior.seats}.png`)}
+											src={require(`images/short_seats/${carConfig.interior.seats}.png`)}
 											style={{ borderRadius: '100%', blockSize: '60px' }}
 										/>
 										<div className="configurationDetails__details__text">
