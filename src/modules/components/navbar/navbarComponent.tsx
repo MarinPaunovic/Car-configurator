@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Logout } from 'modules/components'
+import { savedConfigAtom } from 'modules/storage'
+import { useRecoilValue } from 'recoil'
 
 export const NavbarComponent = () => {
 	const [toggle, setToggle] = useState(false)
+	const savedConfigs = useRecoilValue(savedConfigAtom)
+	console.log(savedConfigs)
 	const navigate = useNavigate()
 	return (
 		<div className="navbar">
@@ -11,9 +15,11 @@ export const NavbarComponent = () => {
 				<img alt="prototyp logo" src={require('images/prototypLogo.png')}></img>
 			</div>
 			<div className="navbar__rightSide">
-				<Link className="navbar__configure" to="/configure">
-					Configure a car
-				</Link>
+				{Object.keys(savedConfigs).length && (
+					<Link className="navbar__configure" to="/configure">
+						Configure a car
+					</Link>
+				)}
 				<button className="navbar__dropdown" onClick={() => setToggle(!toggle)}>
 					<div className="navbar__dropdownRectangle"></div>
 					<div className="navbar__dropdownRectangleCopy"></div>
