@@ -19,7 +19,7 @@ export const LoginComponent = () => {
 				<div className="login__inputBox__wrapper">
 					<div className="login__test">
 						<div>
-							<img alt="car login" className="login__img" src={require('../../../images/loginImg.png')}></img>
+							<img alt="car login" className="login__img" src={require('images/loginImg.png')}></img>
 						</div>
 						Car configurator
 					</div>
