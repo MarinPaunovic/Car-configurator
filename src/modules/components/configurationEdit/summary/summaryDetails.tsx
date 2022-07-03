@@ -42,6 +42,10 @@ export const SummaryDetails = () => {
 
 	return (
 		<div className="configurationView">
+			<div className="summary__title">
+				<p>Almost done!</p>
+				<p>Review your configuration and save your car.</p>
+			</div>
 			<CarPhotoSlider />
 			<ConfigurationDetails />
 			<div className="summary__wrapper">
