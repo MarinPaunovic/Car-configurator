@@ -2,7 +2,6 @@
 	background-color: #2e2e38;
 	position: relative;
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 	height: 80px;
 	width: 100%;
@@ -18,14 +17,13 @@
 
 .navbar__rightSide {
 	display: flex;
-	flex-direction: row;
 	gap: 40px;
 	margin-right: 40px;
 	align-items: center;
 }
 
 .navbar__configure {
-	font-weight: 600;
+	font-weight: 700;
 	font-family: 'Inter', sans-serif;
 	padding: 8px 16px;
 	border: 1px solid #505062;
@@ -87,6 +85,7 @@
 	align-items: flex-start;
 	top: 80px;
 	flex-direction: column;
+	z-index: 1;
 	transition: ease 1.5s;
 	background: #ffffff;
 	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);

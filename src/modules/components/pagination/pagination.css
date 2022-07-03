@@ -1,7 +1,5 @@
 .pagination {
-	margin-top: 30px;
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	gap: 5px;
 	align-items: center;
@@ -17,7 +15,6 @@
 .pagination__currentPage {
 	font-family: 'Inter', sans-serif;
 	font-size: 20px;
-	font-weight: 400;
 	line-height: 28px;
 	letter-spacing: 0px;
 	text-align: left;
@@ -27,7 +24,6 @@
 .pagination__separator {
 	font-family: 'Inter', sans-serif;
 	font-size: 20px;
-	font-weight: 400;
 	line-height: 28px;
 	letter-spacing: 0px;
 	text-align: left;

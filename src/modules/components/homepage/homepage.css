@@ -5,38 +5,36 @@
 	overflow: hidden;
 }
 .homepage__configurator {
-	position: absolute;
 	display: flex;
 	flex-direction: column;
-	top: 30%;
-	width: 90%;
-	margin-inline: 5%;
+	margin-top: 178px;
+	width: 44.513%;
+	margin-inline: 27.78%;
 	align-items: center;
 }
 .homepage__configurator__carImage {
 	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	zoom: 60%;
+	height: 200px;
+	object-fit: cover;
 	opacity: 0.2;
 }
 
 .homepage__configurator__emptyMessage {
 	width: 440px;
 	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
 	font-size: 20px;
 	line-height: 28px;
+	margin-top: 2.344%;
 	text-align: center;
 	color: #73738c;
 }
 
-.homepage__configurator__emptyMessage :link {
+.homepage__configurator__emptyMessage a {
 	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 28px;
+	color: #1e1ed2;
 }
 
 .homepage__configurator__emptyMessage :hover {
@@ -59,7 +57,6 @@
 
 .savedConfigs__createdAt {
 	display: flex;
-	flex-direction: row;
 	gap: 5px;
 	margin-top: 32px;
 	font-family: 'Inter';
@@ -84,8 +81,6 @@
 	margin-left: 4.46%;
 	display: flex;
 	flex-direction: column;
-	font-style: normal;
-	font-weight: 400;
 }
 .savedConfigs__info__wrapper {
 	text-transform: uppercase;
@@ -131,9 +126,15 @@
 	margin-bottom: 5%;
 }
 .homepage__savedConfigs__title {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 78.34%;
+	height: 32px;
 	margin-left: 10.83%;
-	margin-top: 8%;
-	margin-bottom: 5.27%;
+	margin-top: 82px;
+	margin-bottom: 54px;
 	font-family: 'Inter';
 	font-size: 24px;
 	line-height: 32px;
@@ -168,6 +169,7 @@
 }
 
 .homepage__deleteMessage {
+	z-index: 2;
 	width: 200px;
 	display: flex;
 	position: absolute;
@@ -183,29 +185,42 @@
 	text-align: left;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.homepage__configureACarButton {
+	font-size: 14px;
+	font-weight: 700;
+	font-family: 'inter', sans-serif;
+	text-align: left;
+	line-height: 20px;
+	border: none;
+	background-color: #1e1ed2;
+	padding: 12px 20px;
+	color: #f1f1f4;
+}
 
+@media only screen and (min-width: 1441px) {
+	.homepage__configurator__carImage {
+		object-fit: contain;
+	}
+}
 @media only screen and (max-width: 950px) {
 	.homepage__configurator__carImage {
 		object-fit: cover;
 	}
-	.savedConfigs__wrapper {
-		width: 65%;
-		margin-left: 17.5%;
+}
+@media only screen and (max-width: 760px) {
+	.homepage__configurator__carImage {
+		width: 641px;
 	}
 }
-@media only screen and (max-width: 550px) {
-	.homepage__configurator__carImage {
-		zoom: 50%;
-	}
-	.savedConfigs__wrapper {
-		width: 70%;
-		margin-left: 15%;
+@media only screen and (max-width: 650px) {
+	.homepage__configureACarButton {
+		display: none;
 	}
 }
 
 @media only screen and (max-width: 470px) {
 	.homepage__configurator__carImage {
-		zoom: 45%;
+		zoom: 80%;
 	}
 	.homepage__configurator__emptyMessage {
 		width: 350px;
@@ -218,16 +233,13 @@
 		font-size: 25px;
 	}
 	.homepage__savedConfigs__title {
-		font-size: 15px;
+		font-size: 19px;
 	}
 	.savedConfigs__createdAt {
 		font-size: 8px;
 	}
 }
 @media only screen and (max-width: 400px) {
-	.homepage__configurator__carImage {
-		zoom: 40%;
-	}
 	.savedConfigs__wrapper {
 		width: 80%;
 		margin-left: 10%;
@@ -236,7 +248,7 @@
 
 @media only screen and (max-width: 340px) {
 	.homepage__configurator__carImage {
-		zoom: 35%;
+		zoom: 60%;
 	}
 	.homepage__configurator__emptyMessage {
 		font-size: 12px;
@@ -250,6 +262,9 @@
 @media only screen and (max-width: 330px) {
 	.savedConfigs__createdAt {
 		font-size: 7px;
+	}
+	.homepage__savedConfigs__title {
+		font-size: 15px;
 	}
 }
 
@@ -265,52 +280,24 @@
 	}
 	.savedConfigs__wrapper {
 		height: 130px;
-
 		align-content: center;
 	}
 	.savedConfigs__createdAt {
 		font-size: 6px;
 	}
 	.homepage__configurator__carImage {
-		zoom: 33%;
+		zoom: 60%;
+	}
+}
+@media only screen and (max-height: 800px) {
+	.homepage__configurator {
+		margin-top: 100px;
 	}
 }
 
-@media only screen and (max-height: 770px) and (max-width: 1920px) {
+@media only screen and (max-height: 680px) {
 	.homepage__configurator {
-		top: 26%;
-	}
-}
-
-@media only screen and (max-height: 600px) {
-	.homepage__configurator {
-		top: 20%;
-	}
-}
-
-@media only screen and (max-height: 500px) {
-	.homepage__configurator {
-		position: relative;
-	}
-}
-@media only screen and (max-height: 415px) {
-	.homepage__configurator {
-		position: relative;
-	}
-	.homepage {
-		padding-bottom: 5%;
-	}
-}
-@media only screen and (max-height: 440px) {
-	.homepage__configurator__carImage {
-		zoom: 50%;
-	}
-}
-@media only screen and (max-height: 415px) {
-	.homepage__configurator {
-		position: relative;
-	}
-	.homepage {
-		padding-bottom: 5%;
+		margin-bottom: 50px;
+		margin-top: 50px;
 	}
 }

@@ -1,38 +1,36 @@
 .selectCar {
-	/* position: absolute; */
-	width: 90%;
 	display: flex;
-	flex-direction: row;
 	align-items: flex-start;
-	margin-inline: 5%;
+	margin-left: 10.833%;
 	gap: 32px;
-	margin-top: 1.5%;
+	width: 78.334%;
+	margin-top: 36px;
 	margin-bottom: 2.5%;
+	overflow-x: scroll;
 }
 
 .selectCar__car {
+	min-width: 548px;
 	overflow: hidden;
 	background-color: #fcfcfd;
 	height: fit-content;
-	margin-top: 2.5%;
 }
 
 .selectCar__car__img {
+	margin-top: -24px;
 	block-size: 450px;
 	margin-left: -595px;
 }
 
 .selectCar__car__textWrapper {
-	margin-left: 5%;
+	margin-left: 7.299%;
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
 }
 
 .selelctCar__car__carModel {
 	font-family: Optician Sans;
 	font-size: 48px;
-	font-weight: 400;
 	line-height: 44px;
 	letter-spacing: -2px;
 	text-align: left;
@@ -41,7 +39,6 @@
 .selelctCar__car__productionYear {
 	font-family: Optician Sans;
 	font-size: 28px;
-	font-weight: 400;
 	line-height: 32px;
 	letter-spacing: -2px;
 	text-align: left;
@@ -55,7 +52,8 @@
 	color: #f1f1f4;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
-	margin-bottom: 5%;
+	margin-top: 16px;
+	margin-bottom: 40px;
 }
 .selectCar__car__button:link {
 	width: 50%;
@@ -69,15 +67,13 @@
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
-	margin-left: 10%;
+	margin-left: 10.833%;
+	margin-top: 80px;
 }
 
 .selectCar__label__one {
-	margin-top: 2.5%;
 	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
 	font-size: 24px;
-	font-weight: 400;
 	line-height: 32px;
 	letter-spacing: 0px;
 	text-align: left;
