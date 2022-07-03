@@ -68,9 +68,7 @@ export const EditChoiceComponent = () => {
 						}}
 					>
 						Interior
-						<span className="material-symbols-outlined" style={{ color: '#FCFCFD', fontSize: '16px' }}>
-							keyboard_arrow_right
-						</span>
+						<img alt="forward" src={require('images/forward.png')} style={{ marginLeft: '3.371%' }} />
 					</div>
 				</button>
 			</div>
