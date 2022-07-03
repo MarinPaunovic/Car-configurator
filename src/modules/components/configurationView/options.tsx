@@ -38,9 +38,12 @@ export const Options = () => {
 	return (
 		<div className={optionsCurrentConfig ? 'options__short' : 'options'}>
 			<div className={optionsCurrentConfig ? 'options__left__second' : 'options__left'}>
-				<Link to="/configure">
-					<img alt="navigate back" src={require('../../../images/navigateBack.png')} style={{ blockSize: '22px' }} />
-				</Link>
+				<img
+					onClick={() => navigate(-1)}
+					className="options__headBack"
+					alt="navigate back"
+					src={require('images/navigateBack.png')}
+				/>
 				<div className="options__left__year">{year || productionYear}</div>
 				<div className="options__left__carModel">{carModel}</div>
 			</div>
@@ -71,19 +74,40 @@ export const Options = () => {
 								className="options__edit__right__block"
 								style={currentConfig === 1 ? { fontWeight: '700' } : { fontWeight: '400' }}
 							>
-								<p style={{ fontWeight: '400', color: '#9D9DAF' }}>01</p> Exterior
+								<p
+									style={
+										currentConfig === 1 ? { fontWeight: '700', color: '#9D9DAF' } : { fontWeight: '400', color: '#9D9DAF' }
+									}
+								>
+									01
+								</p>{' '}
+								Exterior
 							</div>
 							<div
 								className="options__edit__right__block"
 								style={currentConfig === 2 ? { fontWeight: '700' } : { fontWeight: '400' }}
 							>
-								<p style={{ fontWeight: '400', color: '#9D9DAF' }}>02</p> Interior
+								<p
+									style={
+										currentConfig === 2 ? { fontWeight: '700', color: '#9D9DAF' } : { fontWeight: '400', color: '#9D9DAF' }
+									}
+								>
+									02
+								</p>{' '}
+								Interior
 							</div>{' '}
 							<div
 								className="options__edit__right__block"
 								style={currentConfig === 3 ? { fontWeight: '700' } : { fontWeight: '400' }}
 							>
-								<p style={{ fontWeight: '400', color: '#9D9DAF' }}>03</p> Summary
+								<p
+									style={
+										currentConfig === 3 ? { fontWeight: '700', color: '#9D9DAF' } : { fontWeight: '400', color: '#9D9DAF' }
+									}
+								>
+									03
+								</p>{' '}
+								Summary
 							</div>
 						</div>
 					</div>
