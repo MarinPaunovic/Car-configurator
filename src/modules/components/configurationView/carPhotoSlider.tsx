@@ -30,14 +30,14 @@ export const CarPhotoSlider = () => {
 						<img
 							alt="car"
 							className="configurationView__img"
-							src={require(`../../../images/${carCustomConfig.carModel}/exterior/${carCustomConfig.exterior.color}/${carCustomConfig.exterior.wheels}/${currentPage}.png`)}
+							src={require(`images/${carCustomConfig.carModel}/exterior/${carCustomConfig.exterior.color}/${carCustomConfig.exterior.wheels}/${currentPage}.png`)}
 							style={{ blockSize: '300px' }}
 						/>
 					) : (
 						<img
 							alt="car"
 							className="configurationView__img"
-							src={require(`../../../images/${carModel}/exterior/${color[0]}/${wheels[0]}/${currentPage}.png`)}
+							src={require(`images/${carModel}/exterior/${color[0]}/${wheels[0]}/${currentPage}.png`)}
 							style={{ blockSize: '300px' }}
 						/>
 					)}
