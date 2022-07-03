@@ -32,13 +32,13 @@ export const InteriorDetails = () => {
 								<img
 									alt="car interior"
 									className="interior__img"
-									src={require(`../../../../images/${carConfig.carModel}/interior/seats/${carConfig.interior.seats}.png`)}
+									src={require(`images/${carConfig.carModel}/interior/seats/${carConfig.interior.seats}.png`)}
 								/>
 							) : (
 								<img
 									alt="car interior"
 									className="interior__img"
-									src={require(`../../../../images/${carConfig.carModel}/interior/dash/${carConfig.interior.seats}.png`)}
+									src={require(`images/${carConfig.carModel}/interior/dash/${carConfig.interior.seats}.png`)}
 								/>
 							)}
 							<Pagination pagesNumber={2} />
@@ -49,13 +49,13 @@ export const InteriorDetails = () => {
 								<img
 									alt="car interior"
 									className="interior__img"
-									src={require(`../../../../images/${carConfig.carModel}/interior/seats/${editSelector.value}.png`)}
+									src={require(`images/${carConfig.carModel}/interior/seats/${editSelector.value}.png`)}
 								/>
 							) : (
 								<img
 									alt="car interior"
 									className="interior__img"
-									src={require(`../../../../images/${carConfig.carModel}/interior/dash/${editSelector.value}.png`)}
+									src={require(`images/${carConfig.carModel}/interior/dash/${editSelector.value}.png`)}
 								/>
 							)}
 							<Pagination pagesNumber={2} />
@@ -87,7 +87,7 @@ export const InteriorDetails = () => {
 												<div className="editDetails__choice__second__wrapper__color__mark">
 													<img
 														alt="car interior seats"
-														src={require(`../../../../images/short_seats/${item}.png`)}
+														src={require(`images/short_seats/${item}.png`)}
 														style={{ blockSize: '70px', borderRadius: '100%' }}
 													/>
 													{!localEdit.value
@@ -124,7 +124,7 @@ export const InteriorDetails = () => {
 								>
 									<img
 										alt="car interior seats"
-										src={require(`../../../../images/short_seats/${carConfig.interior.seats}.png`)}
+										src={require(`images/short_seats/${carConfig.interior.seats}.png`)}
 										style={{ blockSize: '70px', borderRadius: '100%' }}
 									/>
 									<span>
