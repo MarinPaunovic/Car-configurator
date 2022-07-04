@@ -42,7 +42,7 @@ export const Options = () => {
 					optionsCurrentConfig ? 'options__left__second f f-align-items-center' : 'options__left f f-align-items-center'
 				}
 			>
-				<div className="options__navigateBack__wrapper">
+				<div className="options__navigateBack__wrapper" onClick={() => navigate(-1)}>
 					<div className="options__navigateBack bg-col-dark-gray"></div>
 				</div>
 
@@ -71,7 +71,9 @@ export const Options = () => {
 								onClick={() => setCurrentConfig(currentConfig - 1)}
 								className="options__edit__right__arrowLeft bg-col-white"
 							>
-								<span className="material-symbols-outlined">keyboard_arrow_left</span>
+								<span className="material-symbols-outlined options__edit__right__headBack col-dark-gray">
+									keyboard_arrow_left
+								</span>
 							</button>
 						)}
 						<div className="options__edit__right f f-align-items-center">

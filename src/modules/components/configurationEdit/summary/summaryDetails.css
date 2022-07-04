@@ -18,10 +18,13 @@
 .summary__button {
 	border: none;
 	font-weight: 700;
+	transition: 0.25s ease;
 }
 
 .summary__button:hover {
 	cursor: pointer;
+	transition: 0.25s ease;
+	background-color: #2d2dff;
 }
 
 .summary__title :nth-child(1) {
@@ -49,8 +52,8 @@
 
 .summary__title__button:hover {
 	cursor: pointer;
-	color: blue;
-	transition: ease 0.5s;
+	color: rgb(98, 158, 255);
+	transition: ease 0.25s;
 }
 
 @media only screen and (max-width: 660px) {

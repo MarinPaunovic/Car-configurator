@@ -23,7 +23,7 @@
 	width: 8.5px;
 	height: 16px;
 	mask: url('images/navigateBack.svg') no-repeat center;
-	transition: 0.5s ease;
+	transition: 0.25s ease;
 }
 .options__navigateBack__wrapper {
 	padding-inline: 3.75px;
@@ -32,7 +32,8 @@
 	cursor: pointer;
 }
 .options__navigateBack__wrapper:hover .options__navigateBack {
-	background-color: red;
+	background-color: rgb(144, 144, 144);
+	cursor: pointer;
 }
 
 .options__left {
@@ -69,21 +70,21 @@
 }
 
 .options__right__edit {
-	transition: ease 0.5s;
+	transition: ease 0.25s;
 }
 .options__right__edit:hover {
 	cursor: pointer;
 	color: rgb(116, 158, 255);
-	transition: ease 0.5s;
+	transition: ease 0.25s;
 }
 .options__right__delete:hover {
 	cursor: pointer;
 	color: red;
-	transition: ease 0.5s;
+	transition: ease 0.25s;
 }
 
 .options__right__delete {
-	transition: ease 0.5s;
+	transition: ease 0.25s;
 }
 
 .configurationView__img {
@@ -135,6 +136,9 @@
 
 .configurationDetails__header__price__info {
 	font-variation-settings: 'FILL' 1, 'wght' 400;
+}
+.configurationDetails__header__price__info:hover {
+	cursor: pointer;
 }
 .configurationDetails__details {
 	grid-template-columns: 41.13% 58.87%;

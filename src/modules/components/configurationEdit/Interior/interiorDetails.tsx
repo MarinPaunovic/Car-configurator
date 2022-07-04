@@ -155,9 +155,7 @@ export const InteriorDetails = () => {
 								>
 									<div className="f-jc-aic">
 										Summary
-										<span className="material-symbols-outlined" style={{ color: '#FCFCFD', fontSize: '16px' }}>
-											keyboard_arrow_right
-										</span>
+										<img alt="forward" src={require('images/forward.png')} style={{ marginLeft: '8px' }} />
 									</div>
 								</button>
 							</div>

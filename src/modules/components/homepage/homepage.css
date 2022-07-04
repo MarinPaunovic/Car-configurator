@@ -54,7 +54,7 @@
 
 .savedConfigs__button {
 	top: 16.67%;
-	right: 2.305%;
+	right: 1.773%;
 }
 
 .savedConfigs__info {
@@ -87,7 +87,14 @@
 	cursor: pointer;
 }
 .savedConfigs__button__vert {
-	border: none;
+	padding-inline: 8px;
+	width: 4px;
+	height: 16px;
+	mask: url('images/vert_icon.svg') no-repeat center;
+	transition: 0.25s ease;
+}
+.savedConfigs__button__vert:hover {
+	background-color: #525284;
 }
 .savedConfigs__popupMenu {
 	top: 24px;
@@ -117,6 +124,7 @@
 	line-height: 20px;
 	border: none;
 	width: fit-content;
+	transition: 0.25s ease;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -124,7 +132,14 @@
 .savedConfigs__deleteButton:hover {
 	cursor: pointer;
 }
-
+.savedConfigs__editButton:hover {
+	color: rgb(116, 158, 255);
+	transition: 0.25s ease;
+}
+.savedConfigs__deleteButton:hover {
+	color: red;
+	transition: 0.25s ease;
+}
 .savedConfigs__button__splitter {
 	border: 1px solid #f1f1f4;
 }
@@ -149,6 +164,12 @@
 	line-height: 20px;
 	border: none;
 	padding: 12px 20px;
+	transition: 0.5s ease;
+}
+.homepage__configureACarButton:hover {
+	cursor: pointer;
+	background-color: #2d2dff;
+	transition: 0.5s ease;
 }
 
 @media only screen and (min-width: 1441px) {

@@ -19,7 +19,7 @@ export const PopupInfo = (props: Text) => {
 					{text}
 				</div>
 				<span
-					className="material-symbols-outlined configurationDetails__header__price__info col-dim-purple"
+					className="material-symbols-outlined configurationDetails__header__price__info col-dim-purple bg-col-light-gray"
 					style={{ fontSize: '15px', fontVariationSettings: '1' }}
 				>
 					info

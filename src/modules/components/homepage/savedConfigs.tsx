@@ -80,16 +80,14 @@ export const SavedConfigs = () => {
 							</div>
 						</div>
 						<div className="savedConfigs__button col-dim-purple pos-ab">
-							<button
-								className="material-symbols-outlined savedConfigs__button__vert bg-col-white"
+							<div
+								className="savedConfigs__button__vert bg-col-dim-purple"
 								onClick={() => {
 									if (popupMenu && popupMenu === item.id) {
 										setPopupMenu('')
 									} else setPopupMenu(item.id)
 								}}
-							>
-								more_vert
-							</button>
+							></div>
 							<div
 								className="savedConfigs__popupMenu pos-ab bg-col-pure-white"
 								style={popupMenu === item.id ? { display: 'flex' } : { display: 'none' }}

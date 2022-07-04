@@ -77,7 +77,7 @@ export const EditChoiceComponent = () => {
 				>
 					<div className="f-jc-aic">
 						Interior
-						<img alt="forward" src={require('images/forward.png')} style={{ marginLeft: '3.371%' }} />
+						<img alt="forward" src={require('images/forward.png')} style={{ marginLeft: '8px' }} />
 					</div>
 				</button>
 			</div>

@@ -33,9 +33,12 @@
 	font-size: 16px;
 	font-weight: 700;
 	font-family: 'inter';
+	transition: 0.25s ease;
 }
 .editDetails__choice__button:hover {
 	cursor: pointer;
+	background-color: #2d2dff;
+	transition: 0.25s ease;
 }
 .editDetails__choice__popup__wrapper {
 	justify-content: space-between;
@@ -88,10 +91,18 @@
 .options__edit__right__arrowLeft {
 	border: none;
 	font-size: 0px;
+	transition: 0.25s ease;
 }
-.options__edit__right__arrowLeft:hover {
+.options__edit__right__arrowLeft:hover .options__edit__right__headBack {
 	cursor: pointer;
+	color: rgb(144, 144, 144);
+	transition: 0.25s ease;
 }
+
+.options__edit__right__headBack {
+	font-weight: 250;
+}
+
 .options__edit__right__second__title {
 	font-size: 24px;
 	overflow: hidden;

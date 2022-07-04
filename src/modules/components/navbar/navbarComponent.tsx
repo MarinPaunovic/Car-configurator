@@ -7,7 +7,6 @@ import { useRecoilValue } from 'recoil'
 export const NavbarComponent = () => {
 	const [toggle, setToggle] = useState(false)
 	const savedConfigs = useRecoilValue(savedConfigAtom)
-	console.log(savedConfigs)
 	const navigate = useNavigate()
 	return (
 		<div className="navbar bg-col-dark-gray f-jb-aic w-full pos-re">
