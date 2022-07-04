@@ -17,17 +17,17 @@ export const RegisterInput = () => {
 
 	return (
 		<div className="login">
-			<div className="login__wrapper">
-				<label className="register__label">Register Page</label>
-				<div className="login__inputBox__wrapper">
-					<div className="login__test">
+			<div className="f-column">
+				<label className="register__label col-dark-gray fs-60">Register Page</label>
+				<div className="login__inputBox__wrapper g">
+					<div className="login__test bg-col-dark-gray fs-28 f-column f-justify-center">
 						<div>
 							<img alt="login car" className="login__img" src={require('images/loginImg.png')}></img>
 						</div>
 						Car configurator
 					</div>
 					<form onSubmit={(e) => handleSubmit(e)}>
-						<div className="login__inputBox">
+						<div className="login__inputBox f-column f-align-items-center">
 							<input
 								className="register__name"
 								type={'text'}
@@ -53,12 +53,12 @@ export const RegisterInput = () => {
 								onChange={(e) => setConfirmPassword(e.target.value)}
 							></input>
 							<RememberMe remember={remember} setRemember={setRemember} />
-							<div className="login__buttons">
-								<button className="login__buttons__loginButton" type="submit">
+							<div className="login__buttons f">
+								<button className="login__buttons__loginButton fs-18" type="submit">
 									Register
 								</button>
 							</div>
-							<div className="login__menu">
+							<div className="login__menu f-column">
 								<div className="login__menu__register">
 									Already have account? Login <Link to="/login">here</Link>
 								</div>

@@ -10,7 +10,7 @@ export const ConfigurationView = () => {
 		setSummary(false)
 	}, [setSummary])
 	return (
-		<div className="configurationView">
+		<div className="configurationView bg-col-light-gray">
 			<NavbarComponent />
 			<Options />
 			<CarPhotoSlider />

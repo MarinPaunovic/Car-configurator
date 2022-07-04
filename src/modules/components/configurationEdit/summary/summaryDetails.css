@@ -1,45 +1,29 @@
 .summary__popup {
-	display: flex;
-	font-size: 14px;
-	color: #9d9daf;
 	text-transform: uppercase;
 }
 
 .summary__left {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 	border-top: 1px solid #c7c7d1;
 }
 
 .summary__left__infos {
-	display: flex;
 	gap: 56px;
 	margin-right: 2.952%;
-	align-items: center;
 }
 .summary__wrapper {
 	height: 80px;
-	display: grid;
 	grid-template-columns: 75.28% 24.72%;
 }
 
 .summary__button {
 	border: none;
-	background-color: #1e1ed2;
-	color: #fcfcfd;
 	font-weight: 700;
-	font-size: 16px;
 }
 
 .summary__button:hover {
 	cursor: pointer;
 }
-.summary__title {
-	display: flex;
-	flex-direction: column;
-	color: #2e2e38;
-}
+
 .summary__title :nth-child(1) {
 	font-family: 'Poppins', sans-serif;
 	font-size: 40px;
@@ -52,23 +36,13 @@
 	line-height: 28px;
 	margin-top: 16px;
 }
-
-.summary__title__wrapper {
-	display: flex;
-	justify-content: space-between;
-}
-
 .summary__title__button {
 	border: none;
-	color: #1e1ed2;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	font-size: 14px;
 	line-height: 20px;
 	transition: ease 0.5s;
 }
 .options__left__summary {
-	display: flex;
-	align-items: center;
 	gap: 8px;
 	margin-left: 3.69%;
 }

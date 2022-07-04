@@ -52,17 +52,22 @@ export const Homepage = () => {
 	}, [setPopupMenu, setSavedConfig])
 
 	return (
-		<div className="homepage">
+		<div className="homepage pos-re bg-col-light-gray">
 			<NavbarComponent />
 
 			{loading ? (
 				<div>Loading...</div>
 			) : Object.keys(savedConfigs).length ? (
 				<div className="homepage__savedConfigs">
-					<div className="homepage__deleteMessage" style={deleteMessage ? { right: '0%' } : { right: '-200px' }}>
-						<p style={{ textAlign: 'center' }}>Your configuration is successfully deleted!</p>
+					<div
+						className="homepage__deleteMessage bg-col-lightcoral pos-ab f"
+						style={deleteMessage ? { right: '0%' } : { right: '-200px' }}
+					>
+						<p className="col-light-red" style={{ textAlign: 'center' }}>
+							Your configuration is successfully deleted!
+						</p>
 					</div>
-					<div className="homepage__savedConfigs__title">
+					<div className="homepage__savedConfigs__title col-dark-gray pos-re fs-24 f-jb-aic">
 						View saved configurations
 						<ConfigureACarButton />
 					</div>
@@ -72,12 +77,14 @@ export const Homepage = () => {
 			) : (
 				<>
 					<div
-						className="homepage__deleteMessage"
+						className="homepage__deleteMessage bg-col-lightcoral pos-ab f"
 						style={deleteMessage ? { right: '0%', top: '15%' } : { right: '-200px', top: '15%' }}
 					>
-						<p style={{ textAlign: 'center' }}>Your configuration is successfully deleted!</p>
+						<p className="col-light-red" style={{ textAlign: 'center' }}>
+							Your configuration is successfully deleted!
+						</p>
 					</div>
-					<div className="homepage__savedConfigs__title">
+					<div className="homepage__savedConfigs__title col-dark-gray pos-re fs-24 f-jb-aic">
 						View saved configurations <ConfigureACarButton />
 					</div>
 

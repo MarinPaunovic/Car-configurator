@@ -21,8 +21,8 @@ export const EditChoiceSecondWheelsComponent = () => {
 							})
 						}}
 					>
-						<div className="editDetails__choice__second__wrapper__color">
-							<div className="editDetails__choice__second__wrapper__color__mark">
+						<div className="editDetails__choice__second__wrapper__color f f-align-items-center col-dark-gray">
+							<div className="pos-re">
 								{carConfig && (
 									<img
 										alt="car wheel"
@@ -43,10 +43,14 @@ export const EditChoiceSecondWheelsComponent = () => {
 									{!localEdit.edit
 										? carConfig &&
 										  item === carConfig.exterior.wheels && (
-												<div className="editDetails__choice__second__wrapper__color__title__wrapper__price">2,500€</div>
+												<div className="editDetails__choice__second__wrapper__color__title__wrapper__price col-light-gray">
+													2,500€
+												</div>
 										  )
 										: item === localEdit.value && (
-												<div className="editDetails__choice__second__wrapper__color__title__wrapper__price">2,500€</div>
+												<div className="editDetails__choice__second__wrapper__color__title__wrapper__price col-light-gray">
+													2,500€
+												</div>
 										  )}
 								</>
 							</div>

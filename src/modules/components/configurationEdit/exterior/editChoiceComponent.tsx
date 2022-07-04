@@ -1,17 +1,23 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { carCustomConfiguratorAtom, configuratorAtom, optionsCurrentConfigAtom } from 'modules/storage'
+import {
+	carCustomConfiguratorAtom,
+	configuratorAtom,
+	optionsCurrentConfigAtom,
+	previewCurrentPageAtom
+} from 'modules/storage'
 import { PopupInfo } from 'modules/components'
 
 export const EditChoiceComponent = () => {
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
 	const [currentConfigPage, setCurrentConfigPage] = useRecoilState(configuratorAtom)
+	const currentPage = useSetRecoilState(previewCurrentPageAtom)
 	const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom)
 
 	return (
-		<div className="editDetails__choice">
-			<div className="editDetails__choice__items">
+		<div className="editDetails__choice f-column f-justify-between bg-col-white">
+			<div className="editDetails__choice__items f-column">
 				<div
-					className="editDetails__choice__wrapper"
+					className="editDetails__choice__wrapper f f-align-items-center"
 					title="color"
 					onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
 				>
@@ -26,15 +32,15 @@ export const EditChoiceComponent = () => {
 								}}
 							/>
 							<span>
-								<p className="editDetails__choice__wrapper__title">{carConfig.exterior.color}</p>
-								<p className="editDetails__choice__wrapper__sub">PAINT COLOR</p>
+								<p className="editDetails__choice__wrapper__title col-dark-gray">{carConfig.exterior.color}</p>
+								<p className="editDetails__choice__wrapper__sub col-light-gray">PAINT COLOR</p>
 							</span>
 						</>
 					)}
 				</div>
 				<div
 					title="wheels"
-					className="editDetails__choice__wrapper"
+					className="editDetails__choice__wrapper f f-align-items-center"
 					onClick={(e) => setCurrentConfigChoice(e.currentTarget.title)}
 				>
 					{carConfig && (
@@ -45,28 +51,31 @@ export const EditChoiceComponent = () => {
 								style={{ blockSize: '60px' }}
 							/>
 							<span>
-								<p className="editDetails__choice__wrapper__title">
+								<p className="editDetails__choice__wrapper__title col-dark-gray">
 									{carConfig.exterior.wheels === 'one' ? '22˝ Magnesium 5-spoke' : '22˝ Alloy 10-spoke'}
 								</p>
-								<p className="editDetails__choice__wrapper__sub">wheels</p>
+								<p className="editDetails__choice__wrapper__sub col-light-gray">wheels</p>
 							</span>
 						</>
 					)}
 				</div>
 			</div>
 			<div>
-				<div className="editDetails__choice__popup__wrapper">
-					<PopupInfo text={'text info unutar edita'} className="editDetails__choice__popup" />
-					<span className="editDetails__choice__popup__price">120000€</span>
+				<div className="editDetails__choice__popup__wrapper f f-align-items-center f-justify-between">
+					<PopupInfo
+						text={'text info unutar edita'}
+						className="editDetails__choice__popup fs-14 f f-align-items-center col-9d9daf"
+					/>
+					<span className="editDetails__choice__popup__price col-dark-gray">120000€</span>
 				</div>
-				<button className="editDetails__choice__button" onClick={() => setCurrentConfigPage(currentConfigPage + 1)}>
-					<div
-						style={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center'
-						}}
-					>
+				<button
+					className="editDetails__choice__button bg-col-blue col-pure-white"
+					onClick={() => {
+						setCurrentConfigPage(currentConfigPage + 1)
+						currentPage(1)
+					}}
+				>
+					<div className="f-jc-aic">
 						Interior
 						<img alt="forward" src={require('images/forward.png')} style={{ marginLeft: '3.371%' }} />
 					</div>

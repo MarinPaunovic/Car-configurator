@@ -15,7 +15,7 @@ export const EditChoiceSecondColorComponent = () => {
 	const title = useRecoilValue(getTitleAtom)
 	return (
 		<>
-			<div className="editDetails__choice__smallScreen__title">
+			<div className="editDetails__choice__smallScreen__title col-dark-gray">
 				{title}
 				<span
 					className="material-symbols-outlined editDetails__choice__smallScreen__title__x"
@@ -35,8 +35,8 @@ export const EditChoiceSecondColorComponent = () => {
 						setLocalEdit({ value: item, edit: 'color' })
 					}}
 				>
-					<div className="editDetails__choice__second__wrapper__color">
-						<div className="editDetails__choice__second__wrapper__color__mark">
+					<div className="editDetails__choice__second__wrapper__color f f-align-items-center col-dark-gray">
+						<div className="pos-re">
 							<img
 								alt="car color"
 								src={require(`images/colors/${item}.png`)}
@@ -47,7 +47,7 @@ export const EditChoiceSecondColorComponent = () => {
 							/>
 							{localEdit.value
 								? item === localEdit.value && (
-										<div className="editDetails__choice__second__wrapper__chosen">
+										<div className="editDetails__choice__second__wrapper__chosen pos-ab bg-col-light-green">
 											<span className="material-symbols-outlined editDetails__choice__second__wrapper__chosen__done">
 												done
 											</span>
@@ -55,23 +55,27 @@ export const EditChoiceSecondColorComponent = () => {
 								  )
 								: carConfig &&
 								  item === carConfig.exterior.color && (
-										<div className="editDetails__choice__second__wrapper__chosen">
+										<div className="editDetails__choice__second__wrapper__chosen pos-ab bg-col-light-green">
 											<span className="material-symbols-outlined editDetails__choice__second__wrapper__chosen__done">
 												done
 											</span>
 										</div>
 								  )}
 						</div>
-						<div className="editDetails__choice__second__wrapper__color__title_wrapper">
+						<div className="editDetails__choice__second__wrapper__color__title_wrapper f-column">
 							<span>{item}</span>
 							<>
 								{!localEdit.edit
 									? carConfig &&
 									  item === carConfig.exterior.color && (
-											<div className="editDetails__choice__second__wrapper__color__title__wrapper__price">2,500€</div>
+											<div className="editDetails__choice__second__wrapper__color__title__wrapper__price col-light-gray">
+												2,500€
+											</div>
 									  )
 									: item === localEdit.value && (
-											<div className="editDetails__choice__second__wrapper__color__title__wrapper__price">2,500€</div>
+											<div className="editDetails__choice__second__wrapper__color__title__wrapper__price col-light-gray">
+												2,500€
+											</div>
 									  )}
 							</>
 						</div>

@@ -7,6 +7,7 @@ export const Logout = () => {
 	const savedConfig = useSetRecoilState(savedConfigAtom)
 	return (
 		<button
+			className="fs-14 bg-col-pure-white col-light-blue"
 			onClick={() => {
 				savedConfig({})
 				signOut(auth)

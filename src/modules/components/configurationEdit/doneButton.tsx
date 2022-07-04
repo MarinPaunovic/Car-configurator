@@ -50,9 +50,9 @@ export const DoneButton = () => {
 	}
 
 	return (
-		<div className="doneButton">
+		<div className="doneButton pos-ab">
 			<button
-				className="editDetails__choice__button"
+				className="editDetails__choice__button bg-col-blue col-pure-white"
 				onClick={() => {
 					if (editSelector && editSelector.value) {
 						handleConfigChange()

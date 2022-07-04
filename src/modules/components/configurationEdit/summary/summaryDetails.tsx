@@ -41,26 +41,26 @@ export const SummaryDetails = () => {
 	}
 
 	return (
-		<div className="configurationView">
-			<div className="summary__title">
+		<div className="configurationView bg-col-light-gray">
+			<div className="summary__title col-dark-gray">
 				<p>Almost done!</p>
 				<p>Review your configuration and save your car.</p>
 			</div>
 			<CarPhotoSlider />
 			<ConfigurationDetails />
-			<div className="summary__wrapper">
-				<div className="summary__left">
-					<div className="options__left__summary">
-						<p className="options__left__year">{year || productionYear}</p>
-						<p className="options__left__carModel">{carModel}</p>
+			<div className="summary__wrapper g">
+				<div className="summary__left f-jb-aic">
+					<div className="options__left__summary f f-align-items-center">
+						<p className="options__left__year fs-28 col-9d9daf">{year || productionYear}</p>
+						<p className="options__left__carModel fs-28 col-dark-gray">{carModel}</p>
 					</div>
-					<div className="summary__left__infos">
-						<PopupInfo text={'Summary popup info'} className={'summary__popup'} />
-						<p className="configurationDetails__header__amount">120,000.12€</p>
+					<div className="summary__left__infos f f-align-items-center">
+						<PopupInfo text={'Summary popup info'} className={'summary__popup f fs-14 col-9d9daf'} />
+						<p className="configurationDetails__header__amount col-dark-gray fs-24">120,000.12€</p>
 					</div>
 				</div>
 				<button
-					className="summary__button"
+					className="summary__button fs-16 bg-col-blue col-pure-white"
 					onClick={() => {
 						if (savedConfigEdit.length > 0) {
 							updateConfig()

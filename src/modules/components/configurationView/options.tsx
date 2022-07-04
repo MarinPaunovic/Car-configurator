@@ -36,24 +36,26 @@ export const Options = () => {
 		navigate('/')
 	}
 	return (
-		<div className={optionsCurrentConfig ? 'options__short' : 'options'}>
-			<div className={optionsCurrentConfig ? 'options__left__second' : 'options__left'}>
-				<img
-					onClick={() => navigate(-1)}
-					className="options__headBack"
-					alt="navigate back"
-					src={require('images/navigateBack.png')}
-				/>
-				<div className="options__left__year">{year || productionYear}</div>
-				<div className="options__left__carModel">{carModel}</div>
+		<div className={optionsCurrentConfig ? 'options__short g bg-col-white' : 'options bg-col-white w-full f-jb-aic'}>
+			<div
+				className={
+					optionsCurrentConfig ? 'options__left__second f f-align-items-center' : 'options__left f f-align-items-center'
+				}
+			>
+				<div className="options__navigateBack__wrapper">
+					<div className="options__navigateBack bg-col-dark-gray"></div>
+				</div>
+
+				<div className="options__left__year fs-28 col-9d9daf">{year || productionYear}</div>
+				<div className="options__left__carModel fs-28 col-dark-gray">{carModel}</div>
 			</div>
 
 			{currentPage === '/configuration-edit' ? (
 				optionsCurrentConfig ? (
-					<div className="options__edit__right__second">
-						<div className="options__edit__right__second__title">{title}</div>
+					<div className="f-jb-aic bg-col-white" style={{ borderLeft: '1px solid #C7C7D1' }}>
+						<div className="options__edit__right__second__title col-dark-gray">{title}</div>
 						<span
-							className="material-symbols-outlined options__edit__right__second__title__x"
+							className="material-symbols-outlined options__edit__right__second__title__x fs-16"
 							onClick={() => {
 								setCurrentConfigChoice('')
 								setLocalEdit({ value: '', edit: '' })
@@ -63,15 +65,18 @@ export const Options = () => {
 						</span>
 					</div>
 				) : (
-					<div className="options__edit__right__wrapper">
+					<div className="options__edit__right__wrapper f f-align-items-center">
 						{currentConfig > 1 && (
-							<button onClick={() => setCurrentConfig(currentConfig - 1)} className="options__edit__right__arrowLeft">
+							<button
+								onClick={() => setCurrentConfig(currentConfig - 1)}
+								className="options__edit__right__arrowLeft bg-col-white"
+							>
 								<span className="material-symbols-outlined">keyboard_arrow_left</span>
 							</button>
 						)}
-						<div className="options__edit__right">
+						<div className="options__edit__right f f-align-items-center">
 							<div
-								className="options__edit__right__block"
+								className="options__edit__right__block f col-dark-gray"
 								style={currentConfig === 1 ? { fontWeight: '700' } : { fontWeight: '400' }}
 							>
 								<p
@@ -84,7 +89,7 @@ export const Options = () => {
 								Exterior
 							</div>
 							<div
-								className="options__edit__right__block"
+								className="options__edit__right__block f col-dark-gray"
 								style={currentConfig === 2 ? { fontWeight: '700' } : { fontWeight: '400' }}
 							>
 								<p
@@ -97,7 +102,7 @@ export const Options = () => {
 								Interior
 							</div>{' '}
 							<div
-								className="options__edit__right__block"
+								className="options__edit__right__block f col-dark-gray"
 								style={currentConfig === 3 ? { fontWeight: '700' } : { fontWeight: '400' }}
 							>
 								<p
@@ -113,11 +118,11 @@ export const Options = () => {
 					</div>
 				)
 			) : (
-				<div className="options__right">
-					<Link className="options__right__edit" to="/configuration-edit">
+				<div className="options__right f f-align-items-center">
+					<Link className="options__right__edit fs-16 col-blue" to="/configuration-edit">
 						Edit configuration
 					</Link>
-					<button className="options__right__delete" onClick={() => handleDelete()}>
+					<button className="options__right__delete fs-16 col-red" onClick={() => handleDelete()}>
 						Delete
 					</button>
 				</div>

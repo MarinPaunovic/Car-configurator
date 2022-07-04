@@ -1,0 +1,40 @@
+.f {
+	display: flex;
+}
+.f-column {
+	display: flex;
+	flex-direction: column;
+}
+.f-justify-between {
+	justify-content: space-between;
+}
+.f-justify-center {
+	justify-content: center;
+}
+
+.f-align-items-center {
+	align-items: center;
+}
+.g {
+	display: grid;
+}
+
+.f-jb-aic {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.f-jc-aic {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pos-ab {
+	position: absolute;
+}
+
+.pos-re {
+	position: relative;
+}

@@ -6,15 +6,15 @@ interface IRememberMe {
 export const RememberMe = (props: IRememberMe) => {
 	const { remember, setRemember } = props
 	return (
-		<div className="login__rememberMe">
+		<div className="login__rememberMe fs-18 f f-align-items-center">
 			Remember me
 			<div
-				className="login__rememberMe__checkbox"
+				className="login__rememberMe__checkbox pos-re"
 				onClick={() => setRemember(!remember)}
 				style={remember ? { background: 'lightgreen' } : { backgroundColor: 'lightgray' }}
 			>
 				<div
-					className="login__rememberMe_checkbox__slider"
+					className="login__rememberMe_checkbox__slider pos-ab"
 					style={remember ? { backgroundColor: 'darkgreen', left: '21px' } : { backgroundColor: '#2e2e38', left: '0' }}
 				></div>
 			</div>

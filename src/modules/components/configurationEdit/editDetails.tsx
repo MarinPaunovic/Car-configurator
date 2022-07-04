@@ -34,7 +34,7 @@ export const EditDetails = () => {
 				<SummaryDetails />
 			) : (
 				Object.keys(carConfig).length && (
-					<div className="editDetails__new">
+					<div className="editDetails__new g w-full">
 						<InteriorDetails />
 						<ExteriorDetails />
 					</div>

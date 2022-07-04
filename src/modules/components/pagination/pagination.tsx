@@ -10,19 +10,19 @@ export const Pagination = (props: Pages) => {
 	const { pagesNumber } = props
 
 	return (
-		<div className="pagination">
+		<div className="pagination f-jc-aic">
 			<button
-				className="pagination__button material-symbols-outlined"
+				className="pagination__button col-dark-gray bg-col-light-gray fs-30 material-symbols-outlined"
 				onClick={() => setCurrentPage(currentPage - 1)}
 				disabled={currentPage === 1}
 			>
 				keyboard_arrow_left
 			</button>
-			<div className="pagination__currentPage">{currentPage}</div>
-			<div className="pagination__separator">/</div>
-			<div className="pagination__pagesNumber">{pagesNumber}</div>
+			<div className="pagination__currentPage col-dark-gray fs-20">{currentPage}</div>
+			<div className="pagination__separator col-c7c7d1 fs-20">/</div>
+			<div className="pagination__pagesNumber col-c7c7d1 fs-20">{pagesNumber}</div>
 			<button
-				className="pagination__button material-symbols-outlined"
+				className="pagination__button col-dark-gray bg-col-light-gray fs-30 material-symbols-outlined"
 				onClick={() => setCurrentPage(currentPage + 1)}
 				disabled={currentPage === pagesNumber}
 			>

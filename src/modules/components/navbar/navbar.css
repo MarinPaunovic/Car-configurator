@@ -1,11 +1,5 @@
 .navbar {
-	background-color: #2e2e38;
-	position: relative;
-	display: flex;
-	justify-content: space-between;
 	height: 80px;
-	width: 100%;
-	align-items: center;
 }
 
 .navbar__logo {
@@ -16,10 +10,8 @@
 }
 
 .navbar__rightSide {
-	display: flex;
 	gap: 40px;
 	margin-right: 40px;
-	align-items: center;
 }
 
 .navbar__configure {
@@ -27,8 +19,6 @@
 	font-family: 'Inter', sans-serif;
 	padding: 8px 16px;
 	border: 1px solid #505062;
-	color: #f1f1f4;
-	background-color: #2e2e38;
 	transition: ease 0.5s;
 }
 .navbar__configure:hover {
@@ -38,8 +28,6 @@
 }
 
 .navbar__dropdown {
-	color: #f1f1f4;
-	background-color: #2e2e38;
 	border: none;
 	width: fit-content;
 	height: fit-content;
@@ -54,7 +42,6 @@
 .navbar__dropdownRectangle {
 	height: 3px;
 	width: 40px;
-	background-color: #f1f1f4;
 	border-radius: 3px;
 	transition: ease 0.5s;
 }
@@ -62,7 +49,6 @@
 .navbar__dropdownRectangleCopy {
 	height: 3px;
 	width: 31px;
-	background-color: #f1f1f4;
 	margin-top: 5px;
 	border-radius: 3px;
 	transition: ease 0.5s;
@@ -78,16 +64,12 @@
 }
 
 .navbar__slideMenu {
-	display: flex;
 	height: fit-content;
 	width: fit-content;
-	position: absolute;
 	align-items: flex-start;
 	top: 80px;
-	flex-direction: column;
 	z-index: 1;
 	transition: ease 1.5s;
-	background: #ffffff;
 	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
 }
 
@@ -97,9 +79,6 @@
 	padding: 4px 8px;
 	font-weight: 700;
 	border: None;
-	background-color: #ffffff;
-	font-size: 14px;
-	color: #3f3fe4;
 }
 .navbar__slideMenu button:hover {
 	cursor: pointer;
@@ -109,7 +88,6 @@
 .navbar__slideMenu__separator {
 	height: 1px;
 	width: 100%;
-	background-color: #f1f1f4;
 }
 
 @media only screen and (max-width: 360px) {

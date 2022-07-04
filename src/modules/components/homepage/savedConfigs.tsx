@@ -53,7 +53,7 @@ export const SavedConfigs = () => {
 		<>
 			{Object.keys(savedConfigs).length &&
 				savedConfigs.map((item, i: number) => (
-					<div className="savedConfigs__wrapper" key={i}>
+					<div className="savedConfigs__wrapper bg-col-white pos-re g f-align-items-center" key={i}>
 						<div>
 							<img
 								alt="car"
@@ -61,7 +61,7 @@ export const SavedConfigs = () => {
 								style={{ blockSize: '150px', width: '84%', objectFit: 'contain', marginLeft: '8%' }}
 							/>
 						</div>
-						<div className="savedConfigs__splitter"></div>
+						<div className="savedConfigs__splitter bg-col-gray"></div>
 						<div>
 							<div>
 								<div className="savedConfigs__info">
@@ -70,7 +70,7 @@ export const SavedConfigs = () => {
 										<p>{item.carModel}</p>
 										<p>{item.color}</p>
 									</div>
-									<div className="savedConfigs__createdAt">
+									<div className="savedConfigs__createdAt col-9d9daf fs-12 f">
 										<p>Created</p>
 										<p>{item.createdAt && item.createdAt[0]}</p>
 										<p>{item.createdAt && item.createdAt[1]}nd</p>
@@ -79,9 +79,9 @@ export const SavedConfigs = () => {
 								</div>
 							</div>
 						</div>
-						<div className="savedConfigs__button">
+						<div className="savedConfigs__button col-dim-purple pos-ab">
 							<button
-								className="material-symbols-outlined savedConfigs__button__vert"
+								className="material-symbols-outlined savedConfigs__button__vert bg-col-white"
 								onClick={() => {
 									if (popupMenu && popupMenu === item.id) {
 										setPopupMenu('')
@@ -91,15 +91,18 @@ export const SavedConfigs = () => {
 								more_vert
 							</button>
 							<div
-								className="savedConfigs__popupMenu"
+								className="savedConfigs__popupMenu pos-ab bg-col-pure-white"
 								style={popupMenu === item.id ? { display: 'flex' } : { display: 'none' }}
 							>
-								<button className="savedConfigs__editButton" onClick={() => handleEdit(item.id)}>
+								<button
+									className="savedConfigs__editButton bg-col-pure-white col-blue fs-14"
+									onClick={() => handleEdit(item.id)}
+								>
 									Edit configuration
 								</button>
 								<span className="savedConfigs__button__splitter"></span>
 								<button
-									className="savedConfigs__deleteButton"
+									className="savedConfigs__deleteButton col-red bg-col-pure-white fs-14"
 									onClick={() => {
 										setPopupMenu('')
 										window.confirm('Do you really want to delete configuration?') && handleDelete(item.id)

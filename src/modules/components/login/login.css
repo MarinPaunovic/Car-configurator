@@ -1,35 +1,24 @@
 .login {
 	min-height: 100vh;
-	background-color: #f1f1f4;
 }
 .login:hover {
 	cursor: default;
 }
-.login__wrapper {
-	display: flex;
-	flex-direction: column;
-}
 .login__inputBox {
-	flex-direction: column;
-	align-items: center;
 	padding-inline: 50px;
 	padding-block: 125px;
-	display: flex;
 	gap: 5px;
 }
 
 .login__label {
 	width: 100%;
 	text-align: center;
-	font-size: 60px;
 	font-weight: 700;
 	font-family: Arial, Helvetica, sans-serif;
-	color: #2e2e38;
 	margin-top: 5%;
 }
 
 .login__inputBox input {
-	font-size: 25px;
 	padding: 7.5px 15px;
 	border-radius: 5px;
 	border-width: 0.5px;
@@ -41,8 +30,6 @@
 	width: 100%;
 }
 .login__menu {
-	display: flex;
-	flex-direction: column;
 	text-align: center;
 	margin-top: 10px;
 	gap: 10px;
@@ -56,15 +43,12 @@
 }
 
 .login__rememberMe {
-	display: flex;
 	gap: 15px;
 	margin-bottom: 10px;
 	margin-top: 6px;
-	align-items: center;
 }
 
 .login__rememberMe__checkbox {
-	position: relative;
 	border-radius: 3px;
 	height: 17px;
 	width: 37px;
@@ -76,7 +60,6 @@
 }
 
 .login__rememberMe_checkbox__slider {
-	position: absolute;
 	left: '0';
 	border-radius: 3px;
 	height: inherit;
@@ -88,17 +71,14 @@
 	font-family: arial;
 	font-weight: 700;
 	margin-bottom: 2.5px;
-	font-size: 18px;
 }
 
 .login__buttons {
-	display: flex;
 	margin-top: 10px;
 	gap: 15px;
 }
 .login__buttons__loginButton {
 	padding: 6px 14px;
-	font-size: 18px;
 	border-radius: 6px;
 	border-width: 0.5px;
 }
@@ -118,12 +98,10 @@
 	padding: 6px 14px;
 	border-width: 0.5px;
 	border-radius: 6px;
-	font-size: 18px;
 }
 
 .login__menu__passwordReset a,
 .login__menu__register a {
-	color: blue;
 	transition: 0.5s;
 }
 
@@ -143,54 +121,39 @@
 	margin-inline: 20%;
 	margin-bottom: 7%;
 	margin-top: 5%;
-	display: grid;
 	grid-template-columns: 40% 60%;
 	border-radius: 10px;
 	box-shadow: 5px 10px 50px #666666;
 }
 
 .login__test {
-	background-color: #2e2e38;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 	color: whitesmoke;
 	text-align: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	font-size: 28px;
 	gap: 25px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 .passwordReset__input {
-	display: flex;
-	flex-direction: column;
 	width: 60%;
 	margin-left: 20%;
-	justify-content: center;
 	gap: 25px;
-	align-items: center;
 	padding-block: 150px;
 }
 .passwordReset__input__email {
 	width: 80%;
 	padding-inline: 10px;
 	padding-block: 5px;
-	font-size: 16px;
 	border-radius: 5px;
 	border-width: 0.5px;
 }
 .passwordReset__test {
-	background-color: #2e2e38;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 	gap: 25px;
 	color: whitesmoke;
 	text-align: center;
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	font-size: 28px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 

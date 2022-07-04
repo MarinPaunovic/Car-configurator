@@ -1,12 +1,16 @@
-@import './modules/components/navbar/navbar.css';
-@import './modules/components/homepage/homepage.css';
-@import './modules/components/login/login.css';
-@import './modules/components/register/register.css';
-@import './modules/components/selectCar/selectCar.css';
-@import './modules/components/configurationView/configurationView.css';
-@import './modules/components/pagination/pagination.css';
-@import './modules/components/configurationEdit/configurationEdit.css';
-@import './modules/components/configurationEdit/summary/summaryDetails.css';
+@import 'modules/components/navbar/navbar.css';
+@import 'modules/components/homepage/homepage.css';
+@import 'modules/components/login/login.css';
+@import 'modules/components/register/register.css';
+@import 'modules/components/selectCar/selectCar.css';
+@import 'modules/components/configurationView/configurationView.css';
+@import 'modules/components/pagination/pagination.css';
+@import 'modules/components/configurationEdit/configurationEdit.css';
+@import 'modules/components/configurationEdit/summary/summaryDetails.css';
+@import 'css/utils.display.css';
+@import 'css/utils.sizing.css';
+@import 'css/utils.font.css';
+@import 'css/utils.color.css';
 
 * {
 	margin: 0px;

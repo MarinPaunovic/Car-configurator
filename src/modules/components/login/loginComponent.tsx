@@ -14,10 +14,10 @@ export const LoginComponent = () => {
 
 	return (
 		<div className="login">
-			<div className="login__wrapper">
-				<label className="login__label">Login Page</label>
-				<div className="login__inputBox__wrapper">
-					<div className="login__test">
+			<div className="f-column">
+				<label className="login__label col-dark-gray fs-60">Login Page</label>
+				<div className="login__inputBox__wrapper g">
+					<div className="login__test bg-col-dark-gray fs-28 f-column f-justify-center">
 						<div>
 							<img alt="car login" className="login__img" src={require('images/loginImg.png')}></img>
 						</div>
@@ -28,27 +28,27 @@ export const LoginComponent = () => {
 							onSubmit(e)
 						}}
 					>
-						<div className="login__inputBox">
+						<div className="login__inputBox f-column f-align-items-center">
 							<input
-								className="login__email"
+								className="login__email fs-25"
 								type={'text'}
 								placeholder="Email"
 								onChange={(e) => setEmail(e.target.value)}
 							></input>
 							<input
-								className="login__password"
+								className="login__password fs-25"
 								type={'password'}
 								placeholder="Password"
 								onChange={(e) => setPassword(e.target.value)}
 							></input>
 							<RememberMe remember={remember} setRemember={setRemember} />
-							<div className="login__buttons">
-								<button className="login__buttons__loginButton" type="submit">
+							<div className="login__buttons f fs-25">
+								<button className="login__buttons__loginButton fs-18" type="submit">
 									Login
 								</button>
 
 								<button
-									className="login__buttons__googleButton"
+									className="login__buttons__googleButton fs-18"
 									onClick={async () => {
 										await loginHandler(remember, 'google')
 									}}
@@ -56,12 +56,18 @@ export const LoginComponent = () => {
 									Login with Google
 								</button>
 							</div>
-							<div className="login__menu">
+							<div className="login__menu f-column">
 								<div className="login__menu__register">
-									Dont have account yet? Create one <Link to="/register">here</Link>
+									Dont have account yet? Create one{' '}
+									<Link className="col-blue" to="/register">
+										here
+									</Link>
 								</div>
 								<div className="login__menu__passwordReset">
-									I forgot my <Link to="/password-reset">password</Link>
+									I forgot my{' '}
+									<Link className="col-blue" to="/password-reset">
+										password
+									</Link>
 								</div>
 							</div>
 						</div>

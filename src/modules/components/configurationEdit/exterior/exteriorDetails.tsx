@@ -57,7 +57,7 @@ export const ExteriorDetails = () => {
 									{editSelector && (
 										<img
 											alt="car"
-											className="editDetails__img"
+											className="editDetails__img w-full"
 											src={require(`images/${carModel}/exterior/${editSelector.value}/${carConfig.exterior.wheels}/${currentPage}.png`)}
 										/>
 									)}
@@ -67,7 +67,7 @@ export const ExteriorDetails = () => {
 									{editSelector && (
 										<img
 											alt="car"
-											className="editDetails__img"
+											className="editDetails__img w-full"
 											src={require(`images/${carModel}/exterior/${carConfig.exterior.color}/${editSelector.value}/${currentPage}.png`)}
 										/>
 									)}
@@ -76,7 +76,7 @@ export const ExteriorDetails = () => {
 						) : (
 							<img
 								alt="car"
-								className="editDetails__img"
+								className="editDetails__img w-full"
 								src={require(`images/${carModel}/exterior/${carConfig.exterior.color}/${carConfig.exterior.wheels}/${currentPage}.png`)}
 							/>
 						)}
