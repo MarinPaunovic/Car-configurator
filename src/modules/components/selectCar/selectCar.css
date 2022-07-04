@@ -116,6 +116,7 @@
 	.selectCar {
 		margin-top: 5%;
 		position: relative;
+		overflow-x: hidden;
 	}
 	.selectCar__car__img {
 		width: 100%;
@@ -125,14 +126,11 @@
 	.selectCar__car__textWrapper {
 		margin-left: 0px;
 	}
-	.selelctCar__car__carModel {
-		font-size: 48px;
-	}
 	.selectCar {
 		flex-direction: column;
 	}
 	.selectCar__car {
-		width: 100%;
+		min-width: 100%;
 		text-align: center;
 	}
 	.selectCar__car:last-child {
@@ -149,13 +147,16 @@
 	}
 
 	.selectCar__label__one {
-		font-size: 20px;
+		font-size: 20px !important;
 	}
 	.selectCar__label__two {
-		font-size: 13px;
+		font-size: 13px !important;
 	}
 	.selelctCar__car__carModel {
-		font-size: 35px;
+		font-size: 35px !important;
+	}
+	.selectCar__car__img {
+		zoom: 90%;
 	}
 }
 
@@ -163,12 +164,13 @@
 	.selectCar__car__img {
 		padding: 10%;
 	}
+	.navbar__configure {
+		font-size: 12px !important;
+	}
 }
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 370px) {
 	.selectCar__car__img {
-		object-fit: contain;
-		padding: 0px;
-		zoom: 40%;
+		zoom: 80%;
 	}
 	.selectCar__car__button {
 		font-size: 12.5px;
@@ -178,13 +180,27 @@
 		padding-inline: 0px;
 	}
 	.selelctCar__car__carModel {
-		font-size: 22.5px;
+		font-size: 22.5px !important;
 	}
 	.selectCar__car__productionYear {
-		font-size: 15px;
+		font-size: 15px !important;
 	}
 	.selectCar__car__textWrapper {
 		gap: 0px;
+	}
+}
+@media only screen and (max-width: 340px) {
+	.selectCar__car__img {
+		zoom: 70%;
+	}
+}
+@media only screen and (max-width: 310px) {
+	.selectCar__car__img {
+		zoom: 65%;
+	}
+	.navbar__configure {
+		font-size: 10px !important;
+		padding-inline: 10px;
 	}
 }
 
