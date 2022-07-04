@@ -261,8 +261,6 @@
 	.configurationDetails__header__amount {
 		font-size: 20px;
 	}
-	.summary__left__infos {
-	}
 }
 @media only screen and (max-width: 540px) {
 	.editDetails__img {
