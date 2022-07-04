@@ -13,7 +13,7 @@ export const LoginComponent = () => {
 	}
 
 	return (
-		<div className="login">
+		<div className="login bg-col-pure-white">
 			<div className="f-column">
 				<label className="login__label col-dark-gray fs-60">Login Page</label>
 				<div className="login__inputBox__wrapper g">

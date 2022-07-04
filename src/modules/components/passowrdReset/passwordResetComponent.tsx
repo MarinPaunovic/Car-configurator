@@ -17,7 +17,7 @@ export const PasswordResetComponent = () => {
 	}
 
 	return (
-		<div className="login bg-col-light-gray">
+		<div className="login bg-col-pure-white">
 			<div className="f-column">
 				<label className="login__label col-dark-gray fs-60">Password Reset</label>
 				<div className="login__inputBox__wrapper g">
@@ -30,7 +30,7 @@ export const PasswordResetComponent = () => {
 					<form onSubmit={(e) => handleSubmit(e)}>
 						<div className="passwordReset__input f-column f-jc-aic">
 							<input
-								className="passwordReset__input__email fs-16"
+								className="passwordReset__input__email fs-25"
 								type={'text'}
 								placeholder="Email"
 								value={email}
@@ -40,7 +40,11 @@ export const PasswordResetComponent = () => {
 								Send
 							</button>
 							<p className="login__menu__register">
-								Head back to <Link to="/login">login</Link> page
+								Head back to{' '}
+								<Link className="col-blue" to="/login">
+									login
+								</Link>{' '}
+								page
 							</p>
 						</div>
 					</form>

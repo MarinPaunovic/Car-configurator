@@ -16,7 +16,7 @@ export const RegisterInput = () => {
 	}
 
 	return (
-		<div className="login">
+		<div className="login bg-col-pure-white">
 			<div className="f-column">
 				<label className="register__label col-dark-gray fs-60">Register Page</label>
 				<div className="login__inputBox__wrapper g">
@@ -29,25 +29,25 @@ export const RegisterInput = () => {
 					<form onSubmit={(e) => handleSubmit(e)}>
 						<div className="login__inputBox f-column f-align-items-center">
 							<input
-								className="register__name"
+								className="register__name fs-25"
 								type={'text'}
 								placeholder={'Name'}
 								onChange={(e) => setName(e.target.value)}
 							></input>
 							<input
-								className="register__email"
+								className="register__email fs-25"
 								type={'text'}
 								placeholder={'E-mail'}
 								onChange={(e) => setEmail(e.target.value)}
 							></input>
 							<input
-								className="register__password"
+								className="register__password fs-25"
 								type={'password'}
 								placeholder={'Password'}
 								onChange={(e) => setPassword(e.target.value)}
 							></input>
 							<input
-								className="register__confirmPassword"
+								className="register__confirmPassword fs-25"
 								type={'password'}
 								placeholder={'Confirm Password'}
 								onChange={(e) => setConfirmPassword(e.target.value)}
@@ -60,7 +60,10 @@ export const RegisterInput = () => {
 							</div>
 							<div className="login__menu f-column">
 								<div className="login__menu__register">
-									Already have account? Login <Link to="/login">here</Link>
+									Already have account? Login{' '}
+									<Link className="col-blue" to="/login">
+										here
+									</Link>
 								</div>
 							</div>
 						</div>

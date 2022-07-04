@@ -4,8 +4,36 @@
 .register__confirmPassword {
 	margin-bottom: 10px;
 	width: 100%;
+	border-inline: none;
+	border-top: none;
 }
 
+.register__email:hover::placeholder,
+.register__name:hover::placeholder,
+.register__password:hover::placeholder,
+.register__confirmPassword:hover::placeholder {
+	color: black;
+}
+
+.register__email:hover,
+.register__name:hover,
+.register__password:hover,
+.register__confirmPassword:hover {
+	border-color: black;
+}
+.register__email:focus,
+.register__name:focus,
+.register__password:focus,
+.register__confirmPassword:focus {
+	outline: none;
+	border-color: black;
+}
+.register__email:focus::placeholder,
+.register__name:focus::placeholder,
+.register__password:focus::placeholder,
+.register__confirmPassword:focus::placeholder {
+	color: black;
+}
 .register__label {
 	width: 100%;
 	text-align: center;
