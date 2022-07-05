@@ -235,7 +235,7 @@
 }
 
 @media only screen and (max-width: 330px) {
-	.savedConfigs__createdAt {
+	.savedConfigs__createdAt.fs-12 {
 		font-size: 7px;
 	}
 	.homepage__savedConfigs__title {
@@ -245,20 +245,23 @@
 
 @media only screen and (max-width: 290px) {
 	.savedConfigs__info__wrapper p:nth-child(2) {
-		font-size: 18px;
+		line-height: normal;
+		font-size: 20px;
 	}
 	.savedConfigs__info__wrapper p:nth-child(1) {
+		line-height: normal;
 		font-size: 10px;
 	}
 	.savedConfigs__info__wrapper p:nth-child(3) {
+		line-height: normal;
 		font-size: 10px;
 	}
 	.savedConfigs__wrapper {
-		height: 130px;
+		height: 140px;
 		align-content: center;
 	}
-	.savedConfigs__createdAt {
-		font-size: 6px;
+	.savedConfigs__createdAt.fs-12 {
+		font-size: 9px;
 	}
 	.homepage__configurator__carImage {
 		zoom: 60%;

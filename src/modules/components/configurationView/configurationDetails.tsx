@@ -10,7 +10,7 @@ import {
 import { PopupInfo } from 'modules/components'
 
 export const ConfigurationDetails = () => {
-	const { carModel, year } = useRecoilValue(selectedCarAtom)
+	const { carModel, year, productionYear } = useRecoilValue(selectedCarAtom)
 	const carConfig = useRecoilValue(carDefaultConfiguratorSelector)
 	const carCustomConfig = useRecoilValue(carCustomConfiguratorAtom)
 	const currentConfigPage = useSetRecoilState(configuratorAtom)
@@ -22,7 +22,7 @@ export const ConfigurationDetails = () => {
 			<div className="configurationDetails__header f f-justify-between">
 				<div className="configurationDetails__header__info">
 					<div className="configurationDetails__header__info__carModel fs-48 col-dark-gray">{carModel}</div>
-					<div className="configurationDetails__header__info__year fs-28 col-light-gray">{year}</div>
+					<div className="configurationDetails__header__info__year fs-28 col-light-gray">{year || productionYear}</div>
 				</div>
 				<div className="configurationDetails__header__price">
 					<PopupInfo
@@ -33,7 +33,7 @@ export const ConfigurationDetails = () => {
 				</div>
 			</div>
 			{carConfig && (
-				<div className="configurationDetails__details f f-justify-between">
+				<div className="configurationDetails__details g">
 					<div className="configurationDetails__details__title col-dark-gray fs-24">Your configuration details</div>
 					<div className="f-column">
 						{summary || savedConfigEdit ? (
