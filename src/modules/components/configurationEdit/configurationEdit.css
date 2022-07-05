@@ -30,6 +30,7 @@
 	padding-block: 24px;
 	border: none;
 	width: 100%;
+	bottom: 0px;
 	font-size: 16px;
 	font-weight: 700;
 	font-family: 'inter';
@@ -112,9 +113,12 @@
 	height: fit-content;
 	width: fit-content;
 	margin-right: 11.27%;
+	transition: 0.25s ease;
 }
 .options__edit__right__second__title__x:hover {
 	cursor: pointer;
+	color: rgb(144, 144, 144);
+	transition: 0.25s ease;
 }
 
 .editDetails__choice__second__wrapper {
@@ -157,6 +161,13 @@
 	left: 0;
 	width: 100%;
 }
+.editDetails__choice__smallScreen__title__x {
+	transition: 0.25s ease;
+}
+.editDetails__choice__smallScreen__title__x:hover {
+	transition: 0.25s ease;
+	color: rgb(144, 144, 144);
+}
 .editDetails__choice__smallScreen__title {
 	display: none;
 	margin-top: 2%;
@@ -192,6 +203,9 @@
 		grid-template-columns: none;
 		grid-template-rows: auto;
 	}
+	.interior__left__wrapper {
+		margin-bottom: 40px;
+	}
 	.editDetails__choice__popup__wrapper {
 		margin-inline: 5%;
 	}
@@ -224,7 +238,7 @@
 	.editDetails__choice__second__wrapper {
 		margin-top: 0px;
 		margin-left: 0px;
-		margin-bottom: 68px;
+		margin-bottom: 108px;
 		gap: 40px;
 	}
 	.options__short {
@@ -234,9 +248,6 @@
 	}
 	.options__left__second {
 		width: 100%;
-	}
-	.editDetails__choice__second__wrapper:last-child {
-		margin-bottom: 128px;
 	}
 	.options__edit__right__second__title__x {
 		display: none;

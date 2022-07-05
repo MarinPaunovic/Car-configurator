@@ -33,7 +33,7 @@ export const ConfigurationDetails = () => {
 				</div>
 			</div>
 			{carConfig && (
-				<div className="configurationDetails__details g">
+				<div className="configurationDetails__details f f-justify-between">
 					<div className="configurationDetails__details__title col-dark-gray fs-24">Your configuration details</div>
 					<div className="f-column">
 						{summary || savedConfigEdit ? (

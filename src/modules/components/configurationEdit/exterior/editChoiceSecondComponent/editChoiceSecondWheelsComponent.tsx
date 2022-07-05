@@ -1,14 +1,33 @@
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { carCustomConfiguratorAtom, selectedCarAtom, localEditAtom } from 'modules/storage'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import {
+	carCustomConfiguratorAtom,
+	selectedCarAtom,
+	localEditAtom,
+	optionsCurrentConfigAtom,
+	getTitleAtom
+} from 'modules/storage'
 import { CheckMarkComponent } from 'modules/components'
 
 export const EditChoiceSecondWheelsComponent = () => {
 	const { wheels } = useRecoilValue(selectedCarAtom)
 	const [localEdit, setLocalEdit] = useRecoilState(localEditAtom)
 	const carConfig = useRecoilValue(carCustomConfiguratorAtom)
-
+	const setCurrentConfigChoice = useSetRecoilState(optionsCurrentConfigAtom)
+	const title = useRecoilValue(getTitleAtom)
 	return (
 		<>
+			<div className="editDetails__choice__smallScreen__title col-dark-gray">
+				{title}
+				<span
+					className="material-symbols-outlined editDetails__choice__smallScreen__title__x"
+					onClick={() => {
+						setCurrentConfigChoice('')
+						setLocalEdit({ value: '', edit: '' })
+					}}
+				>
+					x
+				</span>
+			</div>
 			{wheels &&
 				wheels.map((item: string, i: number) => (
 					<div

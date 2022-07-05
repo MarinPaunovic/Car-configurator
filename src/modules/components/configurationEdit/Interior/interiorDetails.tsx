@@ -91,7 +91,7 @@ export const InteriorDetails = () => {
 													<img
 														alt="car interior seats"
 														src={require(`images/short_seats/${item}.png`)}
-														style={{ blockSize: '70px', borderRadius: '100%' }}
+														style={{ blockSize: '60px', borderRadius: '100%' }}
 													/>
 													{!localEdit.value
 														? carConfig &&
@@ -128,7 +128,7 @@ export const InteriorDetails = () => {
 									<img
 										alt="car interior seats"
 										src={require(`images/short_seats/${carConfig.interior.seats}.png`)}
-										style={{ blockSize: '70px', borderRadius: '100%' }}
+										style={{ blockSize: '60px', borderRadius: '100%' }}
 									/>
 									<span>
 										<div className="editDetails__choice__wrapper__title col-dark-gray">
