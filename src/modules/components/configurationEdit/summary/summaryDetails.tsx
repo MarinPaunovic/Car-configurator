@@ -48,7 +48,7 @@ export const SummaryDetails = () => {
 			</div>
 			<CarPhotoSlider />
 			<ConfigurationDetails />
-			<div className="summary__wrapper g">
+			<div className="summary__wrapper g bg-col-white">
 				<div className="summary__left f-jb-aic">
 					<div className="options__left__summary f f-align-items-center">
 						<p className="options__left__year fs-28 col-9d9daf">{year || productionYear}</p>
