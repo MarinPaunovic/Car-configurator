@@ -42,7 +42,7 @@ export const carDefaultConfiguratorSelector = selector({
 	key: 'defaultCarConfigurator',
 
 	get: ({ get }) => {
-		const { carModel } = get(selectedCarAtom)
+		const { carModel } = get<CarConfig>(selectedCarAtom)
 		switch (carModel) {
 			case 'Audi RS6':
 				return {
